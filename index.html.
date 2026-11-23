@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relíquias do Gil</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #10131b;
+  color: #f5f1e8;
+  min-height: 100vh;
+}
+
+header {
+  padding: 25px 8%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #34313a;
+}
+
+.logo {
+  width: 55px;
+  height: 55px;
+  border: 2px solid #d6ad55;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e7bd65;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.brand {
+  font-size: 19px;
+  letter-spacing: 2px;
+}
+
+.brand span {
+  display: block;
+  color: #d6ad55;
+  font-size: 11px;
+  margin-top: 5px;
+  letter-spacing: 3px;
+}
+
+main {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.emblem {
+  font-size: 65px;
+  color: #d6ad55;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(32px, 7vw, 58px);
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+h1 span {
+  color: #d6ad55;
+}
+
+.subtitle {
+  color: #c0bdc3;
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 550px;
+  margin-bottom: 35px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 35px;
+  border-radius: 8px;
+  background: #d6ad55;
+  color: #17130b;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #f0cc7a;
+  transform: translateY(-3px);
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #85818a;
+  font-size: 12px;
+  border-top: 1px solid #34313a;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">RG</div>
+  <div class="brand">
+    RELÍQUIAS DO GIL
+    <span>UM MUNDO DE DESCOBERTAS</span>
+  </div>
+</header>
+
+<main>
+  <div class="emblem">✦</div>
+
+  <h1>RELÍQUIAS <span>DO GIL</span></h1>
+
+  <p class="subtitle">
+    Seja bem-vindo!
+    <br>
+    Um espaço para encontrar coisas interessantes,
+    descobertas especiais, ferramentas, downloads
+    e oportunidades que merecem ser compartilhadas.
+  </p>
+
+  <a href="#explorar" class="button">ENTRAR E EXPLORAR</a>
+</main>
+
+<footer>
+  © 2026 Relíquias do Gil · Todos os direitos reservados
+</footer>
+
+</body>
+</html>
