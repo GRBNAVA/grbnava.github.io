@@ -2,147 +2,284 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relíquias do Gil</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Relíquias do Gil — projetos, arquivos, downloads e boas descobertas.">
+  <title>Relíquias do Gil</title>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    :root {
+      --verde: #19c37d;
+      --laranja: #ff8a24;
+      --azul: #2589ff;
+      --fundo: #101820;
+      --cartao: #192630;
+      --texto: #f4f7fa;
+      --suave: #b5c2cc;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #10131b;
-  color: #f5f1e8;
-  min-height: 100vh;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-header {
-  padding: 25px 8%;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  border-bottom: 1px solid #34313a;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
 
-.logo {
-  width: 55px;
-  height: 55px;
-  border: 2px solid #d6ad55;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e7bd65;
-  font-size: 22px;
-  font-weight: bold;
-}
+    header {
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-bottom: 1px solid #293944;
+    }
 
-.brand {
-  font-size: 19px;
-  letter-spacing: 2px;
-}
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
 
-.brand span {
-  display: block;
-  color: #d6ad55;
-  font-size: 11px;
-  margin-top: 5px;
-  letter-spacing: 3px;
-}
+    .logo span:nth-child(1) { color: var(--verde); }
+    .logo span:nth-child(2) { color: var(--laranja); }
+    .logo span:nth-child(3) { color: var(--azul); }
 
-main {
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-}
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
 
-.emblem {
-  font-size: 65px;
-  color: #d6ad55;
-  margin-bottom: 20px;
-}
+    nav a:hover {
+      color: var(--verde);
+    }
 
-h1 {
-  font-size: clamp(32px, 7vw, 58px);
-  letter-spacing: 3px;
-  margin-bottom: 15px;
-}
+    .hero {
+      text-align: center;
+      padding: 90px 20px 75px;
+      background:
+        radial-gradient(circle at 20% 20%, #19c37d20, transparent 35%),
+        radial-gradient(circle at 80% 30%, #2589ff25, transparent 35%);
+    }
 
-h1 span {
-  color: #d6ad55;
-}
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      margin-bottom: 18px;
+    }
 
-.subtitle {
-  color: #c0bdc3;
-  font-size: 17px;
-  line-height: 1.7;
-  max-width: 550px;
-  margin-bottom: 35px;
-}
+    .hero h1 span {
+      color: var(--laranja);
+    }
 
-.button {
-  display: inline-block;
-  padding: 15px 35px;
-  border-radius: 8px;
-  background: #d6ad55;
-  color: #17130b;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
+    .hero p {
+      color: var(--suave);
+      max-width: 620px;
+      margin: 0 auto 28px;
+      font-size: 17px;
+    }
 
-.button:hover {
-  background: #f0cc7a;
-  transform: translateY(-3px);
-}
+    .botao {
+      display: inline-block;
+      padding: 13px 25px;
+      background: var(--verde);
+      color: #071a12;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
 
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #85818a;
-  font-size: 12px;
-  border-top: 1px solid #34313a;
-}
-</style>
+    .botao:hover {
+      background: var(--laranja);
+      transform: translateY(-2px);
+    }
+
+    .conteudo {
+      padding: 55px 8%;
+    }
+
+    .conteudo h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .descricao {
+      color: var(--suave);
+      margin-bottom: 30px;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--cartao);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #30414d;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--verde);
+    }
+
+    .icone {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--suave);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .link {
+      color: var(--azul);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link:hover {
+      color: var(--laranja);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 15px;
+      border-top: 1px solid #293944;
+      color: var(--suave);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--verde);
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">RG</div>
-  <div class="brand">
-    RELÍQUIAS DO GIL
-    <span>UM MUNDO DE DESCOBERTAS</span>
-  </div>
-</header>
+  <header>
+    <div class="logo">
+      <span>R</span><span>G</span><span>.</span>
+      Relíquias do Gil
+    </div>
 
-<main>
-  <div class="emblem">✦</div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#achados">Achados</a>
+    </nav>
+  </header>
 
-  <h1>RELÍQUIAS <span>DO GIL</span></h1>
+  <main>
+    <section class="hero" id="inicio">
+      <h1>Bem-vindo às <span>Relíquias do Gil</span></h1>
 
-  <p class="subtitle">
-    Seja bem-vindo!
-    <br>
-    Um espaço para encontrar coisas interessantes,
-    descobertas especiais, ferramentas, downloads
-    e oportunidades que merecem ser compartilhadas.
-  </p>
+      <p>
+        Um espaço digital para compartilhar projetos,
+        arquivos, downloads, tecnologia e boas descobertas.
+      </p>
 
-  <a href="#explorar" class="button">ENTRAR E EXPLORAR</a>
-</main>
+      <a href="#projetos" class="botao">Explorar o site</a>
+    </section>
 
-<footer>
-  © 2026 Relíquias do Gil · Todos os direitos reservados
-</footer>
+    <section class="conteudo" id="projetos">
+      <h2>Meus projetos</h2>
+      <p class="descricao">
+        Conheça os conteúdos e materiais disponíveis por aqui.
+      </p>
+
+      <div class="grade">
+        <article class="card">
+          <div class="icone">📁</div>
+          <h3>Arquivos e downloads</h3>
+          <p>
+            Um espaço para reunir arquivos, documentos
+            e materiais úteis.
+          </p>
+          <a href="#" class="link">Em breve</a>
+        </article>
+
+        <article class="card">
+          <div class="icone">💻</div>
+          <h3>Tecnologia</h3>
+          <p>
+            Dicas, ferramentas, informática e novidades
+            do mundo digital.
+          </p>
+          <a href="#" class="link">Em breve</a>
+        </article>
+
+        <article class="card">
+          <div class="icone">🛠️</div>
+          <h3>Projetos pessoais</h3>
+          <p>
+            Ideias, experiências e projetos desenvolvidos
+            ao longo do caminho.
+          </p>
+          <a href="#" class="link">Em breve</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="conteudo" id="achados">
+      <h2>Achados e recomendações</h2>
+      <p class="descricao">
+        Produtos e acessórios interessantes que merecem ser conhecidos.
+      </p>
+
+      <div class="grade">
+        <article class="card">
+          <div class="icone">🖱️</div>
+          <h3>Periféricos de informática</h3>
+          <p>
+            Mouses, teclados e acessórios para seu computador.
+          </p>
+          <a href="#" class="link">Ver produtos em breve</a>
+        </article>
+
+        <article class="card">
+          <div class="icone">🔌</div>
+          <h3>Cabos e adaptadores</h3>
+          <p>
+            Acessórios úteis para facilitar o dia a dia.
+          </p>
+          <a href="#" class="link">Ver produtos em breve</a>
+        </article>
+
+        <article class="card">
+          <div class="icone">⭐</div>
+          <h3>Boas descobertas</h3>
+          <p>
+            Ofertas e recomendações selecionadas.
+          </p>
+          <a href="#" class="link">Novidades em breve</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <strong>Relíquias do Gil</strong> — Todos os direitos reservados.</p>
+    <p>Um projeto independente feito com dedicação.</p>
+  </footer>
 
 </body>
 </html>
