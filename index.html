@@ -222,26 +222,27 @@ const lista = document.getElementById("lista-games");
 const busca = document.getElementById("busca");
 const contador = document.getElementById("contador");
 
-function mostrarJogos(filtrados = jogos) {
+function mostrarJogos(filtrados) {
+  if (!filtrados) filtrados = jogos;
   lista.innerHTML = "";
-  filtrados.forEach(jogo => {
+  filtrados.forEach(function(jogo) {
     const card = document.createElement("article");
     card.className = "card";
-    card.innerHTML = `
-      <div class="capa">🎮</div>
-      <div class="conteudo">
-        <span class="etiqueta">JOGO</span>
-        <h3>${jogo}</h3>
-        <p>Clique para acessar</p>
-        <a class="botao" href="https://optijuegos.net/" target="_blank" rel="noopener">ACESSAR</a>
-      </div>
-    `;
+    card.innerHTML = '<div class="capa">🎮</div><div class="conteudo"><span class="etiqueta">JOGO</span><h3>' + jogo + '</h3><p>Clique para acessar</p><a class="botao" href="https://optijuegos.net/" target="_blank">ACESSAR</a></div>';
     lista.appendChild(card);
   });
-  contador.textContent = `${filtrados.length} jogos encontrados`;
+  contador.textContent = filtrados.length + " jogos encontrados";
 }
 
-busca.addEventListener("input", (e) => {
+busca.addEventListener("input", function(e) {
   const termo = e.target.value.toLowerCase();
-  const filtrados = jogos.filter(jogo => jogo.toLowerCase().includes(termo));
+  const filtrados = jogos.filter(function(jogo) {
+    return jogo.toLowerCase().indexOf(termo) !== -1;
+  });
   mostrarJogos(filtrados);
+});
+
+mostrarJogos();
+</script>
+</body>
+</html>
