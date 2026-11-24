@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -166,6 +165,13 @@ margin:5px 0 18px;
 font-size:15px;
 }
 
+#contador{
+margin-bottom:14px;
+font-size:13px;
+color:#52615a;
+font-weight:bold;
+}
+
 .vazios{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -238,7 +244,7 @@ padding:10px;
 <h3>Internet Download Manager (IDM)</h3>
 <p>Acelerador de downloads para Windows. Versão portátil Repack.</p>
 <div class="info">Consulte os detalhes e as opções disponíveis na página do programa.</div>
-<a class="botao" href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
+<a class="botao" href="https://lrepacks.net" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
 </div>
 </article>
 
@@ -249,7 +255,7 @@ padding:10px;
 <h3>µTorrent Pack</h3>
 <p>Programa para downloads por meio da rede BitTorrent.</p>
 <div class="info">Consulte as versões e opções disponíveis na página do programa.</div>
-<a class="botao" href="https://lrepacks.net/repaki-programm-dlya-interneta/107-utorrent-pack-repack-amp-portable.html" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
+<a class="botao" href="https://lrepacks.net" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
 </div>
 </article>
 
@@ -419,7 +425,7 @@ card.className = "card destaque";
 card.innerHTML = `
 <div class="capa">
 <img
-src="https://t2.tudocdn.net/615108?w=1920&amp;h=1080"
+src="https://tudocdn.net"
 alt="Capa Grand Theft Auto V"
 loading="lazy">
 </div>
@@ -444,7 +450,7 @@ Download hospedado no Gofile.
 
 <a
 class="botao botao-download"
-href="https://gofile.io/d/pikHJm"
+href="https://gofile.io"
 target="_blank"
 rel="noopener noreferrer">
 ⬇ ACESSAR DOWNLOAD
@@ -456,73 +462,73 @@ rel="noopener noreferrer">
 return card;
 }
 
-function mostrarJogos(filtrados){
-
-if(!filtrados) filtrados = jogos;
-
-lista.innerHTML = "";
-
-filtrados.forEach(function(jogo){
-
-// GTA V recebe uma capa e um cartão especial
-if(jogo === "GTA: V"){
-
-lista.appendChild(criarCardGTA());
-
-}else{
+function criarCardViceCity(){
 
 const card = document.createElement("article");
-card.className = "card";
+card.className = "card destaque";
 
 card.innerHTML = `
-<div class="capa">🎮</div>
+<div class="capa">
+<img
+src="https://flowgames.gg"
+alt="Capa Grand Theft Auto Vice City"
+loading="lazy">
+</div>
 
 <div class="conteudo">
 
-<span class="etiqueta">JOGO</span>
+<span class="etiqueta">GAME • VERSÃO LITE</span>
 
-<h3>${jogo}</h3>
+<h3>Grand Theft Auto Vice City LITE</h3>
 
-<p>Clique para acessar.</p>
+<p>
+Versão supercompacta, com otimizações e correções
+para rodar leve em qualquer PC.
+</p>
+
+<div class="info">
+<strong>ARQUIVO: Menos de 865 MB</strong><br>
+Versão Supercompacta • Otimizada.<br>
+Download hospedado no MediaFire.
+</div>
 
 <a
-class="botao"
-href="https://optijuegos.net/"
+class="botao botao-download"
+href="https://mediafire.com"
 target="_blank"
 rel="noopener noreferrer">
-ACESSAR
+⬇ ACESSAR DOWNLOAD
 </a>
 
 </div>
 `;
 
-lista.appendChild(card);
-
+return card;
 }
 
-});
+function mostrarJogos(filtro = ""){
+lista.innerHTML = "";
+const termo = filtro.trim().toLowerCase();
+let total = 0;
 
-contador.textContent = filtrados.length + " jogos encontrados";
-
+if(!termo || "grand theft auto v lite gta 5".includes(termo)){
+lista.appendChild(criarCardGTA());
+total++;
 }
 
-busca.addEventListener("input",function(e){
+if(!termo || "grand theft auto vice city lite gta".includes(termo)){
+lista.appendChild(criarCardViceCity());
+total++;
+}
 
-const termo = e.target.value.toLowerCase();
-
-const filtrados = jogos.filter(function(jogo){
-
-return jogo.toLowerCase().indexOf(termo) !== -1;
-
-});
-
-mostrarJogos(filtrados);
-
-});
-
-mostrarJogos();
-
-</script>
-
-</body>
-</html>
+jogos.forEach(jogo => {
+if(jogo.toLowerCase().includes(termo)){
+const card = document.createElement("article");
+card.className = "card";
+card.innerHTML = `
+<div class="capa">🎮</div>
+<div class="conteudo">
+<span class="etiqueta">GAME • CATÁLOGO</span>
+<h3>${jogo}</h3>
+<p>Disponível na listagem do catálogo OptiJogos.</p>
+<div class="info">Consulte os requisitos e opções de download no catálogo.</div>
