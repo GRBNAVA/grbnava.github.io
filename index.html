@@ -104,7 +104,7 @@ nav a:hover {
   transform: scale(1);
 }
 
-/* 🖼️ IMAGENS NOVAS — TECNOLOGIA, COMPUTADORES E ARTE DIGITAL */
+/* 🖼️ IMAGENS NOVAS — TECNOLOGIA, COMPUTADORES, ARTE DIGITAL E MINECRAFT */
 .slide:nth-child(1) {
   /* Setup de computador moderno */
   background-image: url("https://images.unsplash.com/photo-1587202372521-414f5d1b2944?w=1600&h=900&fit=crop");
@@ -118,6 +118,11 @@ nav a:hover {
 .slide:nth-child(3) {
   /* Hardware e componentes */
   background-image: url("https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=1600&h=900&fit=crop");
+}
+
+.slide:nth-child(4) {
+  /* Minecraft Masmorra - poster principal */
+  background-image: url("https://images.unsplash.com/photo-1612294037696-25c119502240?w=1600&h=900&fit=crop");
 }
 
 /* Sobreposição escura para leitura do texto */
@@ -301,7 +306,7 @@ nav a:hover {
   font-weight: bold;
 }
 
-/* PRODUTOS */
+/* PRODUTOS / DOWNLOADS */
 
 .produto img {
   width: 100%;
@@ -406,6 +411,7 @@ footer strong {
     <a href="#inicio">Início</a>
     <a href="#projetos">Projetos</a>
     <a href="#achados">Achadinhos</a>
+    <a href="#minecraft">Minecraft</a>
   </nav>
 </header>
 
@@ -416,6 +422,7 @@ footer strong {
   <!-- 🖼️ SLIDES COM IMAGENS NOVAS -->
   <div class="slides-container">
     <div class="slide ativo"></div>
+    <div class="slide"></div>
     <div class="slide"></div>
     <div class="slide"></div>
   </div>
@@ -447,6 +454,7 @@ footer strong {
     <span class="ativo" data-indicador="0"></span>
     <span data-indicador="1"></span>
     <span data-indicador="2"></span>
+    <span data-indicador="3"></span>
   </div>
 
 </section>
@@ -534,6 +542,130 @@ footer strong {
 
 </section>
 
+<section class="conteudo" id="minecraft">
+
+  <h2>Minecraft Masmorra 🎮</h2>
+
+  <p class="descricao">
+    Versões compactas de alta performance para jogar em PC fraco
+    ou PC bom, sem complicação. Inclui tutoriais, correção de erro 422
+    e formas de jogar no modo história e online.
+  </p>
+
+  <div class="grade">
+
+    <article class="card produto">
+      <div class="icone">🗡️</div>
+      <h3>Poster Minecraft Masmorra</h3>
+      <p>
+        Poster com tema de masmorra, blocos, tochas e tudo sobre as
+        versões compactas do jogo.
+      </p>
+      <a
+        class="comprar"
+        href="https://www.mediafire.com/file/7dh9yiuc0eh729q"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📥 BAIXAR POSTER
+      </a>
+    </article>
+
+    <article class="card produto">
+      <div class="icone">📜</div>
+      <h3>Correção do Erro 422</h3>
+      <p>
+        Tutorial com informações para resolver o erro 422 ao baixar
+        ou abrir o Minecraft.
+      </p>
+      <a
+        class="comprar"
+        href="https://www.mediafire.com/file/dpto1teqdgbffvx"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🔧 VER TUTORIAL
+      </a>
+    </article>
+
+    <article class="card produto">
+      <div class="icone">📦</div>
+      <h3>Minecraft Legacy</h3>
+      <p>
+        Segundo Minecraft para download, versão compacta para jogar
+        tranquilo.
+      </p>
+      <a
+        class="comprar"
+        href="https://www.mediafire.com/file/98uq9p9b0ebxvqb"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📥 BAIXAR LEGACY
+      </a>
+    </article>
+
+    <article class="card produto">
+      <div class="icone">📖</div>
+      <h3>Minecraft Modo História</h3>
+      <p>
+        Link para o Minecraft no modo história, com narrativa e
+        escolhas durante o jogo.
+      </p>
+      <a
+        class="comprar"
+        href="https://www.mediafire.com/file/q4xppx51iu7pzpu?action=check"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🎮 JOGAR HISTÓRIA
+      </a>
+    </article>
+
+    <article class="card produto">
+      <div class="icone">🌐</div>
+      <h3>Minecraft Online 1.8.8</h3>
+      <p>
+        Jogue o Minecraft no modo online diretamente pelo link, sem
+        complicação.
+      </p>
+      <a
+        class="comprar"
+        href="https://eaglercraft.com/play?version=1.8.8"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🌐 JOGAR ONLINE
+      </a>
+    </article>
+
+    <article class="card produto">
+      <div class="icone">🧪</div>
+      <h3>Minecraft Beta</h3>
+      <p>
+        Versão Beta do jogo para quem quer testar novidades e
+        funcionalidades mais recentes.
+      </p>
+      <a
+        class="comprar"
+        href="https://www.mediafire.com/file/y3wwdi928c7i78u"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📥 BAIXAR BETA
+      </a>
+    </article>
+
+  </div>
+
+  <p class="descricao" style="margin-top:25px">
+    Todos os links foram organizados para facilitar o download e o acesso
+    às versões do Minecraft. Lembre-se de usar versões que você confia
+    e sempre manter o antivírus atualizado.
+  </p>
+
+</section>
+
 </main>
 
 <footer>
@@ -560,68 +692,4 @@ function mostrarSlide(indice) {
   if (indice >= slides.length) indice = 0;
   if (indice < 0) indice = slides.length - 1;
   
-  indiceAtual = indice;
-  
-  // Atualiza as classes
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('ativo', i === indiceAtual);
-  });
-  
-  indicadores.forEach((ind, i) => {
-    ind.classList.toggle('ativo', i === indiceAtual);
-  });
-}
-
-// Próximo slide
-function proximoSlide() {
-  mostrarSlide(indiceAtual + 1);
-}
-
-// Slide anterior
-function slideAnterior() {
-  mostrarSlide(indiceAtual - 1);
-}
-
-// Inicia a troca automática
-function iniciarSlideshow() {
-  intervalo = setInterval(proximoSlide, 6000); // Troca a cada 6 segundos
-}
-
-// Pausa quando passa o mouse
-document.querySelector('.hero').addEventListener('mouseenter', () => {
-  clearInterval(intervalo);
-});
-
-// Retoma quando tira o mouse
-document.querySelector('.hero').addEventListener('mouseleave', () => {
-  iniciarSlideshow();
-});
-
-// Botões de navegação
-btnAnterior.addEventListener('click', () => {
-  slideAnterior();
-  clearInterval(intervalo);
-  iniciarSlideshow(); // Reinicia o contador após clique
-});
-
-btnProximo.addEventListener('click', () => {
-  proximoSlide();
-  clearInterval(intervalo);
-  iniciarSlideshow();
-});
-
-// Clica nos indicadores para ir direto ao slide
-indicadores.forEach((indicador, indice) => {
-  indicador.addEventListener('click', () => {
-    mostrarSlide(indice);
-    clearInterval(intervalo);
-    iniciarSlideshow();
-  });
-});
-
-// Inicia tudo
-iniciarSlideshow();
-</script>
-
-</body>
-</html>
+  indiceAtual = ind
