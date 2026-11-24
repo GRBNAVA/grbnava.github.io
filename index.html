@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Relíquias do Gil — Programas gratuitos, versões portáteis e ferramentas úteis para você.">
+<meta name="description" content="Relíquias do Gil — Programas portáteis e gratuitos. Versões repack, sem instalação.">
 <title>Relíquias do Gil — Programas e Downloads</title>
 
 <style>
 :root {
-  --fundo: #121418;
-  --fundo-card: #1b1f26;
-  --fundo-destaque: #242933;
-  --texto: #e6e9ed;
-  --texto-suave: #9aa3b2;
+  --fundo: #14161a;
+  --fundo-item: #1c1f26;
+  --texto: #e2e5e9;
+  --texto-claro: #9ca3af;
+  --destaque: #4dabf7;
   --verde: #22c55e;
   --laranja: #f97316;
-  --azul: #3b82f6;
-  --borda: #2e3440;
-  --destaque: #38bdf8;
+  --borda: #2c303a;
+  --link: #60a5fa;
 }
 
 * {
@@ -40,16 +39,16 @@ a {
 
 /* CABEÇALHO */
 header {
-  background: var(--fundo-card);
+  background: var(--fundo-item);
   border-bottom: 1px solid var(--borda);
-  padding: 18px 5%;
+  padding: 20px 5%;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.cabecalho-conteudo {
-  max-width: 1200px;
+.cabecalho {
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -68,170 +67,172 @@ header {
 
 .logo span:nth-child(1) { color: var(--verde); }
 .logo span:nth-child(2) { color: var(--laranja); }
-.logo span:nth-child(3) { color: var(--azul); }
+.logo span:nth-child(3) { color: var(--destaque); }
 
 nav a {
-  color: var(--texto-suave);
-  margin-left: 22px;
+  color: var(--texto-claro);
+  margin-left: 20px;
   font-size: 15px;
-  transition: color 0.2s;
 }
 
 nav a:hover, nav a.ativo {
   color: var(--verde);
 }
 
-.barra-pesquisa {
-  background: var(--fundo-destaque);
-  border: 1px solid var(--borda);
-  border-radius: 6px;
-  padding: 8px 14px;
-  color: var(--texto);
-  font-size: 14px;
-  width: 260px;
-  outline: none;
-  transition: border 0.2s;
-}
-
-.barra-pesquisa:focus {
-  border-color: var(--verde);
-}
-
-/* ÁREA PRINCIPAL */
 main {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 30px 5%;
+  padding: 35px 5%;
 }
 
-.intro {
-  margin-bottom: 35px;
+.titulo-pagina {
+  margin-bottom: 30px;
 }
 
-.intro h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
+.titulo-pagina h1 {
+  font-size: 26px;
+  color: var(--destaque);
+  margin-bottom: 8px;
+}
+
+.titulo-pagina p {
+  color: var(--texto-claro);
+  font-size: 14px;
+}
+
+.origem-fonte {
+  background: rgba(96, 165, 250, 0.08);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: var(--texto-claro);
+}
+
+.origem-fonte a {
+  color: var(--link);
+  font-weight: 600;
+}
+
+.origem-fonte a:hover {
   color: var(--verde);
 }
 
-.intro p {
-  color: var(--texto-suave);
-  font-size: 15px;
-}
-
 /* LISTA DE PROGRAMAS */
-.lista-programas {
+.lista {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 4px;
 }
 
-.item-programa {
-  background: var(--fundo-card);
-  border: 1px solid var(--borda);
-  border-radius: 10px;
-  padding: 22px 24px;
-  transition: all 0.25s ease;
+.item {
+  background: var(--fundo-item);
+  border-bottom: 1px solid var(--borda);
+  padding: 18px 22px;
+  transition: background 0.2s;
 }
 
-.item-programa:hover {
-  border-color: var(--verde);
-  background: var(--fundo-destaque);
-  transform: translateX(4px);
+.item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.cabecalho-item {
+.item:last-child {
+  border-bottom: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.item:hover {
+  background: #232730;
+}
+
+.item-cabecalho {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
-.titulo-programa {
-  font-size: 18px;
+.nome-prog {
+  font-size: 16px;
   font-weight: 600;
   color: var(--destaque);
 }
 
-.titulo-programa span {
+.versao {
   color: var(--laranja);
-  font-size: 15px;
+  font-size: 14px;
   margin-left: 8px;
 }
 
-.meta-item {
-  font-size: 13px;
-  color: var(--texto-suave);
+.meta {
+  font-size: 12px;
+  color: var(--texto-claro);
   display: flex;
-  gap: 16px;
+  gap: 15px;
 }
 
-.descricao-programa {
-  color: var(--texto-suave);
+.descricao {
+  color: var(--texto-claro);
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
-.botao-download {
-  display: inline-block;
-  margin-top: 14px;
-  background: var(--verde);
-  color: #052e15;
-  padding: 8px 20px;
-  border-radius: 6px;
+.link-externo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--link);
   font-size: 14px;
-  font-weight: 600;
-  transition: background 0.2s;
+  font-weight: 500;
 }
 
-.botao-download:hover {
-  background: var(--laranja);
-  color: #1c0a00;
+.link-externo:hover {
+  color: var(--verde);
 }
 
-/* PAGINAÇÃO */
 .paginacao {
   display: flex;
-  gap: 8px;
-  margin-top: 40px;
-  justify-content: center;
+  gap: 6px;
+  margin-top: 35px;
   flex-wrap: wrap;
 }
 
 .pagina {
-  background: var(--fundo-card);
+  background: var(--fundo-item);
   border: 1px solid var(--borda);
-  border-radius: 6px;
-  width: 38px;
-  height: 38px;
+  border-radius: 4px;
+  min-width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.pagina:hover {
-  border-color: var(--verde);
-  color: var(--verde);
 }
 
 .pagina.ativa {
   background: var(--verde);
   border-color: var(--verde);
   color: #000;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* RODAPÉ */
+.pagina:hover:not(.ativa) {
+  border-color: var(--link);
+  color: var(--link);
+}
+
 footer {
   text-align: center;
   padding: 30px 20px;
   border-top: 1px solid var(--borda);
-  color: var(--texto-suave);
+  color: var(--texto-claro);
   font-size: 13px;
   margin-top: 50px;
 }
@@ -240,22 +241,18 @@ footer strong {
   color: var(--verde);
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  .cabecalho-conteudo {
+@media (max-width: 600px) {
+  .cabecalho {
     flex-direction: column;
     align-items: flex-start;
   }
   nav {
-    margin: 10px 0;
+    margin-top: 8px;
   }
   nav a {
-    margin-left: 14px;
+    margin-left: 12px;
   }
-  .barra-pesquisa {
-    width: 100%;
-  }
-  .cabecalho-item {
+  .item-cabecalho {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -265,203 +262,197 @@ footer strong {
 <body>
 
 <header>
-  <div class="cabecalho-conteudo">
-    <a href="index.html" class="logo">
+  <div class="cabecalho">
+    <a href="#" class="logo">
       <span>R</span><span>G</span><span>.</span>
       Relíquias do Gil
     </a>
     <nav>
-      <a href="index.html" class="ativo">Início</a>
-      <a href="#">Programas</a>
+      <a href="#" class="ativo">Programas</a>
       <a href="#">Jogos</a>
       <a href="#">Sobre</a>
     </nav>
-    <input type="text" class="barra-pesquisa" placeholder="🔍 Buscar programa...">
   </div>
 </header>
 
 <main>
-  <section class="intro">
-    <h1>📦 Programas e Ferramentas</h1>
-    <p>Versões portáteis e gratuitas de softwares úteis. Sem complicação — baixe e use direto, sem instalação. Atualizado em 24/11/2026.</p>
-  </section>
+  <div class="titulo-pagina">
+    <h1>📦 Programas — Repack e Portáteis</h1>
+    <p>Versões que não precisam de instalação. Baixe, extraia e use. Atualizado em 24/11/2026.</p>
+  </div>
 
-  <div class="lista-programas">
+  <div class="origem-fonte">
+    📌 Os arquivos abaixo estão hospedados no site parceiro <strong>lrepacks.net</strong> — clique em "Baixar" para ser redirecionado direto para a página oficial de cada programa.
+    <br><br>
+    🔗 Site fonte: <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer">lrepacks.net</a>
+  </div>
+
+  <div class="lista">
 
     <!-- ITEM 1 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">VueScan Professional <span>v9.8.60</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 170</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">VueScan Professional <span class="versao">v9.8.60</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 170</span>
       </div>
-      <p class="descricao-programa">
-        Solução completa para escaneamento de documentos e fotos. Substitui a interface padrão do seu scanner por uma mais completa e intuitiva. Suporta praticamente todos os modelos do mercado. Versão portátil — não precisa instalar.
+      <p class="descricao">
+        Programa completo para trabalhar com escâneres. Substitui a interface padrão do seu equipamento por uma muito mais completa, com ajustes avançados de cor, resolução e formato. Funciona com praticamente qualquer modelo de escâner do mercado. Esta versão é portátil — não precisa instalar, basta executar.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 2 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">Process Lasso <span>v19.1.0.46</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 102</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">Process Lasso <span class="versao">v19.1.0.46</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 102</span>
       </div>
-      <p class="descricao-programa">
-        Gerencia a forma como o Windows distribui a carga entre os processadores. Ajuda a manter o sistema responsivo, mesmo quando programas pesados estão rodando. Ideal para quem sente o PC travar de vez em quando. Versão portátil disponível.
+      <p class="descricao">
+        Gerencia como o Windows distribui o processamento entre os programas. Você sabe quando o PC trava de repente? Essa ferramenta ajuda a evitar isso, mantendo o sistema responsivo mesmo quando aplicativos pesados estão rodando em segundo plano. Versão portátil pronta para usar.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 3 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">EmEditor <span>v26.4.2</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 60</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">EmEditor <span class="versao">v26.4.2</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 60</span>
       </div>
-      <p class="descricao-programa">
-        Editor de texto potente e leve, perfeito para programadores e quem trabalha com arquivos grandes. Abre documentos gigantes sem travamentos, com realce de sintaxe para várias linguagens. Roda direto da pasta, sem instalação.
+      <p class="descricao">
+        Editor de texto leve, porém extremamente potente. Perfeito para programadores, quem trabalha com código ou precisa abrir arquivos gigantes que outros editores não conseguem. Abre documentos de vários megabytes sem travar, com realce de sintaxe para diversas linguagens. Executa direto da pasta.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 4 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">MassTube Ultra <span>v22.2.0.233</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 59</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">MassTube Ultra <span class="versao">v22.2.0.233</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 59</span>
       </div>
-      <p class="descricao-programa">
-        Ferramenta simples e prática para baixar vídeos do YouTube e outras plataformas. Escolhe a qualidade que quiser, salva em MP4 ou converte para áudio MP3. Muito fácil de usar — basta colar o link e baixar.
+      <p class="descricao">
+        Ferramenta simples e direta para baixar vídeos do YouTube e de outras plataformas. Basta colar o link, escolher a qualidade e o formato — MP4 para vídeo ou MP3 para áudio. Muito fácil de usar, sem configurações complicadas. Versão portátil disponível.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 5 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">SQLite Expert Professional <span>v6.2.16.750</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 15</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">SQLite Expert Professional <span class="versao">v6.2.16.750</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 15</span>
       </div>
-      <p class="descricao-programa">
-        Interface gráfica amigável para criar, editar e gerenciar bancos de dados SQLite3. Visualização de tabelas, consultas SQL, importação e exportação de dados. Excelente para desenvolvedores que trabalham com bancos leves.
+      <p class="descricao">
+        Interface gráfica amigável para criar, editar e gerenciar bancos de dados SQLite3. Permite visualizar tabelas, executar consultas, importar e exportar dados com facilidade. Excelente para desenvolvedores que trabalham com aplicativos leves e não precisam de servidores de banco completos.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 6 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">4K Downloader <span>v6.6.6</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 119</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">4K Downloader <span class="versao">v6.6.6</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 119</span>
       </div>
-      <p class="descricao-programa">
-        Baixa vídeos e áudios de diversas plataformas com qualidade até 4K. Simples de usar: cole o link, escolha o formato e pronto. Suporta playlists inteiras e canais completos com apenas alguns cliques.
+      <p class="descricao">
+        Baixa vídeos, playlists e canais inteiros com qualidade até 4K de diversas plataformas. Simples de usar: cole o link, escolha o formato e pronto. Suporta vários sites além do YouTube, com opções de áudio separado e legendas. Roda sem instalação.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 7 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">WinToHDD Technician <span>v7.2</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 22</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">WinToHDD Technician <span class="versao">v7.2</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 22</span>
       </div>
-      <p class="descricao-programa">
-        Instala ou reinstala o Windows sem precisar pendrive ou DVD. Útil quando você precisa formatar e não tem mídia de instalação à mão. Funciona direto do sistema que já está rodando.
+      <p class="descricao">
+        Instala ou reinstala o Windows diretamente do disco rígido — sem precisar de pendrive, DVD ou qualquer mídia externa. Muito útil quando você precisa formatar e não tem um pen drive disponível. Funciona a partir do sistema que já está rodando no computador.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 8 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">FreeTube <span>v0.26.0</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 98</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">FreeTube <span class="versao">v0.26.0</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 98</span>
       </div>
-      <p class="descricao-programa">
-        Aplicativo de desktop para assistir vídeos do YouTube sem anúncios e sem rastreamento. Código aberto, leve e respeita sua privacidade. Inscreva-se em canais, crie listas de reprodução — tudo sem precisar de conta Google.
+      <p class="descricao">
+        Aplicativo de desktop para assistir vídeos do YouTube sem anúncios e sem ser rastreado. Código aberto, leve e respeita sua privacidade. Você pode se inscrever em canais, criar listas de reprodução e manter suas assinaturas — tudo sem precisar de uma conta Google.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 9 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">Nitro Pro Enterprise <span>v26.2.6.0</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 81</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">Nitro Pro Enterprise <span class="versao">v26.2.6.0</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 81</span>
       </div>
-      <p class="descricao-programa">
-        Conjunto completo de ferramentas para trabalhar com arquivos PDF. Crie, edite, converta, assine e proteja documentos. Alternativa robusta e mais acessível ao Adobe Acrobat. Versão prática para uso imediato.
+      <p class="descricao">
+        Conjunto completo de ferramentas para trabalhar com arquivos PDF. Crie documentos do zero, edite textos e imagens, converta entre formatos, assine digitalmente e proteja com senha. Uma alternativa mais acessível ao Adobe Acrobat. Versão repack pronta para uso.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 10 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">ASCOMP Cleaning Suite Pro <span>v5.002</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 1</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">ASCOMP Cleaning Suite Pro <span class="versao">v5.002</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 1</span>
       </div>
-      <p class="descricao-programa">
-        Limpeza completa do sistema. Remove arquivos temporários, lixo digital, entradas inválidas do registro e otimiza o desempenho do Windows. Seguro de usar — cria ponto de restauração automaticamente antes de qualquer alteração.
+      <p class="descricao">
+        Faz uma limpeza completa no seu sistema. Remove arquivos temporários, lixo de navegadores, entradas antigas do registro e otimiza o desempenho do Windows. Cria automaticamente um ponto de restauração antes de qualquer alteração, então é seguro de usar. Versão portátil.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
     <!-- ITEM 11 -->
-    <article class="item-programa">
-      <div class="cabecalho-item">
-        <h2 class="titulo-programa">CoolUtils Total HTML Converter <span>v5.1.0.390</span></h2>
-        <div class="meta-item">
-          <span>📅 24/11/2026</span>
-          <span>👁️ 10</span>
-        </div>
+    <div class="item">
+      <div class="item-cabecalho">
+        <span class="nome-prog">CoolUtils Total HTML Converter <span class="versao">v5.1.0.390</span></span>
+        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 10</span>
       </div>
-      <p class="descricao-programa">
-        Converte arquivos HTML para diversos formatos de uma só vez: PDF, DOC, XLS, JPG, PNG e muito mais. Mantém o layout original intacto mesmo ao processar vários arquivos em lote. Simples e eficiente.
+      <p class="descricao">
+        Converte páginas e arquivos HTML para diversos formatos de uma só vez: PDF, DOC, XLS, JPG, PNG, TIFF e outros. Mantém o layout e as imagens originais intactos, mesmo ao processar dezenas de arquivos em lote. Roda sem instalação.
       </p>
-      <a href="#" class="botao-download">📥 Baixar</a>
-    </article>
+      <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer" class="link-externo">
+        🔗 Baixar no site oficial →
+      </a>
+    </div>
 
   </div>
 
-  <!-- PAGINAÇÃO -->
   <div class="paginacao">
     <span class="pagina ativa">1</span>
     <span class="pagina">2</span>
     <span class="pagina">3</span>
     <span class="pagina">4</span>
     <span class="pagina">5</span>
+    <span class="pagina">6</span>
+    <span class="pagina">7</span>
     <span class="pagina">...</span>
     <span class="pagina">77</span>
   </div>
@@ -470,7 +461,7 @@ footer strong {
 
 <footer>
   <p>© 2026 <strong>Relíquias do Gil</strong> — Todos os direitos reservados.</p>
-  <p>Projeto independente. Programas aqui encontrados na internet. Sempre confira antes de usar.</p>
+  <p>Os programas listados acima estão hospedados no site lrepacks.net. Cada download abre diretamente na página oficial do autor. Sempre verifique os arquivos antes de executar.</p>
 </footer>
 
 </body>
