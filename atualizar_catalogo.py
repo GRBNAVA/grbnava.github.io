@@ -1,136 +1,105 @@
-
 import json
-import re
-import time
 import urllib.request
 import xml.etree.ElementTree as ET
-from html import unescape
-from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime
 
-BASE = "https://rsshub.app/lrepacks"
-CATEGORIAS = [
-    "",
-    "novye-repaki-elchupacabra",
-    "repaki-sistemnyh-programm",
-    "repaki-programm-dlya-grafiki",
-    "repaki-programm-dlya-interneta",
-    "repaki-multimedia-programm",
-    "repaki-programm-dlya-ofisa",
-    "repaki-raznyh-programm",
-    "sistemnye-biblioteki",
+ARQUIVO_SAIDA = "catalogo.json"
+
+# Adicione aqui feeds RSS oficiais de programas gratuitos ou lançamentos do GitHub
+FEEDS_PROGRAMAS = [
+    "https://github.com",
+    "https://github.com",
+    "https://github.com"
 ]
 
-def nome_tag(elemento):
-    return elemento.tag.split("}")[-1].lower()
+# Adicione aqui feeds RSS de jogos gratuitos ou plataformas indie (ex: itch.io)
+FEEDS_JOGOS = [
+    "https://itch.io"
+]
 
-def texto(elemento, nomes):
-    for filho in elemento.iter():
-        if nome_tag(filho) in nomes and filho.text:
-            return filho.text.strip()
-    return ""
-
-def extrair_imagem(item):
-    # Primeiro tenta imagens fornecidas como mídia/enclosure no feed.
-    for filho in item.iter():
-        tag = nome_tag(filho)
-        if tag in ("thumbnail", "content", "enclosure"):
-            url = filho.attrib.get("url") or filho.attrib.get("href")
-            tipo = filho.attrib.get("type", "")
-            if url and (tipo.startswith("image/") or tag == "thumbnail"):
-                return url
-
-    # Depois procura uma imagem dentro do HTML da descrição.
-    html = texto(item, {"content", "summary", "description"})
-    padrao = r'<img[^>]+(?:src|data-src)=["\']([^"\']+)'
-    resultado = re.search(padrao, html, re.IGNORECASE)
-    if resultado:
-        return unescape(resultado.group(1))
-
-    return ""
-
-def baixar_feed(categoria):
-    caminho = f"/{categoria}" if categoria else ""
-    url = BASE + caminho + "?format=atom&limit=20"
-    pedido = urllib.request.Request(
-        url,
-        headers={"User-Agent": "ReliquiasDoGil/1.0"}
-    )
-    with urllib.request.urlopen(pedido, timeout=35) as resposta:
-        return ET.fromstring(resposta.read())
-
-def processar_feed(raiz):
+def ler_feed_rss(url, categoria_padrao, limite=6):
     itens = []
-    for item in raiz.iter():
-        if nome_tag(item) not in ("entry", "item"):
-            continue
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "ReliquiasDoGilBot/1.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            xml_dados = resp.read()
+        raiz = ET.fromstring(xml_dados)
 
-        titulo = texto(item, {"title"})
-        link = ""
+        # Suporte para RSS 2.0 (<item>) e Atom/GitHub (<entry>)
+        entradas = raiz.findall(".//item") or raiz.findall(".//{http://w3.org}entry")
 
-        for filho in item:
-            if nome_tag(filho) == "link":
-                rel = filho.attrib.get("rel", "alternate")
-                if rel == "alternate" or not link:
-                    link = filho.attrib.get("href") or filho.text or ""
+        for entrada in entradas[:limite]:
+            titulo = (
+                entrada.findtext("title")
+                or entrada.findtext("{http://w3.org}title")
+                or "Sem título"
+            ).strip()
 
-        if not link:
-            link = texto(item, {"guid"})
+            link_el = entrada.find("link")
+            if link_el is not None and link_el.text:
+                link = link_el.text.strip()
+            else:
+                atom_link = entrada.find("{http://w3.org}link")
+                link = atom_link.attrib.get("href", "") if atom_link is not None else ""
 
-        if not titulo or not link.startswith("https://lrepacks.net/"):
-            continue
+            descricao = (
+                entrada.findtext("description")
+                or entrada.findtext("{http://w3.org}summary")
+                or "Clique no botão abaixo para acessar a página oficial de download."
+            ).strip()
 
-        resumo = texto(item, {"summary", "description"})
-        resumo = re.sub(r"<[^>]+>", " ", resumo)
-        resumo = unescape(re.sub(r"\s+", " ", resumo)).strip()
-        resumo = resumo[:260]
+            # Remove tags HTML básicas da descrição e limita o tamanho
+            texto_limpo = "".join(ET.fromstring(f"<r>{descricao}</r>").itertext()) if "<" in descricao else descricao
+            texto_limpo = (texto_limpo[:140] + "...") if len(texto_limpo) > 140 else texto_limpo
 
-        data = texto(item, {"published", "updated", "pubdate"})
-        imagem = extrair_imagem(item)
+            data_pub = (
+                entrada.findtext("pubDate")
+                or entrada.findtext("{http://w3.org}updated")
+                or datetime.now().strftime("%Y-%m-%d")
+            )[:10]
 
-        itens.append({
-            "title": titulo,
-            "link": link,
-            "description": resumo,
-            "image": imagem,
-            "date": data
-        })
-
+            itens.append({
+                "title": titulo,
+                "description": texto_limpo or "Acesse a página oficial para mais detalhes.",
+                "link": link,
+                "image": "",
+                "tag": categoria_padrao,
+                "date": data_pub
+            })
+    except Exception as erro:
+        print(f"Aviso ao ler {url}: {erro}")
     return itens
 
+def carregar_existente():
+    try:
+        with open(ARQUIVO_SAIDA, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {"programas": [], "jogos": [], "achadinhos": []}
+
 def main():
-    catalogo = {}
-    feeds_ok = 0
+    atual = carregar_existente()
 
-    for categoria in CATEGORIAS:
-        try:
-            raiz = baixar_feed(categoria)
-            itens = processar_feed(raiz)
-            feeds_ok += 1
+    novos_programas = []
+    for feed in FEEDS_PROGRAMAS:
+        novos_programas.extend(ler_feed_rss(feed, "Programa Oficial", limite=4))
 
-            for item in itens:
-                # A URL é a chave para evitar publicações duplicadas.
-                catalogo[item["link"]] = item
+    novos_jogos = []
+    for feed in FEEDS_JOGOS:
+        novos_jogos.extend(ler_feed_rss(feed, "Jogo Gratuito", limite=8))
 
-            print(f"OK: {categoria or 'página inicial'} - {len(itens)} itens")
-        except Exception as erro:
-            print(f"Falha na categoria {categoria or 'inicial'}: {erro}")
-        time.sleep(1)
+    catalogo = {
+        "atualizado_em": datetime.now().strftime("%d/%m/%Y %H:%M"),
+        "programas": novos_programas if novos_programas else atual.get("programas", []),
+        "jogos": novos_jogos if novos_jogos else atual.get("jogos", []),
+        # Mantém seus achadinhos cadastrados manualmente intactos
+        "achadinhos": atual.get("achadinhos", [])
+    }
 
-    if feeds_ok == 0:
-        raise RuntimeError("Nenhum feed foi consultado. Catálogo antigo preservado.")
+    with open(ARQUIVO_SAIDA, "w", encoding="utf-8") as f:
+        json.dump(catalogo, f, ensure_ascii=False, indent=2)
 
-    resultado = list(catalogo.values())
-    resultado.sort(key=lambda x: x.get("date", ""), reverse=True)
-
-    destino = Path("catalogo.json")
-    destino.write_text(
-        json.dumps(resultado, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
-
-    print(f"Catálogo salvo com {len(resultado)} publicações.")
-    print("Atualizado em:", datetime.now(timezone.utc).isoformat())
+    print("Catálogo atualizado com sucesso!")
 
 if __name__ == "__main__":
     main()
