@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Minecraft Compacto — Versão gratuita, leve e direta para baixar pelo MediaFire. Feita para rodar em qualquer computador.">
-<title>Minecraft Compacto — Relíquias do Gil</title>
+<meta name="description" content="Versões gratuitas e compactas do Minecraft — para PC fraco, sem instalação, download direto pelo MediaFire.">
+<title>Minecraft — Relíquias do Gil</title>
 
 <style>
 :root {
-  --verde: #19c37d;
-  --laranja: #ff8a24;
-  --azul: #2589ff;
-  --fundo: #101820;
-  --cartao: #192630;
-  --texto: #f4f7fa;
-  --suave: #b5c2cc;
-  --destaque: #facc15;
+  --fundo: #121418;
+  --fundo-card: #1b1f26;
+  --fundo-destaque: #242933;
+  --texto: #e6e9ed;
+  --texto-suave: #9aa3b2;
+  --verde: #22c55e;
+  --laranja: #f97316;
+  --azul: #3b82f6;
+  --borda: #2e3440;
+  --destaque: #38bdf8;
+  --destaque-amarelo: #facc15;
 }
 
 * {
@@ -24,34 +27,43 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--fundo);
   color: var(--texto);
   line-height: 1.6;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 header {
-  min-height: 70px;
-  padding: 15px 8%;
+  background: var(--fundo-card);
+  border-bottom: 1px solid var(--borda);
+  padding: 18px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cabecalho-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
-  background: #101820;
-  border-bottom: 1px solid #293944;
-  position: relative;
-  z-index: 100;
 }
 
 .logo {
   font-size: 22px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .logo span:nth-child(1) { color: var(--verde); }
@@ -59,10 +71,10 @@ header {
 .logo span:nth-child(3) { color: var(--azul); }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 14px;
+  color: var(--texto-suave);
+  margin-left: 22px;
+  font-size: 15px;
+  transition: color 0.2s;
 }
 
 nav a:hover {
@@ -72,8 +84,7 @@ nav a:hover {
 .voltar {
   display: inline-block;
   color: var(--azul);
-  text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: bold;
 }
 
@@ -81,71 +92,237 @@ nav a:hover {
   color: var(--verde);
 }
 
-.conteudo-pagina {
-  padding: 40px 8%;
-  max-width: 1000px;
+main {
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 30px 5%;
 }
 
 .capa-minecraft {
-  height: 480px;
-  min-height: 380px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 13px;
-  margin-bottom: 40px;
-  border: 2px solid #30414d;
-}
-
-.slides-minecraft {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.slide-mc {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.9s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(135deg, #166534 0%, #1e40af 50%, #92400e 100%);
+  border-radius: 12px;
+  padding: 50px 30px;
   text-align: center;
-  padding: 30px;
+  margin-bottom: 40px;
+  border: 3px solid var(--verde);
 }
 
-.slide-mc.ativo {
-  opacity: 1;
+.capa-minecraft h1 {
+  font-size: clamp(28px, 5vw, 46px);
+  margin-bottom: 15px;
 }
 
-.conteudo-slide {
-  max-width: 750px;
+.capa-minecraft h1 span {
+  color: var(--destaque-amarelo);
 }
 
-.slide-mc h2 {
-  font-size: clamp(26px, 5vw, 46px);
-  margin-bottom: 20px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+.capa-minecraft p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #e0f2fe;
 }
 
-.slide-mc h2 span {
+.destaques-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.info-item {
+  background: rgba(0,0,0,0.25);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.lista-downloads h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
   color: var(--destaque);
 }
 
-.slide-mc p {
+.item-download {
+  background: var(--fundo-card);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  transition: all 0.25s ease;
+}
+
+.item-download:hover {
+  border-color: var(--verde);
+  background: var(--fundo-destaque);
+}
+
+.etiqueta-versao {
+  display: inline-block;
+  background: var(--verde);
+  color: #052e15;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.item-download h3 {
   font-size: 18px;
-  line-height: 1.9;
-  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  margin-bottom: 8px;
+  color: var(--texto);
 }
 
-/* Slide 1 */
-.slide-mc:nth-child(1) {
-  background: linear-gradient(135deg, #1e40af 0%, #166534 50%, #b45309 100%);
+.item-download p {
+  color: var(--texto-suave);
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.6;
 }
 
-/* Slide 2 */
-.slide-mc:nth-child(2) {
-  background: linear-gradient(135deg, #15803d 0%, #1e40af 50%, #b45309 100%);
+.botao-mediafire {
+  display: inline-block;
+  background: var(--azul);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.botao-mediafire:hover {
+  background: var(--verde);
+  color: #000;
+}
+
+.aviso-erro {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid var(--laranja);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 40px;
+}
+
+.aviso-erro h3 {
+  color: var(--laranja);
+  margin-bottom: 10px;
+}
+
+.jogo-online {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid var(--destaque);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 20px;
+}
+
+.jogo-online h3 {
+  color: var(--destaque);
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--borda);
+  color: var(--texto-suave);
+  font-size: 13px;
+  margin-top: 50px;
+}
+
+footer strong {
+  color: var(--verde);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="cabecalho-conteudo">
+    <a href="index.html" class="logo">
+      <span>R</span><span>G</span><span>.</span>
+      Relíquias do Gil
+    </a>
+    <nav>
+      <a href="index.html">← Voltar ao Início</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <a href="index.html" class="voltar">← Voltar para a página principal</a>
+
+  <!-- CAPA PRINCIPAL -->
+  <section class="capa-minecraft">
+    <h1>⛏️ Minecraft — Versões <span>Compactas e Gratuitas</span></h1>
+    <p>Encontradas no site <strong>OptiProjects</strong> — versões leves feitas para rodar em qualquer computador. Sem instalação, baixe e jogue direto!</p>
+    
+    <div class="destaques-info">
+      <span class="info-item">✅ 100% Gratuito</span>
+      <span class="info-item">✅ Compacto e Leve</span>
+      <span class="info-item">✅ Para PC Fraco</span>
+      <span class="info-item">✅ Sem Instalação</span>
+      <span class="info-item">📥 MediaFire</span>
+    </div>
+  </section>
+
+  <!-- LISTA DE DOWNLOADS -->
+  <section class="lista-downloads">
+    <h2>📦 Arquivos para Download</h2>
+
+    <!-- 1. POSTER MINECRAFT MASMMORRA -->
+    <div class="item-download">
+      <span class="etiqueta-versao">📄 PÔSTER</span>
+      <h3>Minecraft Masmorra — Pôster Informativo</h3>
+      <p>Arquivo com pôster sobre o Minecraft Masmorra, com informações e imagens. Tamanho: 484.21 MB — Enviado em 10/04/2025.</p>
+      <a href="https://www.mediafire.com/file/7dh9yiuc0eh729q" target="_blank" rel="noopener noreferrer" class="botao-mediafire">📥 BAIXAR NO MEDIAFIRE</a>
+    </div>
+
+    <!-- 2. MINECRAFT DUNGEONS OPTI -->
+    <div class="item-download">
+      <span class="etiqueta-versao">🎮 JOGO</span>
+      <h3>Minecraft Dungeons OPTI</h3>
+      <p>Versão compacta do Minecraft Dungeons, otimizada para rodar sem instalação. Tamanho: 484.21 MB — Enviado em 10/04/2025.</p>
+      <a href="https://www.mediafire.com/file/7dh9yiuc0eh729q" target="_blank" rel="noopener noreferrer" class="botao-mediafire">📥 BAIXAR NO MEDIAFIRE</a>
+    </div>
+
+    <!-- 3. OPTICRAFT LEGACY -->
+    <div class="item-download">
+      <span class="etiqueta-versao">🎮 VERSÃO LEGACY</span>
+      <h3>OptiCraft LEGACY — BETA 1 (por OptiJuegos)</h3>
+      <p>Segunda versão do Minecraft para download! Edição compacta e leve, ideal para computadores mais simples. Tamanho: 60.1 MB — Enviado em 02/06/2026.</p>
+      <a href="https://www.mediafire.com/file/98uq9p9b0ebxvqb" target="_blank" rel="noopener noreferrer" class="botao-mediafire">📥 BAIXAR NO MEDIAFIRE</a>
+    </div>
+
+    <!-- 4. MINECRAFT MODO HISTÓRIA -->
+    <div class="item-download">
+      <span class="etiqueta-versao">📖 MODO HISTÓRIA</span>
+      <h3>Minecraft — Modo História</h3>
+      <p>Versão com modo história, com narrativa e escolhas durante o jogo. Link direto pelo MediaFire.</p>
+      <a href="https://www.mediafire.com/file/q4xppx51iu7pzpu?action=check" target="_blank" rel="noopener noreferrer" class="botao-mediafire">📥 ABRIR PÁGINA</a>
+    </div>
+
+    <!-- 5. MINECRAFT BETA -->
+    <div class="item-download">
+      <span class="etiqueta-versao">🧪 VERSÃO BETA</span>
+      <h3>Minecraft — Versão Beta</h3>
+      <p>Versão Beta do jogo para quem quer testar novidades e funcionalidades mais recentes. Link direto pelo MediaFire.</p>
+      <a href="https://www.mediafire.com/file/y3wwdi928c7i78u" target="_blank" rel="noopener noreferrer" class="botao-mediafire">📥 BAIXAR NO MEDIAFIRE</a>
+    </div>
+
+    <!-- 6. JOGAR ONLINE -->
+    <div class="jogo-online">
+      <h3>🌐 JOGAR MINECRAFT ONLINE — Sem baixar nada!</h3>
+      <p>Versão 1.8.8 rodando direto do navegador. Não precisa instalar, não precisa baixar. Clique e jogue!</p>
+      <a href="https://eaglercraft.com/play?version=1.8.8" target="_blank" rel="noopener noreferrer" class="botao-mediafire">▶️ JOGAR AGORA</a>
+    </div>
+
+    <!-- 7. CORREÇÃO ERRO 422 -->
+    <div class="aviso-erro">
+      <h3>⚠️ Encontrou o Erro 422?</h3>
+      <p>Se aparecer o erro "422" ao tentar baixar ou abrir o jogo, não se preocupe! Preparamos um guia com informações e soluções para resolver esse problema.</p>
+      <a href="https://www.mediafire.com/file/dpto1teqdgbffvx" target="_blank" rel="noopener noreferrer" class="botao-mediafire">🔧 VER
