@@ -134,6 +134,16 @@
             font-size: 14px;
         }
 
+        .vazio {
+            padding: 28px;
+            border: 1px dashed #3a3222;
+            border-radius: 10px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            background: #151515;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -270,35 +280,30 @@
     </section>
 
     <main>
-        <!-- SEÇÃO 1: PROGRAMAS -->
+        <!-- SEÇÃO 1: PROGRAMAS (VAZIA E PRONTA PARA NOVAS PUBLICAÇÕES) -->
         <section class="secao" id="programas">
             <div class="secao-titulo">
                 <h2>Programas para Download</h2>
                 <p>Ferramentas e utilitários direcionados para os sites oficiais.</p>
             </div>
 
-            <div class="grid">
-                <!-- COPIE ESTE BLOCO <article> PARA ADICIONAR MAIS PROGRAMAS -->
-                <article class="card">
-                    <div class="card-img">7-ZIP</div>
-                    <div class="card-body">
-                        <span class="tag">Utilitário · Grátis</span>
-                        <h3>7-Zip (64-bit)</h3>
-                        <p>Compactador e descompactador leve e rápido para arquivos ZIP, RAR e 7z.</p>
-                        <a href="https://7-zip.org" target="_blank" rel="noopener noreferrer" class="card-btn">IR PARA DOWNLOAD</a>
-                    </div>
-                </article>
+            <div class="vazio">
+                Novos programas serão publicados aqui em breve.
+            </div>
 
+            <!-- QUANDO FOR ADICIONAR PROGRAMAS NOVOS, APAGUE A DIV "vazio" ACIMA E USE ESTE MODELO:
+            <div class="grid">
                 <article class="card">
-                    <div class="card-img">OBS</div>
+                    <div class="card-img">NOME</div>
                     <div class="card-body">
-                        <span class="tag">Vídeo · Grátis</span>
-                        <h3>OBS Studio</h3>
-                        <p>Programa oficial para gravação de tela e transmissões ao vivo.</p>
-                        <a href="https://obsproject.com" target="_blank" rel="noopener noreferrer" class="card-btn">IR PARA DOWNLOAD</a>
+                        <span class="tag">Categoria · Grátis</span>
+                        <h3>Nome do Programa</h3>
+                        <p>Descrição curta do que o programa faz.</p>
+                        <a href="LINK_AQUI" target="_blank" rel="noopener noreferrer" class="card-btn">IR PARA DOWNLOAD</a>
                     </div>
                 </article>
             </div>
+            -->
         </section>
 
         <!-- SEÇÃO 2: JOGOS -->
@@ -309,7 +314,6 @@
             </div>
 
             <div class="grid">
-                <!-- COPIE ESTE BLOCO <article> PARA ADICIONAR MAIS JOGOS -->
                 <article class="card">
                     <div class="card-img">JOGO</div>
                     <div class="card-body">
@@ -340,7 +344,10 @@
             </div>
 
             <div class="grid">
-                <!-- COPIE ESTE BLOCO <article> PARA ADICIONAR SEUS LINKS DA SHOPEE -->
                 <article class="card">
                     <div class="card-img">
-                        <!-- Troque o link abaixo pela URL da foto do produto -->
+                        <img src="https://placeholder.com" alt="Mouse Gamer">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Periféricos · Shopee</span>
+                        <h3>Mouse Gamer RGB 6 Botões</h3>
