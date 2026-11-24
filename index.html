@@ -14,7 +14,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -27,7 +26,6 @@ background:#fff;
 .banner{
 display:block;
 width:100%;
-height:auto;
 max-height:300px;
 object-fit:cover;
 }
@@ -85,11 +83,9 @@ background:white;
 min-width:0;
 }
 
-/* PADRONIZAÇÃO DAS CAPAS */
 .capa{
 width:100%;
-aspect-ratio:16 / 9;
-height:auto;
+aspect-ratio:16/9;
 overflow:hidden;
 background:linear-gradient(135deg,#123c60,#159447);
 color:white;
@@ -100,9 +96,9 @@ font-size:42px;
 }
 
 .capa img{
-display:block;
 width:100%;
 height:100%;
+display:block;
 object-fit:cover;
 object-position:center;
 }
@@ -132,6 +128,7 @@ background:#eef7f0;
 padding:10px;
 font-size:12px;
 margin:10px 0;
+line-height:1.5;
 }
 
 .botao{
@@ -147,6 +144,18 @@ font-weight:bold;
 }
 
 .botao:hover{background:#087638}
+
+.botao-download{
+background:#087b39;
+font-size:13px;
+padding:13px;
+}
+
+.botao-download:hover{background:#055d2b}
+
+.destaque{
+border:2px solid var(--verde);
+}
 
 .busca{
 width:100%;
@@ -195,9 +204,7 @@ gap:10px;
 
 .conteudo{padding:10px}
 
-.capa{
-font-size:32px;
-}
+.capa{font-size:32px}
 
 nav a{
 font-size:12px;
@@ -230,7 +237,7 @@ padding:10px;
 <span class="etiqueta">PROGRAMA • REPACK</span>
 <h3>Internet Download Manager (IDM)</h3>
 <p>Acelerador de downloads para Windows. Versão portátil Repack.</p>
-<div class="info">Já vem com ativação aplicada. Não precisa fazer ativação manual.</div>
+<div class="info">Consulte os detalhes e as opções disponíveis na página do programa.</div>
 <a class="botao" href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
 </div>
 </article>
@@ -281,6 +288,7 @@ Compartilhando achados encontrados na internet.
 </footer>
 
 <script>
+
 const jogos = [
 "A Hat In Time",
 "ALTF4 64 BITS",
@@ -403,38 +411,109 @@ const lista = document.getElementById("lista-games");
 const busca = document.getElementById("busca");
 const contador = document.getElementById("contador");
 
-function mostrarJogos(filtrados){
-if(!filtrados) filtrados=jogos;
+function criarCardGTA(){
 
-lista.innerHTML="";
+const card = document.createElement("article");
+card.className = "card destaque";
+
+card.innerHTML = `
+<div class="capa">
+<img
+src="https://t2.tudocdn.net/615108?w=1920&amp;h=1080"
+alt="Capa Grand Theft Auto V"
+loading="lazy">
+</div>
+
+<div class="conteudo">
+
+<span class="etiqueta">GAME • VERSÃO LITE</span>
+
+<h3>Grand Theft Auto V LITE</h3>
+
+<p>
+GTA V LIGHTER V10: versão super reduzida,
+pensada para melhorar o desempenho em
+computadores com poucos recursos.
+</p>
+
+<div class="info">
+<strong>ARQUIVO: 24,4 GB</strong><br>
+Versão LIGHTER V10 • Arquivo compactado.<br>
+Download hospedado no Gofile.
+</div>
+
+<a
+class="botao botao-download"
+href="https://gofile.io/d/pikHJm"
+target="_blank"
+rel="noopener noreferrer">
+⬇ ACESSAR DOWNLOAD
+</a>
+
+</div>
+`;
+
+return card;
+}
+
+function mostrarJogos(filtrados){
+
+if(!filtrados) filtrados = jogos;
+
+lista.innerHTML = "";
 
 filtrados.forEach(function(jogo){
 
-const card=document.createElement("article");
-card.className="card";
+// GTA V recebe uma capa e um cartão especial
+if(jogo === "GTA: V"){
 
-card.innerHTML=
-'<div class="capa">🎮</div>'+
-'<div class="conteudo">'+
-'<span class="etiqueta">JOGO</span>'+
-'<h3>'+jogo+'</h3>'+
-'<p>Clique para acessar</p>'+
-'<a class="botao" href="https://optijuegos.net/" target="_blank" rel="noopener">ACESSAR</a>'+
-'</div>';
+lista.appendChild(criarCardGTA());
+
+}else{
+
+const card = document.createElement("article");
+card.className = "card";
+
+card.innerHTML = `
+<div class="capa">🎮</div>
+
+<div class="conteudo">
+
+<span class="etiqueta">JOGO</span>
+
+<h3>${jogo}</h3>
+
+<p>Clique para acessar.</p>
+
+<a
+class="botao"
+href="https://optijuegos.net/"
+target="_blank"
+rel="noopener noreferrer">
+ACESSAR
+</a>
+
+</div>
+`;
 
 lista.appendChild(card);
 
+}
+
 });
 
-contador.textContent=filtrados.length+" jogos encontrados";
+contador.textContent = filtrados.length + " jogos encontrados";
+
 }
 
 busca.addEventListener("input",function(e){
 
-const termo=e.target.value.toLowerCase();
+const termo = e.target.value.toLowerCase();
 
-const filtrados=jogos.filter(function(jogo){
-return jogo.toLowerCase().indexOf(termo)!==-1;
+const filtrados = jogos.filter(function(jogo){
+
+return jogo.toLowerCase().indexOf(termo) !== -1;
+
 });
 
 mostrarJogos(filtrados);
@@ -442,6 +521,7 @@ mostrarJogos(filtrados);
 });
 
 mostrarJogos();
+
 </script>
 
 </body>
