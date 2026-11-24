@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Minecraft Compacto — Versão gratuita, leve e direta para baixar pelo MediaFire. Feita para rodar em qualquer computador.">
+<title>Minecraft Compacto — Relíquias do Gil</title>
+
+<style>
+:root {
+  --verde: #19c37d;
+  --laranja: #ff8a24;
+  --azul: #2589ff;
+  --fundo: #101820;
+  --cartao: #192630;
+  --texto: #f4f7fa;
+  --suave: #b5c2cc;
+  --destaque: #facc15;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+header {
+  min-height: 70px;
+  padding: 15px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  background: #101820;
+  border-bottom: 1px solid #293944;
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.logo span:nth-child(1) { color: var(--verde); }
+.logo span:nth-child(2) { color: var(--laranja); }
+.logo span:nth-child(3) { color: var(--azul); }
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--verde);
+}
+
+.voltar {
+  display: inline-block;
+  color: var(--azul);
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.voltar:hover {
+  color: var(--verde);
+}
+
+.conteudo-pagina {
+  padding: 40px 8%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.capa-minecraft {
+  height: 480px;
+  min-height: 380px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 13px;
+  margin-bottom: 40px;
+  border: 2px solid #30414d;
+}
+
+.slides-minecraft {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.slide-mc {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.9s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.slide-mc.ativo {
+  opacity: 1;
+}
+
+.conteudo-slide {
+  max-width: 750px;
+}
+
+.slide-mc h2 {
+  font-size: clamp(26px, 5vw, 46px);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.slide-mc h2 span {
+  color: var(--destaque);
+}
+
+.slide-mc p {
+  font-size: 18px;
+  line-height: 1.9;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Slide 1 */
+.slide-mc:nth-child(1) {
+  background: linear-gradient(135deg, #1e40af 0%, #166534 50%, #b45309 100%);
+}
+
+/* Slide 2 */
+.slide-mc:nth-child(2) {
+  background: linear-gradient(135deg, #15803d 0%, #1e40af 50%, #b45309 100%);
