@@ -4,227 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Relíquias do Gil</title>
-
 <style>
-:root{
---verde:#159447;
---azul:#1676bd;
---laranja:#ff9f24;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-color:#263238;
-background:#fff;
-}
-
-.banner{
-display:block;
-width:100%;
-max-height:300px;
-object-fit:cover;
-}
-
-nav{
-background:var(--verde);
-padding:14px;
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-position:sticky;
-top:0;
-z-index:10;
-}
-
-nav a{
-background:var(--azul);
-color:white;
-text-decoration:none;
-font-weight:bold;
-padding:11px 16px;
-border-radius:5px;
-}
-
-main{
-max-width:1200px;
-margin:25px auto 60px;
-padding:0 16px;
-}
-
-section{
-margin-bottom:40px;
-scroll-margin-top:80px;
-}
-
-h2{
-color:var(--verde);
-border-bottom:2px solid var(--laranja);
-padding-bottom:10px;
-}
-
-.catalogo{
-display:grid;
-grid-template-columns:repeat(4,minmax(0,1fr));
-gap:16px;
-}
-
-.card{
-border:1px solid #d6e2db;
-border-radius:9px;
-overflow:hidden;
-box-shadow:0 2px 8px #0000000c;
-background:white;
-min-width:0;
-}
-
-.capa{
-width:100%;
-aspect-ratio:16/9;
-overflow:hidden;
-background:linear-gradient(135deg,#123c60,#159447);
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:42px;
-}
-
-.capa img{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
-object-position:center;
-}
-
+:root{--verde:#159447;--azul:#1676bd;--laranja:#ff9f24}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:#263238;background:#fff}
+.banner{display:block;width:100%;max-height:300px;object-fit:cover}
+nav{background:var(--verde);padding:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+nav a{background:var(--azul);color:#fff;text-decoration:none;font-weight:bold;padding:11px 16px;border-radius:5px}
+main{max-width:1200px;margin:25px auto 60px;padding:0 16px}
+section{margin-bottom:40px;scroll-margin-top:80px}
+h2{color:var(--verde);border-bottom:2px solid var(--laranja);padding-bottom:10px}
+.catalogo,.vazios{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{border:1px solid #d6e2db;border-radius:9px;overflow:hidden;box-shadow:0 2px 8px #0000000c;background:#fff;min-width:0}
+.capa{width:100%;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,#123c60,#159447);color:#fff;display:flex;align-items:center;justify-content:center;font-size:42px}
+.capa img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
 .conteudo{padding:14px}
-
-.conteudo h3{
-font-size:16px;
-margin:0 0 9px;
-}
-
-.conteudo p{
-color:#52615a;
-font-size:13px;
-line-height:1.5;
-min-height:40px;
-}
-
-.etiqueta{
-color:var(--verde);
-font-size:10px;
-font-weight:bold;
-}
-
-.info{
-background:#eef7f0;
-padding:10px;
-font-size:12px;
-margin:10px 0;
-line-height:1.5;
-}
-
-.botao{
-display:block;
-background:var(--verde);
-color:white;
-padding:11px;
-border-radius:5px;
-text-align:center;
-text-decoration:none;
-font-size:12px;
-font-weight:bold;
-}
-
+.conteudo h3{font-size:16px;margin:0 0 9px}
+.conteudo p{color:#52615a;font-size:13px;line-height:1.5;min-height:40px}
+.etiqueta{color:var(--verde);font-size:10px;font-weight:bold}
+.info{background:#eef7f0;padding:10px;font-size:12px;margin:10px 0;line-height:1.5}
+.botao{display:block;background:var(--verde);color:#fff;padding:11px;border-radius:5px;text-align:center;text-decoration:none;font-size:12px;font-weight:bold}
 .botao:hover{background:#087638}
-
-.busca{
-width:100%;
-padding:12px;
-border:1px solid #bbb;
-border-radius:6px;
-margin:5px 0 18px;
-font-size:15px;
-}
-
-#contador{
-margin-bottom:14px;
-font-size:13px;
-color:#52615a;
-font-weight:bold;
-}
-
-.vazios{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:16px;
-}
-
-.vazio{
-min-height:150px;
-border:1px dashed #a9c4b5;
-background:#f7faf8;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#718078;
-border-radius:8px;
-}
-
-footer{
-background:var(--verde);
-color:white;
-text-align:center;
-padding:25px;
-}
-
-@media(max-width:900px){
-.catalogo,.vazios{
-grid-template-columns:repeat(3,minmax(0,1fr));
-}
-}
-
-@media(max-width:600px){
-.catalogo,.vazios{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:10px;
-}
-
-.conteudo{padding:10px}
-
-.capa{font-size:32px}
-
-nav a{
-font-size:12px;
-padding:10px;
-}
-}
+.busca{width:100%;padding:12px;border:1px solid #bbb;border-radius:6px;margin:5px 0 18px;font-size:15px}
+#contador{margin-bottom:14px;font-size:13px;color:#52615a;font-weight:bold}
+.vazio{min-height:150px;border:1px dashed #a9c4b5;background:#f7faf8;display:flex;align-items:center;justify-content:center;color:#718078;border-radius:8px}
+footer{background:var(--verde);color:#fff;text-align:center;padding:25px}
+@media(max-width:900px){.catalogo,.vazios{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.catalogo,.vazios{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.conteudo{padding:10px}.capa{font-size:32px}nav a{font-size:12px;padding:10px}}
 </style>
 </head>
-
 <body>
-
 <img class="banner" src="download.png" alt="Relíquias do Gil">
-
 <nav>
 <a href="#programas">Programas</a>
 <a href="#games">Games</a>
 <a href="#achadinhos">Achadinhos do Gil</a>
 </nav>
-
 <main>
-
 <section id="programas">
 <h2>Download de programas</h2>
-
 <div class="catalogo">
-
 <article class="card">
 <div class="capa">⬇️</div>
 <div class="conteudo">
@@ -235,7 +54,6 @@ padding:10px;
 <a class="botao" href="https://lrepacks.net" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
 </div>
 </article>
-
 <article class="card">
 <div class="capa">🌐</div>
 <div class="conteudo">
@@ -246,26 +64,19 @@ padding:10px;
 <a class="botao" href="https://lrepacks.net" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
 </div>
 </article>
-
 <div class="vazio">Espaço para programa</div>
 <div class="vazio">Espaço para programa</div>
-
 </div>
 </section>
-
 <section id="games">
 <h2>Download de games</h2>
 <p>Jogos listados no catálogo do OptiJogos.</p>
-
 <input class="busca" id="busca" type="search" placeholder="Digite o nome de um jogo para pesquisar...">
-
 <div id="contador"></div>
 <div class="catalogo" id="lista-games"></div>
 </section>
-
 <section id="achadinhos">
 <h2>Achadinhos do Gil</h2>
-
 <div class="vazios">
 <div class="vazio">Espaço para achadinho</div>
 <div class="vazio">Espaço para achadinho</div>
@@ -273,218 +84,70 @@ padding:10px;
 <div class="vazio">Espaço para achadinho</div>
 </div>
 </section>
-
 </main>
+<footer><strong>Relíquias do Gil</strong><br>Compartilhando achados encontrados na internet.</footer>
+<script>
+const RAWG_KEY="2be9074a176d439bb501be033bc27e2b";
+const jogos=["A Hat In Time","ALTF4 64 BITS","Assassin's Creed 2 UPDATE","Assassin's Creed 4: Black Flag UPDATE","Assassin's Creed: Brotherhood","Bad Piggies","Baldis Basics","Batman: Arkham Knight 64 BITS","Batman: Arkham Origins","Battlefield: Bad Company 2","Bloxorz","Borderlands 2: GOTY","Borderlands: GOTY","Boxhead 2 Play","Bully","Call of Duty 1","Call of Duty 2","Cat Mario","Club Penguin Island","CoD: Black Ops 1","CoD: Ghosts","CoD: Modern Warfare 4","Counter Strike 2","Counter Strike 1.6 ONLINE","Crysis","Dark Souls 1","Dark Souls 2","Detroit: Become Human","Devil May Cry 5","DRAGON BALL: Fighter Z","DRAGON BALL: Sparking! ZERO","DRAGON BALL Z: Kakarot","Drive Beyond Horizons","Dying Light","Elden Ring","Fallout 3","Fallout: New Vegas","Far Cry 3","Far Cry Primal","Fernanfloo Saw Game","FIFA 21","FIFA 22","FIFA 23","Fireboy And Watergirl","FNAF: Secret Of The Mimic","Forza Horizon 3","Forza Horizon 4","Friday Night Funkin","God of War: 2018","God of War: Ragnarok","GTA: IV","GTA: San Andreas","GTA: V","GTA: Vice City","Happy Wheels","Hello Neighbor","Hello Neighbor Alpha 1","Henry Stickmin Collection","Hogwarts Legacy","Hollow Knight: Silksong","Inkball","Inspector Blindson","Life Is Strange 1","Little Nightmares","Meccha Chameleon","Mini Train","Mortal Kombat: 1","Mortal Kombat 9: Komplete Edition","Mortal Kombat: 11","Mortal Kombat XL","Outlast","Pac-Xon","Papa's Pizzeria Collection","PEAK","PES 2017","PixARK","Poppy Playtime","Poppy Playtime 2","Poppy Playtime 3","Poppy Playtime 4","Portal","Prototype 1","Red Ball","Red Dead Redemption 1","Red Dead Redemption 2","REPO","Resident Evil 2: Remake","Resident Evil 3: Remake","Resident Evil 4: Remake","Resident Evil: Requiem","Resident Evil: Village","Saints Row 3","Saw Games Collection","Schedule I","Silent Hill F","Silent Hill 2: Remake","Slime Rancher","Spider-Man 3","Spider-Man: Remastered","Strike Force Heroes","Strikes Club","Subnautica","Subnautica 2","Super Marce Flash","Syobon Action","Syobon Action 3","Tekken 7","Tekken 8","The Impossible Quiz","The Last Of Us 1","The Right Mix","Toilet Success","Tomb Raider: 2013","Trafico de Fauna","World's Hardest Game"];
+const lista=document.getElementById("lista-games"),busca=document.getElementById("busca"),contador=document.getElementById("contador");
 
-<footer>
-<strong>Relíquias do Gil</strong><br>
-Compartilhando achados encontrados na internet.
-</footer>
-
-  <script>
-
-const RAWG_KEY = "2be9074a176d439bb501be033bc27e2b";
-
-const jogos = [
-"A Hat In Time",
-"ALTF4 64 BITS",
-"Assassin's Creed 2 UPDATE",
-"Assassin's Creed 4: Black Flag UPDATE",
-"Assassin's Creed: Brotherhood",
-"Bad Piggies",
-"Baldis Basics",
-"Batman: Arkham Knight 64 BITS",
-"Batman: Arkham Origins",
-"Battlefield: Bad Company 2",
-"Bloxorz",
-"Borderlands 2: GOTY",
-"Borderlands: GOTY",
-"Boxhead 2 Play",
-"Bully",
-"Call of Duty 1",
-"Call of Duty 2",
-"Cat Mario",
-"Club Penguin Island",
-"CoD: Black Ops 1",
-"CoD: Ghosts",
-"CoD: Modern Warfare 4",
-"Counter Strike 2",
-"Counter Strike 1.6 ONLINE",
-"Crysis",
-"Dark Souls 1",
-"Dark Souls 2",
-"Detroit: Become Human",
-"Devil May Cry 5",
-"DRAGON BALL: Fighter Z",
-"DRAGON BALL: Sparking! ZERO",
-"DRAGON BALL Z: Kakarot",
-"Drive Beyond Horizons",
-"Dying Light",
-"Elden Ring",
-"Fallout 3",
-"Fallout: New Vegas",
-"Far Cry 3",
-"Far Cry Primal",
-"Fernanfloo Saw Game",
-"FIFA 21",
-"FIFA 22",
-"FIFA 23",
-"Fireboy And Watergirl",
-"FNAF: Secret Of The Mimic",
-"Forza Horizon 3",
-"Forza Horizon 4",
-"Friday Night Funkin",
-"God of War: 2018",
-"God of War: Ragnarok",
-"GTA: IV",
-"GTA: San Andreas",
-"GTA: V",
-"GTA: Vice City",
-"Happy Wheels",
-"Hello Neighbor",
-"Hello Neighbor Alpha 1",
-"Henry Stickmin Collection",
-"Hogwarts Legacy",
-"Hollow Knight: Silksong",
-"Inkball",
-"Inspector Blindson",
-"Life Is Strange 1",
-"Little Nightmares",
-"Meccha Chameleon",
-"Mini Train",
-"Mortal Kombat: 1",
-"Mortal Kombat 9: Komplete Edition",
-"Mortal Kombat: 11",
-"Mortal Kombat XL",
-"Outlast",
-"Pac-Xon",
-"Papa's Pizzeria Collection",
-"PEAK",
-"PES 2017",
-"PixARK",
-"Poppy Playtime",
-"Poppy Playtime 2",
-"Poppy Playtime 3",
-"Poppy Playtime 4",
-"Portal",
-"Prototype 1",
-"Red Ball",
-"Red Dead Redemption 1",
-"Red Dead Redemption 2",
-"REPO",
-"Resident Evil 2: Remake",
-"Resident Evil 3: Remake",
-"Resident Evil 4: Remake",
-"Resident Evil: Requiem",
-"Resident Evil: Village",
-"Saints Row 3",
-"Saw Games Collection",
-"Schedule I",
-"Silent Hill F",
-"Silent Hill 2: Remake",
-"Slime Rancher",
-"Spider-Man 3",
-"Spider-Man: Remastered",
-"Strike Force Heroes",
-"Strikes Club",
-"Subnautica",
-"Subnautica 2",
-"Super Marce Flash",
-"Syobon Action",
-"Syobon Action 3",
-"Tekken 7",
-"Tekken 8",
-"The Impossible Quiz",
-"The Last Of Us 1",
-"The Right Mix",
-"Toilet Success",
-"Tomb Raider: 2013",
-"Trafico de Fauna",
-"World's Hardest Game"
-];
-
-const lista = document.getElementById("lista-games");
-const busca = document.getElementById("busca");
-const contador = document.getElementById("contador");
-
-function limparNomeBusca(nome){
-return nome
-.replace(/\b(64 BITS|UPDATE|ONLINE|GOTY|Remake|Remastered|Collection|Komplete Edition)\b/gi, "")
-.replace(/^CoD:/i, "Call of Duty")
-.replace(/^GTA:/i, "Grand Theft Auto")
-.replace(/^FNAF:/i, "Five Nights at Freddy's")
-.replace(/:/g, " ")
-.replace(/\s+/g, " ")
+function limparNome(n){
+return n.replace(/\b(64 BITS|UPDATE|ONLINE|GOTY|Remake|Remastered|Collection|Komplete Edition)\b/gi,"")
+.replace(/^CoD:/i,"Call of Duty")
+.replace(/^GTA:/i,"Grand Theft Auto")
+.replace(/^FNAF:/i,"Five Nights at Freddy's")
+.replace(/:/g," ")
+.replace(/\s+/g," ")
 .trim();
 }
 
-async function carregarCapaJogo(nomeJogo, elementoCapa){
-const chaveCache = "rawg_v2_" + nomeJogo;
-const salva = localStorage.getItem(chaveCache);
-
-if(salva){
-if(salva !== "sem_foto"){
-elementoCapa.innerHTML = `<img src="${salva}" alt="Capa ${nomeJogo}" loading="lazy">`;
-}
+async function carregarCapa(jogo,el){
+const k="rawg_ok_"+jogo,s=localStorage.getItem(k);
+if(s){
+if(s!=="0")el.innerHTML=`<img src="${s}" alt="${jogo}" loading="lazy">`;
 return;
 }
-
 try{
-const termoBusca = encodeURIComponent(limparNomeBusca(nomeJogo));
-const resp = await fetch(`https://rawg.io{RAWG_KEY}&search=${termoBusca}&page_size=1`);
-const dados = await resp.json();
-const imagem = dados.results && dados.results && dados.results.background_image;
-
-if(imagem){
-localStorage.setItem(chaveCache, imagem);
-elementoCapa.innerHTML = `<img src="${imagem}" alt="Capa ${nomeJogo}" loading="lazy">`;
+const r=await fetch(`https://rawg.io{RAWG_KEY}&search=${encodeURIComponent(limparNome(jogo))}&page_size=1`);
+const d=await r.json();
+const img=d.results&&d.results[0]&&d.results[0].background_image;
+if(img){
+localStorage.setItem(k,img);
+el.innerHTML=`<img src="${img}" alt="${jogo}" loading="lazy">`;
 }else{
-localStorage.setItem(chaveCache, "sem_foto");
+localStorage.setItem(k,"0");
 }
 }catch(e){}
 }
 
-const observadorCapas = new IntersectionObserver((entradas, obs) => {
-entradas.forEach(entrada => {
-if(entrada.isIntersecting){
-const capa = entrada.target;
-carregarCapaJogo(capa.dataset.jogo, capa);
-obs.unobserve(capa);
+const obs=new IntersectionObserver((es,o)=>{
+es.forEach(e=>{
+if(e.isIntersecting){
+carregarCapa(e.target.dataset.jogo,e.target);
+o.unobserve(e.target);
 }
 });
-}, { rootMargin: "300px" });
+},{rootMargin:"300px"});
 
-function mostrarJogos(filtro = ""){
-lista.innerHTML = "";
-const termo = filtro.trim().toLowerCase();
-let total = 0;
-
-jogos.forEach(jogo => {
-if(jogo.toLowerCase().includes(termo)){
-const card = document.createElement("article");
-card.className = "card";
-card.innerHTML = `
-<div class="capa" data-jogo="${jogo}">🎮</div>
-<div class="conteudo">
-<span class="etiqueta">GAME • CATÁLOGO</span>
-<h3>${jogo}</h3>
-<p>Disponível na listagem do catálogo OptiJogos.</p>
-<div class="info">Consulte os requisitos e opções de download no catálogo.</div>
-<a class="botao" href="https://optijogos.com{encodeURIComponent(jogo)}" target="_blank" rel="noopener noreferrer">BUSCAR JOGO</a>
-</div>
-`;
-lista.appendChild(card);
-observadorCapas.observe(card.querySelector(".capa"));
+function mostrarJogos(f=""){
+lista.innerHTML="";
+const t=f.trim().toLowerCase();
+let total=0;
+jogos.forEach(j=>{
+if(j.toLowerCase().includes(t)){
+const c=document.createElement("article");
+c.className="card";
+c.innerHTML=`<div class="capa" data-jogo="${j}">🎮</div><div class="conteudo"><span class="etiqueta">GAME • CATÁLOGO</span><h3>${j}</h3><p>Disponível na listagem do catálogo OptiJogos.</p><div class="info">Consulte os requisitos e opções de download no catálogo.</div><a class="botao" href="https://optijogos.com{encodeURIComponent(j)}" target="_blank" rel="noopener noreferrer">BUSCAR JOGO</a></div>`;
+lista.appendChild(c);
+obs.observe(c.querySelector(".capa"));
 total++;
 }
 });
-
-contador.textContent = "Mostrando " + total + " jogo(s)";
+contador.textContent="Mostrando "+total+" jogo(s)";
 }
 
-busca.addEventListener("input", e => mostrarJogos(e.target.value));
+busca.addEventListener("input",e=>mostrarJogos(e.target.value));
 mostrarJogos();
-
 </script>
 </body>
 </html>
