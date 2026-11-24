@@ -1,5 +1,7 @@
 <script>
 
+const RAWG_KEY = "2be9074a176d439bb501be033bc27e2b";
+
 const jogos = [
 "A Hat In Time",
 "ALTF4 64 BITS",
@@ -122,95 +124,64 @@ const lista = document.getElementById("lista-games");
 const busca = document.getElementById("busca");
 const contador = document.getElementById("contador");
 
-function criarCardGTA(){
-const card = document.createElement("article");
-card.className = "card destaque";
-card.innerHTML = `
-<div class="capa">
-<img
-src="gtav.jpg"
-alt="Capa Grand Theft Auto V"
-loading="lazy">
-</div>
-<div class="conteudo">
-<span class="etiqueta">GAME • VERSÃO LITE</span>
-<h3>Grand Theft Auto V LITE</h3>
-<p>
-GTA V LIGHTER V10: versão super reduzida,
-pensada para melhorar o desempenho em
-computadores com poucos recursos.
-</p>
-<div class="info">
-<strong>ARQUIVO: 24,4 GB</strong><br>
-Versão LIGHTER V10 • Arquivo compactado.<br>
-Download hospedado no Gofile.
-</div>
-<a
-class="botao botao-download"
-href="https://gofile.io"
-target="_blank"
-rel="noopener noreferrer">
-⬇ ACESSAR DOWNLOAD
-</a>
-</div>
-`;
-return card;
+function limparNomeBusca(nome){
+return nome
+.replace(/\b(64 BITS|UPDATE|ONLINE|GOTY|Remake|Remastered|Collection|Komplete Edition)\b/gi, "")
+.replace(/^CoD:/i, "Call of Duty")
+.replace(/^GTA:/i, "Grand Theft Auto")
+.replace(/^FNAF:/i, "Five Nights at Freddy's")
+.replace(/:/g, " ")
+.replace(/\s+/g, " ")
+.trim();
 }
 
-function criarCardViceCity(){
-const card = document.createElement("article");
-card.className = "card destaque";
-card.innerHTML = `
-<div class="capa">
-<img
-src="vicecity.jpg"
-alt="Capa Grand Theft Auto Vice City"
-loading="lazy">
-</div>
-<div class="conteudo">
-<span class="etiqueta">GAME • VERSÃO LITE</span>
-<h3>Grand Theft Auto Vice City LITE</h3>
-<p>
-Versão supercompacta, com otimizações e correções.
-</p>
-<div class="info">
-<strong>ARQUIVO: Menos de 865 MB</strong><br>
-Versão supercompacta • Otimizada.<br>
-Download hospedado no MediaFire.
-</div>
-<a
-class="botao botao-download"
-href="https://mediafire.com"
-target="_blank"
-rel="noopener noreferrer">
-⬇ ACESSAR DOWNLOAD
-</a>
-</div>
-`;
-return card;
+async function carregarCapaJogo(nomeJogo, elementoCapa){
+const chaveCache = "rawg_v2_" + nomeJogo;
+const salva = localStorage.getItem(chaveCache);
+
+if(salva){
+if(salva !== "sem_foto"){
+elementoCapa.innerHTML = `<img src="${salva}" alt="Capa ${nomeJogo}" loading="lazy">`;
 }
+return;
+}
+
+try{
+const termoBusca = encodeURIComponent(limparNomeBusca(nomeJogo));
+const resp = await fetch(`https://rawg.io{RAWG_KEY}&search=${termoBusca}&page_size=1`);
+const dados = await resp.json();
+const imagem = dados.results && dados.results[0] && dados.results[0].background_image;
+
+if(imagem){
+localStorage.setItem(chaveCache, imagem);
+elementoCapa.innerHTML = `<img src="${imagem}" alt="Capa ${nomeJogo}" loading="lazy">`;
+}else{
+localStorage.setItem(chaveCache, "sem_foto");
+}
+}catch(e){}
+}
+
+const observadorCapas = new IntersectionObserver((entradas, obs) => {
+entradas.forEach(entrada => {
+if(entrada.isIntersecting){
+const capa = entrada.target;
+carregarCapaJogo(capa.dataset.jogo, capa);
+obs.unobserve(capa);
+}
+});
+}, { rootMargin: "300px" });
 
 function mostrarJogos(filtro = ""){
 lista.innerHTML = "";
 const termo = filtro.trim().toLowerCase();
 let total = 0;
 
-if(!termo || "grand theft auto v lite gta 5".includes(termo)){
-lista.appendChild(criarCardGTA());
-total++;
-}
-
-if(!termo || "grand theft auto vice city lite gta".includes(termo)){
-lista.appendChild(criarCardViceCity());
-total++;
-}
-
 jogos.forEach(jogo => {
 if(jogo.toLowerCase().includes(termo)){
 const card = document.createElement("article");
 card.className = "card";
 card.innerHTML = `
-<div class="capa">🎮</div>
+<div class="capa" data-jogo="${jogo}">🎮</div>
 <div class="conteudo">
 <span class="etiqueta">GAME • CATÁLOGO</span>
 <h3>${jogo}</h3>
@@ -220,6 +191,7 @@ card.innerHTML = `
 </div>
 `;
 lista.appendChild(card);
+observadorCapas.observe(card.querySelector(".capa"));
 total++;
 }
 });
