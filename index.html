@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,75 +6,189 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <title>Relíquias do Gil</title>
+
 <style>
 :root{--verde:#159447;--azul:#1676bd;--laranja:#ff9f24}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;font-family:Arial,sans-serif;color:#263238;background:#fff}
+
 .banner-box{background:#fff;text-align:center;line-height:0}
 .banner{display:block;width:100%;max-width:1400px;height:auto;margin:0 auto}
-nav{background:var(--verde);padding:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
-nav a{background:var(--azul);color:#fff;text-decoration:none;font-weight:bold;padding:11px 16px;border-radius:5px}
+
+nav{
+background:var(--verde);
+padding:14px;
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+position:sticky;
+top:0;
+z-index:10
+}
+nav a{
+background:var(--azul);
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+padding:11px 16px;
+border-radius:5px
+}
+
 main{max-width:1200px;margin:25px auto 60px;padding:0 16px}
 section{margin-bottom:40px;scroll-margin-top:80px}
 h2{color:var(--verde);border-bottom:2px solid var(--laranja);padding-bottom:10px}
-.catalogo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.card{border:1px solid #d6e2db;border-radius:9px;overflow:hidden;box-shadow:0 2px 8px #0000000c;background:#fff;min-width:0;display:flex;flex-direction:column}
-.capa{width:100%;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,#123c60,#159447);color:#fff;display:flex;align-items:center;justify-content:center;font-size:42px}
-.capa img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+
+.catalogo{
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:16px
+}
+
+.card{
+border:1px solid #d6e2db;
+border-radius:9px;
+overflow:hidden;
+box-shadow:0 2px 8px #0000000c;
+background:#fff;
+min-width:0;
+display:flex;
+flex-direction:column
+}
+
+.capa{
+width:100%;
+aspect-ratio:16/9;
+overflow:hidden;
+background:linear-gradient(135deg,#123c60,#159447);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px
+}
+
+.capa img{
+width:100%;
+height:100%;
+display:block;
+object-fit:cover;
+object-position:center
+}
+
 .conteudo{padding:14px;display:flex;flex-direction:column;flex:1}
 .conteudo h3{font-size:16px;margin:0 0 9px}
 .conteudo p{color:#52615a;font-size:13px;line-height:1.5;margin:0 0 10px}
 .etiqueta{color:var(--verde);font-size:10px;font-weight:bold;margin-bottom:4px}
 .info{background:#eef7f0;padding:10px;font-size:12px;margin:auto 0 12px;line-height:1.5;border-radius:4px}
-.botao{display:block;background:var(--verde);color:#fff;padding:11px;border-radius:5px;text-align:center;text-decoration:none;font-size:12px;font-weight:bold}
+
+.botao{
+display:block;
+background:var(--verde);
+color:#fff;
+padding:11px;
+border-radius:5px;
+text-align:center;
+text-decoration:none;
+font-size:12px;
+font-weight:bold
+}
 .botao:hover{background:#087638}
+
 footer{background:var(--verde);color:#fff;text-align:center;padding:25px}
-@media(max-width:900px){.catalogo{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:600px){.catalogo{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.conteudo{padding:10px}.capa{font-size:32px}nav a{font-size:12px;padding:10px}}
+
+@media(max-width:900px){
+.catalogo{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+@media(max-width:600px){
+.catalogo{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.conteudo{padding:10px}
+.capa{font-size:32px}
+nav a{font-size:12px;padding:10px}
+}
 </style>
 </head>
+
 <body>
 
 <div class="banner-box">
-  <img class="banner" src="download.png" alt="Relíquias do Gil">
+<img class="banner" src="download.png" alt="Relíquias do Gil">
 </div>
 
 <nav>
-  <a href="#programas">Programas</a>
-  <a href="#games">Games</a>
-  <a href="#achadinhos">Achadinhos do Gil</a>
+<a href="#programas">Programas</a>
+<a href="#games">Games</a>
+<a href="#achadinhos">Achadinhos do Gil</a>
 </nav>
 
 <main>
-  <section id="programas">
-    <h2>Download de programas</h2>
-    <div class="catalogo">
-      <article class="card">
-        <div class="capa"><img src="idm.jpg" alt="Internet Download Manager (IDM)"></div>
-        <div class="conteudo">
-          <span class="etiqueta">PROGRAMA • REPACK & PORTÁTIL</span>
-          <h3>Internet Download Manager (IDM)</h3>
-          <p>Acelerador de downloads para Windows. Versão Repack já craqueada (não precisa aplicar crack) e inclui versão compacta/portátil.</p>
-          <div class="info"><strong>PRONTO PARA USAR:</strong> Já vem ativado, sem necessidade de crack, com opção compacta incluída.</div>
-          <a class="botao" href="https://lrepacks.net" target="_blank" rel="noreferrer noopener" referrerpolicy="no-referrer">DOWNLOAD</a>
-        </div>
-      </article>
-    </div>
-  </section>
 
-  <section id="games">
-    <h2>Download de games</h2>
-    <div class="catalogo"></div>
-  </section>
+<section id="programas">
+<h2>Download de programas</h2>
 
-  <section id="achadinhos">
-    <h2>Achadinhos do Gil</h2>
-    <div class="catalogo"></div>
-  </section>
+<div class="catalogo">
+
+<article class="card">
+
+<div class="capa">
+<img
+src="https://i.pinimg.com/236x/a0/95/35/a09535fb2f828cd5dc73300fc08938ff.jpg"
+alt="Internet Download Manager"
+referrerpolicy="no-referrer"
+>
+</div>
+
+<div class="conteudo">
+
+<span class="etiqueta">PROGRAMA • REPACK & PORTÁTIL</span>
+
+<h3>Internet Download Manager (IDM)</h3>
+
+<p>
+Acelerador de downloads para Windows.
+Confira as informações e versões disponíveis
+na página do programa.
+</p>
+
+<div class="info">
+<strong>INTERNET DOWNLOAD MANAGER:</strong>
+Acesse a página para consultar os detalhes
+e as opções disponíveis.
+</div>
+
+<a
+class="botao"
+href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html"
+target="_blank"
+rel="noreferrer noopener"
+referrerpolicy="no-referrer"
+>
+DOWNLOAD
+</a>
+
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="games">
+<h2>Download de games</h2>
+<div class="catalogo"></div>
+</section>
+
+<section id="achadinhos">
+<h2>Achadinhos do Gil</h2>
+<div class="catalogo"></div>
+</section>
+
 </main>
 
 <footer>
-  <strong>Relíquias do Gil</strong><br>Compartilhando achados encontrados na internet.
+<strong>Relíquias do Gil</strong><br>
+Compartilhando achados encontrados na internet.
 </footer>
 
 </body>
