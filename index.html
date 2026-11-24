@@ -2,202 +2,330 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Relíquias do Gil - Programas, games e achadinhos selecionados!">
-  <title>Relíquias do Gil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<meta name="description" content="Relíquias do Gil - programas, games e achadinhos encontrados na internet.">
+
+<title>Relíquias do Gil</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #333;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+nav {
+    background: #159447;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 18px;
+}
+
+nav a:hover {
+    color: #ffad33;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #159447;
+    border-bottom: 3px solid #ff9f24;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.item {
+    background: #f7f7f7;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    min-width: 0;
+}
+
+.item h3 {
+    color: #1676bd;
+    margin: 12px 0;
+}
+
+.item p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.idm-card {
+    border: 2px solid #159447;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+}
+
+.idm-imagens {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #eeeeee;
+    overflow: hidden;
+}
+
+.idm-imagens img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.idm-imagens img.ativa {
+    display: block;
+}
+
+.idm-conteudo {
+    padding: 14px;
+}
+
+.idm-etiqueta {
+    display: inline-block;
+    background: #ff9f24;
+    color: #222;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.idm-info {
+    background: #e9f8ee;
+    border-left: 4px solid #159447;
+    padding: 10px;
+    margin: 12px 0;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.botao {
+    display: block;
+    background: #159447;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.botao:hover {
+    background: #107438;
+}
+
+footer {
+    background: #159447;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .catalogo {
+        grid-template-columns: repeat(3, 1fr);
     }
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #222222;
-    }
-
-    .topo {
-      width: 100%;
-      background: #ffffff;
-    }
-
-    .banner {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 380px;
-      object-fit: contain;
-      object-position: center;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 16px;
-      background: #087c45;
+@media (max-width: 600px) {
+    .catalogo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
     nav a {
-      display: inline-block;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 12px 18px;
-      border-radius: 7px;
-      background: #0866a8;
-      transition: background 0.2s;
-    }
-
-    nav a:hover {
-      background: #f28c18;
+        display: inline-block;
+        margin: 5px 8px;
     }
 
     main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 18px;
+        padding: 18px 10px;
     }
-
-    section {
-      margin-bottom: 48px;
-      scroll-margin-top: 20px;
-    }
-
-    h2 {
-      color: #087c45;
-      font-size: 25px;
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 3px solid #f28c18;
-    }
-
-    .catalogo {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .item {
-      aspect-ratio: 1 / 1;
-      border: 2px dashed #b8c8c0;
-      border-radius: 10px;
-      background: #f8faf9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #777777;
-      font-size: 14px;
-      text-align: center;
-      padding: 10px;
-    }
-
-    footer {
-      background: #087c45;
-      color: #ffffff;
-      text-align: center;
-      padding: 25px 12px;
-      margin-top: 30px;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 800px) {
-      .catalogo {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 520px) {
-      .catalogo {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      nav {
-        gap: 8px;
-      }
-
-      nav a {
-        font-size: 13px;
-        padding: 10px 12px;
-      }
-
-      h2 {
-        font-size: 21px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header class="topo">
+<header>
+    <img class="banner" src="download.png" alt="Relíquias do Gil">
+</header>
 
-    <img
-      class="banner"
-      src="https://grbnava.github.io/download.png"
-      alt="Relíquias do Gil - Programas, games e achadinhos selecionados!"
-      onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/GRBNAVA/grbnava.github.io/principal/download.png';"
-    >
+<nav>
+    <a href="#programas">Programas</a>
+    <a href="#games">Games</a>
+    <a href="#achadinhos">Achadinhos</a>
+</nav>
 
-    <nav>
-      <a href="#programas">Download de programas</a>
-      <a href="#games">Download de games</a>
-      <a href="#achadinhos">Achadinhos do Gil</a>
-    </nav>
+<main>
 
-  </header>
+<section id="programas">
+    <h2>Download de programas</h2>
 
-  <main>
+    <div class="catalogo">
 
-    <section id="programas">
-      <h2>Download de programas</h2>
+        <!-- CARD INTERNET DOWNLOAD MANAGER -->
+        <article class="idm-card">
 
-      <div class="catalogo">
-        <div class="item">Espaço para programa</div>
-        <div class="item">Espaço para programa</div>
-        <div class="item">Espaço para programa</div>
-        <div class="item">Espaço para programa</div>
-      </div>
-    </section>
+            <div class="idm-imagens" id="idmCarrossel">
+                <img
+                    class="ativa"
+                    src="https://lrepacks.net/uploads/posts/2023-02/medium/internet_download_manager.jpg"
+                    alt="Internet Download Manager"
+                    referrerpolicy="no-referrer">
 
-    <section id="games">
-      <h2>Download de games</h2>
+                <img
+                    src="https://lrepacks.net/uploads/posts/2019-06/medium/1561719530_idm_glyfz.jpg"
+                    alt="Interface do Internet Download Manager"
+                    referrerpolicy="no-referrer">
 
-      <div class="catalogo">
+                <img
+                    src="https://lrepacks.net/uploads/posts/2019-06/1561719506_idm_ios_line.jpg"
+                    alt="Internet Download Manager em funcionamento"
+                    referrerpolicy="no-referrer">
+            </div>
+
+            <div class="idm-conteudo">
+
+                <span class="idm-etiqueta">
+                    DESTAQUE • REPACK
+                </span>
+
+                <h3>Internet Download Manager (IDM)</h3>
+
+                <p>
+                    Acelerador de downloads para Windows.
+                    Versão portátil Repack.
+                </p>
+
+                <div class="idm-info">
+                    🔓 Já vem com ativação aplicada.
+                    Não precisa fazer ativação manual.
+                </div>
+
+                <a
+                    class="botao"
+                    href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    ACESSAR E BAIXAR
+
+                </a>
+
+            </div>
+        </article>
+
+        <!-- ESPAÇOS PARA NOVOS PROGRAMAS -->
+        <div class="item">
+            Espaço para programa
+        </div>
+
+        <div class="item">
+            Espaço para programa
+        </div>
+
+        <div class="item">
+            Espaço para programa
+        </div>
+
+    </div>
+</section>
+
+<section id="games">
+    <h2>Download de games</h2>
+
+    <div class="catalogo">
+
         <div class="item">Espaço para game</div>
         <div class="item">Espaço para game</div>
         <div class="item">Espaço para game</div>
         <div class="item">Espaço para game</div>
-      </div>
-    </section>
 
-    <section id="achadinhos">
-      <h2>Achadinhos do Gil</h2>
+    </div>
+</section>
 
-      <div class="catalogo">
+<section id="achadinhos">
+    <h2>Achadinhos do Gil</h2>
+
+    <div class="catalogo">
+
         <div class="item">Espaço para achadinho</div>
         <div class="item">Espaço para achadinho</div>
         <div class="item">Espaço para achadinho</div>
         <div class="item">Espaço para achadinho</div>
-      </div>
-    </section>
 
-  </main>
+    </div>
+</section>
 
-  <footer>
-    <p><strong>Relíquias do Gil</strong></p>
-    <p>Programas, games e achadinhos selecionados!</p>
-  </footer>
+</main>
+
+<footer>
+    <p>Relíquias do Gil</p>
+    <p>Compartilhando achados encontrados na internet.</p>
+</footer>
+
+<script>
+(function () {
+    const imagens = document.querySelectorAll(
+        "#idmCarrossel img"
+    );
+
+    let atual = 0;
+
+    if (imagens.length < 2) return;
+
+    setInterval(function () {
+        imagens[atual].classList.remove("ativa");
+
+        atual = (atual + 1) % imagens.length;
+
+        imagens[atual].classList.add("ativa");
+    }, 3500);
+})();
+</script>
 
 </body>
 </html>
