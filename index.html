@@ -14,34 +14,49 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #ffffff;
       color: #222222;
     }
 
+    .topo {
+      width: 100%;
+      background: #ffffff;
+    }
+
     .banner {
       display: block;
       width: 100%;
       height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      object-position: center;
     }
 
     nav {
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      padding: 16px 12px;
+      padding: 16px;
       background: #087c45;
     }
 
     nav a {
+      display: inline-block;
       color: #ffffff;
       text-decoration: none;
       font-weight: bold;
       padding: 12px 18px;
-      border-radius: 6px;
+      border-radius: 7px;
       background: #0866a8;
+      transition: background 0.2s;
     }
 
     nav a:hover {
@@ -50,18 +65,18 @@
 
     main {
       max-width: 1200px;
-      margin: auto;
-      padding: 25px 18px;
+      margin: 0 auto;
+      padding: 30px 18px;
     }
 
     section {
-      margin-bottom: 42px;
+      margin-bottom: 48px;
       scroll-margin-top: 20px;
     }
 
     h2 {
       color: #087c45;
-      font-size: 24px;
+      font-size: 25px;
       margin-bottom: 18px;
       padding-bottom: 10px;
       border-bottom: 3px solid #f28c18;
@@ -91,8 +106,9 @@
       background: #087c45;
       color: #ffffff;
       text-align: center;
-      padding: 22px 12px;
+      padding: 25px 12px;
       margin-top: 30px;
+      line-height: 1.6;
     }
 
     @media (max-width: 800px) {
@@ -111,12 +127,12 @@
       }
 
       nav a {
-        font-size: 14px;
+        font-size: 13px;
         padding: 10px 12px;
       }
 
       h2 {
-        font-size: 20px;
+        font-size: 21px;
       }
     }
   </style>
@@ -124,11 +140,13 @@
 
 <body>
 
-  <header>
+  <header class="topo">
+
     <img
       class="banner"
-      src="download.png"
+      src="https://grbnava.github.io/download.png"
       alt="Relíquias do Gil - Programas, games e achadinhos selecionados!"
+      onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/GRBNAVA/grbnava.github.io/principal/download.png';"
     >
 
     <nav>
@@ -136,12 +154,14 @@
       <a href="#games">Download de games</a>
       <a href="#achadinhos">Achadinhos do Gil</a>
     </nav>
+
   </header>
 
   <main>
 
     <section id="programas">
       <h2>Download de programas</h2>
+
       <div class="catalogo">
         <div class="item">Espaço para programa</div>
         <div class="item">Espaço para programa</div>
@@ -152,6 +172,7 @@
 
     <section id="games">
       <h2>Download de games</h2>
+
       <div class="catalogo">
         <div class="item">Espaço para game</div>
         <div class="item">Espaço para game</div>
@@ -162,6 +183,7 @@
 
     <section id="achadinhos">
       <h2>Achadinhos do Gil</h2>
+
       <div class="catalogo">
         <div class="item">Espaço para achadinho</div>
         <div class="item">Espaço para achadinho</div>
@@ -173,7 +195,7 @@
   </main>
 
   <footer>
-    <p>Relíquias do Gil</p>
+    <p><strong>Relíquias do Gil</strong></p>
     <p>Programas, games e achadinhos selecionados!</p>
   </footer>
 
