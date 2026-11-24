@@ -3,469 +3,368 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Relíquias do Gil — Programas portáteis e gratuitos. Versões repack, sem instalação.">
-<title>Relíquias do Gil — Programas e Downloads</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Relíquias do Gil: programas, jogos compactos e achadinhos selecionados.">
+<meta name="theme-color" content="#111318">
+<title>Relíquias do Gil</title>
 <style>
-:root {
-  --fundo: #14161a;
-  --fundo-item: #1c1f26;
-  --texto: #e2e5e9;
-  --texto-claro: #9ca3af;
-  --destaque: #4dabf7;
-  --verde: #22c55e;
-  --laranja: #f97316;
-  --borda: #2c303a;
-  --link: #60a5fa;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--fundo);
-  color: var(--texto);
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-header {
-  background: var(--fundo-item);
-  border-bottom: 1px solid var(--borda);
-  padding: 20px 5%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.cabecalho {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo span:nth-child(1) { color: var(--verde); }
-.logo span:nth-child(2) { color: var(--laranja); }
-.logo span:nth-child(3) { color: var(--destaque); }
-
-nav a {
-  color: var(--texto-claro);
-  margin-left: 20px;
-  font-size: 15px;
-}
-
-nav a:hover, nav a.ativo {
-  color: var(--verde);
-}
-
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 35px 5%;
-}
-
-.titulo-pagina {
-  margin-bottom: 30px;
-}
-
-.titulo-pagina h1 {
-  font-size: 26px;
-  color: var(--destaque);
-  margin-bottom: 8px;
-}
-
-.titulo-pagina p {
-  color: var(--texto-claro);
-  font-size: 14px;
-}
-
-.origem-fonte {
-  background: rgba(96, 165, 250, 0.08);
-  border: 1px solid rgba(96, 165, 250, 0.2);
-  border-radius: 8px;
-  padding: 15px 20px;
-  margin-bottom: 30px;
-  font-size: 14px;
-  color: var(--texto-claro);
-}
-
-.origem-fonte a {
-  color: var(--link);
-  font-weight: 600;
-}
-
-.origem-fonte a:hover {
-  color: var(--verde);
-}
-
-.lista {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.item {
-  background: var(--fundo-item);
-  border-bottom: 1px solid var(--borda);
-  padding: 18px 22px;
-  transition: background 0.2s;
-}
-
-.item:first-child {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.item:last-child {
-  border-bottom: none;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.item:hover {
-  background: #232730;
-}
-
-.item-cabecalho {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 6px;
-}
-
-.nome-prog {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--destaque);
-}
-
-.versao {
-  color: var(--laranja);
-  font-size: 14px;
-  margin-left: 8px;
-}
-
-.meta {
-  font-size: 12px;
-  color: var(--texto-claro);
-  display: flex;
-  gap: 15px;
-}
-
-.descricao {
-  color: var(--texto-claro);
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.link-externo {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(34, 197, 94, 0.1);
-  color: var(--verde);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.2s;
-}
-
-.link-externo:hover {
-  background: var(--verde);
-  color: #000;
-}
-
-.paginacao {
-  display: flex;
-  gap: 6px;
-  margin-top: 35px;
-  flex-wrap: wrap;
-}
-
-.pagina {
-  background: var(--fundo-item);
-  border: 1px solid var(--borda);
-  border-radius: 4px;
-  min-width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.pagina.ativa {
-  background: var(--verde);
-  border-color: var(--verde);
-  color: #000;
-  font-weight: 600;
-}
-
-.pagina:hover:not(.ativa) {
-  border-color: var(--link);
-  color: var(--link);
-}
-
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  border-top: 1px solid var(--borda);
-  color: var(--texto-claro);
-  font-size: 13px;
-  margin-top: 50px;
-}
-
-footer strong {
-  color: var(--verde);
-}
-
-@media (max-width: 600px) {
-  .cabecalho {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav {
-    margin-top: 8px;
-  }
-  nav a {
-    margin-left: 12px;
-  }
-  .item-cabecalho {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+:root{--bg:#101319;--panel:#191f2a;--panel2:#202938;--line:#303b4d;--txt:#eef3fa;--muted:#aab5c5;--green:#55e39a;--orange:#ff9d4d;--blue:#70b7ff;--purple:#c4a0ff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Segoe UI,Arial,sans-serif;background:radial-gradient(ellipse at 10% 0%,#1b3040 0,transparent 32rem),radial-gradient(ellipse at 90% 10%,#30213a 0,transparent 30rem),var(--bg);color:var(--txt);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#101319ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.15rem}
+.brand-mark{height:42px;width:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green),var(--orange),var(--blue));color:#101319;font-weight:900;letter-spacing:-2px}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--green)}
+.hero{padding:74px 0 48px;text-align:center}
+.kicker{display:inline-block;border:1px solid #3b6856;background:#173226;color:var(--green);border-radius:99px;padding:5px 13px;font-size:.78rem;font-weight:800;letter-spacing:.09em}
+h1{font-size:clamp(2.5rem,7vw,4.7rem);line-height:1.06;letter-spacing:-.05em;margin:18px 0}
+h1 span{background:linear-gradient(90deg,var(--green),var(--orange),var(--blue));background-clip:text;color:transparent}
+.hero p{max-width:720px;margin:auto;color:var(--muted);font-size:1.08rem}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border:1px solid var(--line);border-radius:10px;font-weight:700;font-size:.9rem;transition:.2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--green)}
+.btn-main{background:var(--green);border-color:var(--green);color:#101319}
+section{padding:30px 0}
+.section-head{margin-bottom:19px}
+.section-head h2{font-size:clamp(1.5rem,3vw,2rem)}
+.section-head p{color:var(--muted);margin-top:4px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.category{position:relative;overflow:hidden;min-height:205px;padding:23px;border-radius:17px;border:1px solid var(--line);background:linear-gradient(145deg,#253244,#171d27);transition:.2s}
+.category:hover{transform:translateY(-4px);border-color:#64758e}
+.category .symbol{font-size:2.25rem}
+.category h3{font-size:1.13rem;margin:12px 0 5px}
+.category p{color:var(--muted);font-size:.9rem;max-width:290px}
+.category .arrow{display:block;margin-top:15px;font-weight:800;font-size:.88rem}
+.category:after{content:"";position:absolute;width:150px;height:150px;border:1px solid #ffffff12;border-radius:50%;right:-45px;bottom:-70px;box-shadow:0 0 0 18px #ffffff06,0 0 0 38px #ffffff04}
+.notice{padding:14px 17px;border:1px solid #795333;background:#352719;border-radius:12px;color:#f4d7b7;font-size:.88rem;margin:12px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:15px;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#65758b}
+.cover{height:155px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#23354b,#17202c)}
+.cover:before,.cover:after{content:"";position:absolute;border-radius:50%;border:1px solid #ffffff1c}
+.cover:before{width:180px;height:180px;right:-30px;top:-95px}
+.cover:after{width:130px;height:130px;left:-40px;bottom:-90px;box-shadow:0 0 0 18px #ffffff08}
+.cover .app-icon{width:86px;height:86px;border-radius:23px;display:grid;place-items:center;font-size:2.5rem;font-weight:900;color:white;background:linear-gradient(145deg,#3e85c7,#23517d);box-shadow:0 12px 30px #0007;z-index:1;border:1px solid #ffffff38}
+.cover .cover-tag{position:absolute;left:14px;top:12px;font-size:.7rem;font-weight:800;letter-spacing:.08em;color:#eaf4ff;background:#101925a8;border:1px solid #ffffff25;border-radius:99px;padding:4px 8px;z-index:2}
+.cover.vuescan{background:linear-gradient(135deg,#204b5b,#17232d)}
+.cover.vuescan .app-icon{background:linear-gradient(145deg,#39b6b0,#176b79)}
+.cover.lasso{background:linear-gradient(135deg,#49366c,#1c2236)}
+.cover.lasso .app-icon{background:linear-gradient(145deg,#a78bfa,#5b3e9b)}
+.cover.emeditor{background:linear-gradient(135deg,#254b75,#172638)}
+.cover.emeditor .app-icon{background:linear-gradient(145deg,#69b7ff,#2361a4)}
+.cover.masstube{background:linear-gradient(135deg,#63343d,#251c2a)}
+.cover.masstube .app-icon{background:linear-gradient(145deg,#fb7185,#a52d4b)}
+.cover.sqlite{background:linear-gradient(135deg,#254b64,#172536)}
+.cover.sqlite .app-icon{background:linear-gradient(145deg,#60a5fa,#24517e)}
+.cover.downloader{background:linear-gradient(135deg,#66502c,#272331)}
+.cover.downloader .app-icon{background:linear-gradient(145deg,#fbbf24,#a65a13)}
+.cover.wintohdd{background:linear-gradient(135deg,#24564c,#172b2a)}
+.cover.wintohdd .app-icon{background:linear-gradient(145deg,#4ade80,#16764c)}
+.cover.freetube{background:linear-gradient(135deg,#5c3036,#251d2b)}
+.cover.freetube .app-icon{background:linear-gradient(145deg,#fb7185,#a52b42)}
+.cover.nitro{background:linear-gradient(135deg,#593b32,#28202a)}
+.cover.nitro .app-icon{background:linear-gradient(145deg,#fb923c,#a33d25)}
+.cover.clean{background:linear-gradient(135deg,#245347,#172a2b)}
+.cover.clean .app-icon{background:linear-gradient(145deg,#6ee7b7,#16805f)}
+.cover.converter{background:linear-gradient(135deg,#3e4772,#1c2334)}
+.cover.converter .app-icon{background:linear-gradient(145deg,#a5b4fc,#525db4)}
+.cover.idm{background:linear-gradient(135deg,#234e83,#151e31)}
+.cover.idm .app-icon{background:linear-gradient(145deg,#60a5fa,#174b92)}
+.card-body{padding:16px}
+.card-title{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.card h3{font-size:1.02rem;color:var(--blue)}
+.version{font-size:.78rem;color:var(--orange);white-space:nowrap}
+.card .meta{font-size:.75rem;color:#8996a9;margin-top:3px}
+.tagline{font-weight:700;color:#e7edf6;font-size:.9rem;margin:10px 0 4px}
+.desc{font-size:.85rem;color:var(--muted);min-height:62px}
+.card .btn{margin-top:13px;color:var(--green);padding:8px 12px}
+.card .btn:hover{background:#55e39a12}
+.empty{padding:26px;border:1px dashed #536176;border-radius:14px;color:var(--muted);background:#ffffff04}
+footer{margin-top:50px;padding:27px 0 38px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:.84rem}
+footer strong{color:var(--green)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.categories,.grid{grid-template-columns:1fr}.nav{padding:12px 0}nav{gap:13px}.hero{padding:52px 0 30px}.cover{height:145px}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="cabecalho">
-    <a href="#" class="logo">
-      <span>R</span><span>G</span><span>.</span>
-      Relíquias do Gil
-    </a>
-    <nav>
-      <a href="#" class="ativo">Programas</a>
-      <a href="#">Jogos</a>
-      <a href="#">Sobre</a>
-    </nav>
-  </div>
+<div class="wrap nav">
+<a class="brand" href="#inicio">
+<span class="brand-mark">RG.</span>
+<span>Relíquias do Gil</span>
+</a>
+<nav aria-label="Menu principal">
+<a href="#programas">Programas</a>
+<a href="#jogos">Jogos</a>
+<a href="#achadinhos">Achadinhos</a>
+<a href="#sobre">Sobre</a>
+</nav>
+</div>
 </header>
 
-<main>
-  <div class="titulo-pagina">
-    <h1>📦 Programas — Repack e Portáteis</h1>
-    <p>Versões que não precisam de instalação. Baixe, extraia e use. Atualizado em 24/11/2026.</p>
-  </div>
+<main class="wrap" id="inicio">
 
-  <div class="origem-fonte">
-    📌 Os arquivos estão hospedados no site <strong>lrepacks.net</strong>. Os botões abaixo vão direto para a página de download de cada programa — é só clicar e baixar!
-    <br><br>
-    🔗 Site fonte: <a href="https://lrepacks.net/" target="_blank" rel="noopener noreferrer">lrepacks.net</a>
-  </div>
+<section class="hero">
+<span class="kicker">SELEÇÃO DO GIL</span>
+<h1>Suas próximas <span>descobertas</span> começam aqui.</h1>
+<p>Programas úteis, jogos compactos e achadinhos escolhidos para facilitar sua busca. Explore as categorias e encontre sua próxima relíquia.</p>
+<div class="actions">
+<a class="btn btn-main" href="#categorias">Explorar categorias</a>
+<a class="btn" href="#programas">Ver programas</a>
+</div>
+</section>
 
-  <div class="lista">
+<section id="categorias">
+<div class="section-head">
+<h2>Explore nossas categorias</h2>
+<p>Escolha por onde quer começar.</p>
+</div>
+<div class="categories">
 
-    <!-- 1 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">VueScan Professional <span class="versao">v9.8.60</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 170</span>
-      </div>
-      <p class="descricao">
-        Programa completo para trabalhar com escâneres. Substitui a interface padrão do seu equipamento por uma muito mais completa, com ajustes avançados de cor, resolução e formato. Funciona com praticamente qualquer modelo. Versão portátil — não precisa instalar.
-      </p>
-      <a href="https://lrepacks.net/soft/vuescan-professional.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<a class="category" href="#programas">
+<div class="symbol">🧰</div>
+<h3>Programas craqueados e compactos</h3>
+<p>Ferramentas, utilitários e aplicativos selecionados.</p>
+<span class="arrow" style="color:var(--green)">Explorar programas →</span>
+</a>
 
-    <!-- 2 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">Process Lasso <span class="versao">v19.1.0.46</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 102</span>
-      </div>
-      <p class="descricao">
-        Gerencia como o Windows distribui o processamento entre os programas. Ajuda a manter o sistema responsivo, mesmo quando programas pesados estão rodando. Ideal para quem sente o PC travar de vez em quando. Versão portátil pronta para usar.
-      </p>
-      <a href="https://lrepacks.net/soft/process-lasso.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<a class="category" href="#jogos">
+<div class="symbol">🎮</div>
+<h3>Jogos RIPs e compactos</h3>
+<p>Jogos com versões reduzidas e informações organizadas.</p>
+<span class="arrow" style="color:var(--orange)">Explorar jogos →</span>
+</a>
 
-    <!-- 3 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">EmEditor <span class="versao">v26.4.2</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 60</span>
-      </div>
-      <p class="descricao">
-        Editor de texto leve, porém extremamente potente. Perfeito para programadores e quem precisa abrir arquivos gigantes que outros editores não conseguem. Abre documentos de vários megabytes sem travar. Executa direto da pasta, sem instalação.
-      </p>
-      <a href="https://lrepacks.net/soft/emeditor.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<a class="category" href="#achadinhos">
+<div class="symbol">🛍️</div>
+<h3>Achadinhos do Gil</h3>
+<p>Ofertas, produtos úteis e descobertas interessantes.</p>
+<span class="arrow" style="color:var(--blue)">Ver achadinhos →</span>
+</a>
 
-    <!-- 4 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">MassTube Ultra <span class="versao">v22.2.0.233</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 59</span>
-      </div>
-      <p class="descricao">
-        Ferramenta simples e direta para baixar vídeos do YouTube e outras plataformas. Basta colar o link, escolher a qualidade e o formato — MP4 para vídeo ou MP3 para áudio. Muito fácil de usar, sem configurações complicadas.
-      </p>
-      <a href="https://lrepacks.net/soft/masstube-ultra.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+</div>
+</section>
 
-    <!-- 5 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">SQLite Expert Professional <span class="versao">v6.2.16.750</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 15</span>
-      </div>
-      <p class="descricao">
-        Interface gráfica amigável para criar, editar e gerenciar bancos de dados SQLite3. Permite visualizar tabelas, executar consultas, importar e exportar dados com facilidade. Excelente para desenvolvedores que trabalham com aplicativos leves.
-      </p>
-      <a href="https://lrepacks.net/soft/sqlite-expert-professional.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<section id="programas">
+<div class="section-head">
+<h2>🧰 Programas craqueados e compactos</h2>
+<p>Uma seleção inicial — cada programa tem seu destaque e sua página de referência.</p>
+</div>
 
-    <!-- 6 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">4K Downloader <span class="versao">v6.6.6</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 119</span>
-      </div>
-      <p class="descricao">
-        Baixa vídeos, playlists e canais inteiros com qualidade até 4K de diversas plataformas. Simples de usar: cole o link, escolha o formato e pronto. Suporta vários sites, com opções de áudio separado e legendas.
-      </p>
-      <a href="https://lrepacks.net/soft/4k-downloader.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<div class="notice">
+<strong>Importante:</strong> versões repack podem ser modificadas por terceiros e não são necessariamente oficiais. Confira a licença, a reputação da fonte e examine os arquivos com antivírus antes de executar. Sempre que possível, prefira a versão original do desenvolvedor.
+</div>
 
-    <!-- 7 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">WinToHDD Technician <span class="versao">v7.2</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 22</span>
-      </div>
-      <p class="descricao">
-        Instala ou reinstala o Windows diretamente do disco rígido — sem precisar de pendrive ou DVD. Muito útil quando você precisa formatar e não tem mídia de instalação à mão. Funciona direto do sistema que já está rodando.
-      </p>
-      <a href="https://lrepacks.net/soft/wintohdd-technician.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<div class="grid">
 
-    <!-- 8 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">FreeTube <span class="versao">v0.26.0</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 98</span>
-      </div>
-      <p class="descricao">
-        Aplicativo de desktop para assistir vídeos do YouTube sem anúncios e sem ser rastreado. Código aberto, leve e respeita sua privacidade. Inscreva-se em canais, crie listas — tudo sem precisar de conta Google.
-      </p>
-      <a href="https://lrepacks.net/soft/freetube.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<article class="card">
+<div class="cover vuescan">
+<span class="cover-tag">IMAGEM & DIGITALIZAÇÃO</span>
+<div class="app-icon">📷</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>VueScan Professional</h3><span class="version">v9.8.60</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Dê vida nova ao seu scanner.</p>
+<p class="desc">Digitalize documentos e fotos com mais controle sobre cores, resolução e formatos.</p>
+<a class="btn" href="https://lrepacks.net/soft/vuescan-professional.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
 
-    <!-- 9 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">Nitro Pro Enterprise <span class="versao">v26.2.6.0</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 81</span>
-      </div>
-      <p class="descricao">
-        Conjunto completo de ferramentas para trabalhar com arquivos PDF. Crie, edite, converta, assine e proteja documentos. Alternativa mais acessível ao Adobe Acrobat. Versão repack pronta para uso imediato.
-      </p>
-      <a href="https://lrepacks.net/soft/nitro-pro-enterprise.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<article class="card">
+<div class="cover lasso">
+<span class="cover-tag">DESEMPENHO DO PC</span>
+<div class="app-icon">⚙️</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>Process Lasso</h3><span class="version">v19.1.0.46</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Mais controle sobre os processos do Windows.</p>
+<p class="desc">Ajuda a gerenciar prioridades e o uso do processador pelos programas em execução.</p>
+<a class="btn" href="https://lrepacks.net/soft/process-lasso.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
 
-    <!-- 10 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">ASCOMP Cleaning Suite Pro <span class="versao">v5.002</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 1</span>
-      </div>
-      <p class="descricao">
-        Faz limpeza completa do sistema. Remove arquivos temporários, lixo de navegadores, entradas antigas do registro e otimiza o Windows. Cria ponto de restauração automaticamente antes de qualquer alteração. Seguro de usar.
-      </p>
-      <a href="https://lrepacks.net/soft/ascomp-cleaning-suite-pro.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<article class="card">
+<div class="cover emeditor">
+<span class="cover-tag">EDIÇÃO DE TEXTO</span>
+<div class="app-icon">📝</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>EmEditor</h3><span class="version">v26.4.2</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Leve no uso, gigante nos recursos.</p>
+<p class="desc">Editor avançado para programação, textos extensos e arquivos muito grandes.</p>
+<a class="btn" href="https://lrepacks.net/soft/emeditor.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
 
-    <!-- 11 -->
-    <div class="item">
-      <div class="item-cabecalho">
-        <span class="nome-prog">CoolUtils Total HTML Converter <span class="versao">v5.1.0.390</span></span>
-        <span class="meta">📅 19/11/2026 &nbsp; 👁️ 10</span>
-      </div>
-      <p class="descricao">
-        Converte páginas HTML para PDF, DOC, XLS, JPG, PNG e outros formatos em lote. Mantém layout e imagens originais intactos mesmo com vários arquivos de uma vez. Roda sem instalação.
-      </p>
-      <a href="https://lrepacks.net/soft/coolutils-total-html-converter.html" target="_blank" rel="noopener noreferrer" class="link-externo">
-        📥 BAIXAR PÁGINA DIRETA
-      </a>
-    </div>
+<article class="card">
+<div class="cover masstube">
+<span class="cover-tag">VÍDEO</span>
+<div class="app-icon">▶</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>MassTube Ultra</h3><span class="version">v22.2.0.233</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Vídeos e formatos em um só lugar.</p>
+<p class="desc">Ferramenta para obter vídeos de plataformas compatíveis e escolher formato e qualidade.</p>
+<a class="btn" href="https://lrepacks.net/soft/masstube-ultra.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
 
-  </div>
+<article class="card">
+<div class="cover sqlite">
+<span class="cover-tag">BANCO DE DADOS</span>
+<div class="app-icon">▦</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>SQLite Expert Professional</h3><span class="version">v6.2.16.750</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Organize seus dados com praticidade.</p>
+<p class="desc">Interface gráfica para visualizar, editar e consultar bancos de dados SQLite.</p>
+<a class="btn" href="https://lrepacks.net/soft/sqlite-expert-professional.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
 
-  <div class="paginacao">
-    <span class="pagina ativa">1</span>
-    <span class="pagina">2</span>
-    <span class="pagina">3</span>
-    <span class="pagina">4</span>
-    <span class="pagina">5</span>
-    <span class="pagina">6</span>
-    <span class="pagina">7</span>
-    <span class="pagina">...</span>
-    <span class="pagina">77</span>
-  </div>
+<article class="card">
+<div class="cover downloader">
+<span class="cover-tag">DOWNLOADS</span>
+<div class="app-icon">⬇</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>4K Downloader</h3><span class="version">v6.6.6</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Suas mídias organizadas em poucos passos.</p>
+<p class="desc">Ferramenta para baixar vídeos e playlists de serviços compatíveis, com opções de qualidade.</p>
+<a class="btn" href="https://lrepacks.net/soft/4k-downloader.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
+
+<article class="card">
+<div class="cover wintohdd">
+<span class="cover-tag">FERRAMENTAS DO WINDOWS</span>
+<div class="app-icon">💽</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>WinToHDD Technician</h3><span class="version">v7.2</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Instalação do Windows sem mídia externa.</p>
+<p class="desc">Utilitário para instalar ou reinstalar o Windows a partir do próprio disco.</p>
+<a class="btn" href="https://lrepacks.net/soft/wintohdd-technician.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
+
+<article class="card">
+<div class="cover freetube">
+<span class="cover-tag">VÍDEO & PRIVACIDADE</span>
+<div class="app-icon">▷</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>FreeTube</h3><span class="version">v0.26.0</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Uma experiência de vídeo com foco em privacidade.</p>
+<p class="desc">Aplicativo de código aberto para acompanhar canais e organizar vídeos.</p>
+<a class="btn" href="https://lrepacks.net/soft/freetube.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
+
+<article class="card">
+<div class="cover nitro">
+<span class="cover-tag">DOCUMENTOS PDF</span>
+<div class="app-icon">PDF</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>Nitro Pro Enterprise</h3><span class="version">v26.2.6.0</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Mais recursos para seus documentos.</p>
+<p class="desc">Ferramentas para criar, editar, converter e assinar arquivos PDF.</p>
+<a class="btn" href="https://lrepacks.net/soft/nitro-pro-enterprise.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
+
+<article class="card">
+<div class="cover clean">
+<span class="cover-tag">MANUTENÇÃO</span>
+<div class="app-icon">🧹</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>ASCOMP Cleaning Suite Pro</h3><span class="version">v5.002</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Uma ajuda na limpeza do sistema.</p>
+<p class="desc">Conjunto de utilitários para localizar arquivos temporários e itens de manutenção.</p>
+<a class="btn" href="https://lrepacks.net/soft/ascomp-cleaning-suite-pro.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
+
+<article class="card">
+<div class="cover converter">
+<span class="cover-tag">CONVERSÃO DE ARQUIVOS</span>
+<div class="app-icon">⇄</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>CoolUtils Total HTML Converter</h3><span class="version">v5.1.0.390</span></div>
+<div class="meta">Versão conforme lista inicial</div>
+<p class="tagline">Transforme páginas em formatos úteis.</p>
+<p class="desc">Converte arquivos HTML para formatos como PDF, DOC, XLS e imagens.</p>
+<a class="btn" href="https://lrepacks.net/soft/coolutils-total-html-converter.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
+</div>
+</article>
+
+<article class="card">
+<div class="cover idm">
+<span class="cover-tag">GERENCIADOR DE DOWNLOADS</span>
+<div class="app-icon">⬇</div>
+</div>
+<div class="card-body">
+<div class="card-title"><h3>Internet Download Manager</h3><span class="version">v6.43.18</span></div>
+<div class="meta">Página consultada em 24/11/2026</div>
+<p class="tagline">Controle seus downloads em um só painel.</p>
+<p class="desc">Gerenciador de transferências com filas, segmentação de arquivos e integração com navegadores. A página consultada apresenta uma edição repack de terceiros.</p>
+<a class="btn" href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html" target="_blank" rel="noopener noreferrer">Ver página de referência ↗</a>
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="jogos">
+<div class="section-head">
+<h2>🎮 Jogos RIPs e compactos</h2>
+<p>Uma coleção de jogos com foco em versões reduzidas.</p>
+</div>
+<div class="empty">Em breve: capas dos jogos, tamanho, requisitos e descrição de cada título.</div>
+</section>
+
+<section id="achadinhos">
+<div class="section-head">
+<h2>🛍️ Achadinhos do Gil</h2>
+<p>Produtos úteis, ofertas e boas descobertas.</p>
+</div>
+<div class="empty">Em breve: fotos dos produtos, destaques e links de afiliado.</div>
+</section>
+
+<section id="sobre">
+<div class="section-head">
+<h2>Sobre o Relíquias do Gil</h2>
+<p>Um catálogo independente de descobertas digitais, programas, jogos e ofertas selecionadas.</p>
+</div>
+</section>
 
 </main>
 
 <footer>
-  <p>© 2026 <strong>Relíquias do Gil</strong> — Todos os direitos reservados.</p>
-  <p>Os links acima vão direto para a página oficial de cada programa no site lrepacks.net. Sempre verifique os arquivos antes de executar.</p>
+<div class="wrap">
+<p>© 2026 <strong>Relíquias do Gil</strong> — Seleção e organização do Gil.</p>
+<p>Programas, marcas e produtos pertencem aos respectivos proprietários. O site não hospeda os arquivos listados.</p>
+</div>
 </footer>
 
 </body>
