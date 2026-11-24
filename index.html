@@ -1,172 +1,346 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10131c">
-<title>Relíquias do Gil</title>
-<style>
-:root {
-  --bg:#10131c; --panel:#191f2d; --panel2:#20283a;
-  --text:#f5f7fb; --muted:#aab3c4; --green:#79e0a1;
-  --orange:#ff9b54; --line:#30394b;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
-header{padding:48px 20px 38px;text-align:center;background:radial-gradient(circle at top,#26334b,#10131c 70%)}
-.logo{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--green),#319b72);color:#10131c;font-size:25px;font-weight:900;margin-bottom:14px}
-h1{font-size:clamp(32px,6vw,52px);margin:0}
-header p{color:var(--muted);max-width:650px;margin:12px auto 0;line-height:1.6}
-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#10131cee;backdrop-filter:blur(12px);z-index:5}
-nav a{color:var(--text);text-decoration:none;padding:10px 15px;border:1px solid var(--line);border-radius:30px;font-size:14px}
-nav a:hover{border-color:var(--green);color:var(--green)}
-main{max-width:1150px;margin:auto;padding:30px 18px 70px}
-section{margin:34px 0 54px;scroll-margin-top:85px}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:18px}
-h2{font-size:25px;margin:0}
-.section-head p{color:var(--muted);margin:7px 0 0;font-size:14px}
-.status{font-size:12px;color:var(--green)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:17px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:.2s}
-.card:hover{transform:translateY(-3px);border-color:#63758f}
-.cover{height:145px;background:var(--panel2);display:grid;place-items:center;overflow:hidden;position:relative}
-.cover img{width:100%;height:100%;object-fit:cover}
-.cover-fallback{font-size:38px;color:var(--green);font-weight:900}
-.card-body{padding:16px;display:flex;flex-direction:column;flex:1}
-.tag{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--green)}
-.tag.oferta{color:var(--orange)}
-.card h3{font-size:17px;line-height:1.35;margin:8px 0}
-.description{font-size:13px;line-height:1.55;color:var(--muted);flex:1}
-.meta{font-size:12px;color:#8793a7;margin:12px 0}
-.card a.button{display:block;text-align:center;text-decoration:none;background:var(--green);color:#102018;font-weight:bold;padding:11px;border-radius:9px;font-size:13px}
-.card a.button.oferta{background:var(--orange);color:#1c1208}
-.card a.button:hover{filter:brightness(1.08)}
-.empty{padding:25px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);line-height:1.6}
-.feature{background:linear-gradient(120deg,#1d2a35,#20283a);border:1px solid var(--line);padding:24px;border-radius:18px}
-.feature p{color:var(--muted);line-height:1.6}
-footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted);font-size:13px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101010">
+    <title>Relíquias do Gil</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #101010;
+            color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 22px 15px;
+            text-align: center;
+            border-bottom: 1px solid #b89545;
+            background: #101010ee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            color: #d4af55;
+            letter-spacing: 4px;
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #3a3222;
+            border-radius: 25px;
+            font-size: 13px;
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            border-color: #d4af55;
+            color: #d4af55;
+        }
+
+        .hero {
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 45px 20px;
+            background: radial-gradient(ellipse at center, #292319 0%, #101010 75%);
+            border-bottom: 1px solid #262118;
+        }
+
+        .hero h2 {
+            color: #d4af55;
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: #cccccc;
+            font-size: 16px;
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #d4af55, #92702c);
+            color: #101010;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.04);
+            background: #f0cf78;
+        }
+
+        main {
+            max-width: 1120px;
+            margin: auto;
+            padding: 20px 20px 60px;
+        }
+
+        .secao {
+            padding: 50px 0 20px;
+            scroll-margin-top: 110px;
+        }
+
+        .secao-titulo {
+            border-left: 4px solid #d4af55;
+            padding-left: 14px;
+            margin-bottom: 24px;
+        }
+
+        .secao-titulo h2 {
+            color: #d4af55;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .secao-titulo p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: #181818;
+            border: 1px solid #2e291e;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            border-color: #d4af55;
+            transform: translateY(-3px);
+        }
+
+        .card-img {
+            height: 150px;
+            background: #22201b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af55;
+            font-weight: bold;
+            font-size: 22px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #d4af55;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #bbb;
+            line-height: 1.5;
+            flex: 1;
+            margin-bottom: 14px;
+        }
+
+        .preco {
+            font-size: 18px;
+            font-weight: bold;
+            color: #79e0a1;
+            margin-bottom: 12px;
+        }
+
+        .card-btn {
+            display: block;
+            text-align: center;
+            padding: 11px;
+            background: linear-gradient(135deg, #d4af55, #92702c);
+            color: #101010;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .card-btn:hover {
+            background: #f0cf78;
+        }
+
+        .card-btn.shopee {
+            background: linear-gradient(135deg, #ff7337, #d94e14);
+            color: #fff;
+        }
+
+        .card-btn.shopee:hover {
+            filter: brightness(1.1);
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #b89545;
+            color: #888;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 { font-size: 26px; }
+            header h1 { font-size: 20px; }
+        }
+    </style>
 </head>
+
 <body>
-<header>
-  <div class="logo">RG</div>
-  <h1>Relíquias do Gil</h1>
-  <p>Vitrine de programas para download, jogos e achadinhos selecionados.</p>
-</header>
 
-<nav>
-  <a href="#programas">Programas</a>
-  <a href="#jogos">Jogos</a>
-  <a href="#achadinhos">Achadinhos do Gil</a>
-</nav>
+    <header>
+        <h1>RELÍQUIAS DO GIL</h1>
+        <nav>
+            <a href="#programas">Programas</a>
+            <a href="#jogos">Jogos</a>
+            <a href="#achadinhos">Achadinhos Shopee</a>
+        </nav>
+    </header>
 
-<main>
-  <section id="programas">
-    <div class="section-head">
-      <div>
-        <h2>Programas para Download</h2>
-        <p>Utilitários e ferramentas direcionados para suas páginas oficiais.</p>
-      </div>
-      <span class="status" id="atualizacao">Carregando catálogo…</span>
-    </div>
-    <div class="grid" id="lista-programas"></div>
-  </section>
+    <section class="hero">
+        <h2>Bem-vindo!</h2>
+        <p>
+            Programas úteis, jogos selecionados e achadinhos de informática
+            em um só lugar. Explore nossas relíquias!
+        </p>
+        <a href="#programas" class="btn">ENTRAR E EXPLORAR</a>
+    </section>
 
-  <section id="jogos">
-    <div class="section-head">
-      <div>
-        <h2>Download de Jogos</h2>
-        <p>Jogos gratuitos, indies e clássicos com links verificados.</p>
-      </div>
-    </div>
-    <div class="grid" id="lista-jogos"></div>
-  </section>
+    <main>
+        <!-- SEÇÃO 1: PROGRAMAS -->
+        <section class="secao" id="programas">
+            <div class="secao-titulo">
+                <h2>Programas para Download</h2>
+                <p>Ferramentas e utilitários direcionados para os sites oficiais.</p>
+            </div>
 
-  <section id="achadinhos">
-    <div class="section-head">
-      <div>
-        <h2>Achadinhos do Gil</h2>
-        <p>Produtos, periféricos e ofertas recomendadas.</p>
-      </div>
-    </div>
-    <div class="grid" id="lista-achadinhos"></div>
-  </section>
+            <div class="grid">
+                <!-- COPIE ESTE BLOCO <article> PARA ADICIONAR MAIS PROGRAMAS -->
+                <article class="card">
+                    <div class="card-img">7-ZIP</div>
+                    <div class="card-body">
+                        <span class="tag">Utilitário · Grátis</span>
+                        <h3>7-Zip (64-bit)</h3>
+                        <p>Compactador e descompactador leve e rápido para arquivos ZIP, RAR e 7z.</p>
+                        <a href="https://7-zip.org" target="_blank" rel="noopener noreferrer" class="card-btn">IR PARA DOWNLOAD</a>
+                    </div>
+                </article>
 
-  <section>
-    <div class="feature">
-      <h3>Aviso sobre os links</h3>
-      <p>O Relíquias do Gil funciona como um catálogo de curadoria e não hospeda arquivos em servidores próprios. Todos os botões redirecionam para as páginas oficiais de download ou lojas parceiras.</p>
-    </div>
-  </section>
-</main>
+                <article class="card">
+                    <div class="card-img">OBS</div>
+                    <div class="card-body">
+                        <span class="tag">Vídeo · Grátis</span>
+                        <h3>OBS Studio</h3>
+                        <p>Programa oficial para gravação de tela e transmissões ao vivo.</p>
+                        <a href="https://obsproject.com" target="_blank" rel="noopener noreferrer" class="card-btn">IR PARA DOWNLOAD</a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-<footer>Relíquias do Gil · © 2026</footer>
+        <!-- SEÇÃO 2: JOGOS -->
+        <section class="secao" id="jogos">
+            <div class="secao-titulo">
+                <h2>Download de Jogos</h2>
+                <p>Clássicos, jogos leves e títulos gratuitos verificados.</p>
+            </div>
 
-<script>
-function escapar(texto) {
-  return String(texto || "").replace(/[&<>"']/g, c => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
-  })[c]);
-}
+            <div class="grid">
+                <!-- COPIE ESTE BLOCO <article> PARA ADICIONAR MAIS JOGOS -->
+                <article class="card">
+                    <div class="card-img">JOGO</div>
+                    <div class="card-body">
+                        <span class="tag">Ação · Grátis</span>
+                        <h3>OpenRA (Red Alert)</h3>
+                        <p>Clássico de estratégia em tempo real recriado e gratuito para PC moderno.</p>
+                        <a href="https://openra.net" target="_blank" rel="noopener noreferrer" class="card-btn">IR PARA DOWNLOAD</a>
+                    </div>
+                </article>
 
-function criarCartao(item, tipo) {
-  const titulo = escapar(item.title);
-  const descricao = escapar(item.description || "Clique para ver os detalhes.");
-  const link = escapar(item.link || "#");
-  const imagem = item.image || "";
-  const tag = escapar(item.tag || (tipo === "achadinhos" ? "Oferta" : "Download Oficial"));
-  const data = item.date ? escapar(item.date) : "";
+                <article class="card">
+                    <div class="card-img">JOGO</div>
+                    <div class="card-body">
+                        <span class="tag">Corrida · Grátis</span>
+                        <h3>SuperTuxKart</h3>
+                        <p>Jogo de corrida arcade leve e divertido para rodar em qualquer computador.</p>
+                        <a href="https://supertuxkart.net" target="_blank" rel="noopener noreferrer" class="card-btn">IR PARA DOWNLOAD</a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-  const textoBotao = tipo === "achadinhos" ? "Ver oferta" : "Ir para download";
-  const classeExtra = tipo === "achadinhos" ? " oferta" : "";
+        <!-- SEÇÃO 3: ACHADINHOS SHOPEE -->
+        <section class="secao" id="achadinhos">
+            <div class="secao-titulo">
+                <h2>Achadinhos de Informática</h2>
+                <p>Periféricos, adaptadores e ofertas selecionadas da Shopee.</p>
+            </div>
 
-  const imagemHtml = imagem
-    ? `<img src="${escapar(imagem)}" alt="${titulo}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`
-    : `<div class="cover-fallback">RG</div>`;
-
-  return `
-    <article class="card">
-      <div class="cover">${imagemHtml}</div>
-      <div class="card-body">
-        <span class="tag${classeExtra}">${tag}</span>
-        <h3>${titulo}</h3>
-        <div class="description">${descricao}</div>
-        <div class="meta">${data ? "Adicionado em " + data : "Link verificado"}</div>
-        <a class="button${classeExtra}" href="${link}" target="_blank" rel="noopener noreferrer">
-          ${textoBotao}
-        </a>
-      </div>
-    </article>`;
-}
-
-function renderizarSecao(idContainer, lista, tipo, mensagemVazia) {
-  const container = document.getElementById(idContainer);
-  if (!Array.isArray(lista) || lista.length === 0) {
-    container.innerHTML = `<div class="empty">${mensagemVazia}</div>`;
-    return;
-  }
-  container.innerHTML = lista.map(item => criarCartao(item, tipo)).join("");
-}
-
-async function carregarCatalogo() {
-  const status = document.getElementById("atualizacao");
-  try {
-    const resposta = await fetch("./catalogo.json?v=" + Date.now(), { cache: "no-store" });
-    if (!resposta.ok) throw new Error("Arquivo catalogo.json não encontrado.");
-
-    const dados = await resposta.json();
-    renderizarSecao("lista-programas", dados.programas, "programas", "Nenhum programa cadastrado ainda.");
-    renderizarSecao("lista-jogos", dados.jogos, "jogos", "Nenhum jogo cadastrado ainda.");
-    renderizarSecao("lista-achadinhos", dados.achadinhos, "achadinhos", "Nenhum achadinho cadastrado ainda.");
-
-    status.textContent = "Atualizado em: " + (dados.atualizado_em || new Date().toLocaleDateString("pt-BR"));
-  } catch (erro) {
-    status.textContent = "Catálogo indisponível";
-    console.error(erro);
-  }
-}
-
-carregarCatalogo();
-</script>
-</body>
-</html>
+            <div class="grid">
+                <!-- COPIE ESTE BLOCO <article> PARA ADICIONAR SEUS LINKS DA SHOPEE -->
+                <article class="card">
+                    <div class="card-img">
+                        <!-- Troque o link abaixo pela URL da foto do produto -->
