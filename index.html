@@ -1,32 +1,338 @@
-<div class="card">
-    <img
-        src="https://www.internetdownloadmanager.com/images/idm-logo.png"
-        alt="Internet Download Manager"
-        class="card-image"
-    >
 
-    <h3>Internet Download Manager</h3>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<title>Relíquias do Gil</title>
 
-    <p>
-        Gerenciador de downloads para Windows.
-        Acelera transferências, permite retomar downloads
-        interrompidos e integra-se aos navegadores.
-    </p>
+<style>
+:root {
+    --bg: #171717;
+    --panel: #202020;
+    --panel2: #262626;
+    --gold: #d5a83d;
+    --text: #eeeeee;
+    --muted: #aaa;
+    --border: #383838;
+}
 
-    <ul>
-        <li>Aceleração de downloads</li>
-        <li>Retomada de transferências</li>
-        <li>Integração com navegadores</li>
-        <li>Agendamento de downloads</li>
-    </ul>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <a href="https://www.internetdownloadmanager.com/"
-       target="_blank" rel="noopener noreferrer">
-        SITE OFICIAL
-    </a>
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
-    <a href="https://www.internetdownloadmanager.com/buy_idm.html"
-       target="_blank" rel="noopener noreferrer">
-        COMPRAR LICENÇA
-    </a>
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    background: #111;
+    border-bottom: 2px solid var(--gold);
+}
+
+.top {
+    max-width: 1180px;
+    margin: auto;
+    padding: 22px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo h1 {
+    color: var(--gold);
+    font-size: 27px;
+    letter-spacing: 1px;
+}
+
+.logo p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.search {
+    width: 280px;
+    max-width: 100%;
+}
+
+.search input {
+    width: 100%;
+    padding: 11px 13px;
+    background: #252525;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: white;
+    outline: none;
+}
+
+.search input:focus {
+    border-color: var(--gold);
+}
+
+nav {
+    background: #222;
+    border-bottom: 1px solid var(--border);
+}
+
+.menu {
+    max-width: 1180px;
+    margin: auto;
+    padding: 0 18px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    display: block;
+    padding: 13px 17px;
+    color: #ddd;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+}
+
+.container {
+    max-width: 1180px;
+    margin: 25px auto;
+    padding: 0 18px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 22px;
+    min-height: 350px;
+}
+
+.page-title {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 13px 16px;
+    margin-bottom: 15px;
+}
+
+.page-title h2 {
+    font-size: 18px;
+    color: var(--gold);
+}
+
+.page-title p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.empty {
+    padding: 25px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.sidebar-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    margin-bottom: 15px;
+}
+
+.sidebar-box h3 {
+    padding: 11px 13px;
+    background: #292929;
+    border-bottom: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.sidebar-content {
+    padding: 12px;
+}
+
+.sidebar-content a {
+    display: block;
+    color: #bbb;
+    padding: 7px 3px;
+    border-bottom: 1px solid #333;
+    font-size: 12px;
+}
+
+.sidebar-content a:hover {
+    color: var(--gold);
+}
+
+.sidebar-content a:last-child {
+    border-bottom: 0;
+}
+
+footer {
+    margin-top: 35px;
+    background: #111;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 23px 12px;
+    color: #888;
+    font-size: 12px;
+}
+
+@media (max-width: 760px) {
+    .top {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .menu {
+        justify-content: center;
+    }
+
+    .menu a {
+        padding: 11px 10px;
+        font-size: 12px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        margin-top: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="top">
+        <div class="logo">
+            <h1>RELÍQUIAS DO GIL</h1>
+            <p>Programas, games e achadinhos selecionados!</p>
+        </div>
+
+        <div class="search">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Pesquisar no site..."
+                aria-label="Pesquisar publicações"
+            >
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="menu">
+        <a href="#" class="active" data-filter="todos">Início</a>
+        <a href="#programas" data-filter="programas">💻 Programas para Download</a>
+        <a href="#games" data-filter="games">🎮 Games para Download</a>
+        <a href="#achadinhos" data-filter="achadinhos">🛍️ Achadinhos do Gil</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <main>
+        <div class="page-title">
+            <h2 id="sectionTitle">Últimas publicações</h2>
+            <p>Confira as novidades do Relíquias do Gil.</p>
+        </div>
+
+        <div class="empty" id="emptyMessage">
+            Nenhuma publicação cadastrada.
+        </div>
+    </main>
+
+    <aside>
+        <div class="sidebar-box">
+            <h3>📂 Categorias</h3>
+            <div class="sidebar-content">
+                <a href="#" data-filter="todos">Todas as publicações</a>
+                <a href="#programas" data-filter="programas">💻 Programas para Download</a>
+                <a href="#games" data-filter="games">🎮 Games para Download</a>
+                <a href="#achadinhos" data-filter="achadinhos">🛍️ Achadinhos do Gil</a>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <h3>⭐ Sobre o site</h3>
+            <div class="sidebar-content">
+                <p style="color:#aaa;font-size:12px;">
+                    Bem-vindo ao Relíquias do Gil! Um espaço para encontrar
+                    programas, jogos e produtos selecionados.
+                </p>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <h3>🔔 Novidades</h3>
+            <div class="sidebar-content">
+                <p style="color:#aaa;font-size:12px;">
+                    Em breve, novas publicações por aqui.
+                </p>
+            </div>
+        </div>
+    </aside>
+
 </div>
+
+<footer>
+    <p>© 2026 Relíquias do Gil — Todos os direitos reservados.</p>
+    <p style="margin-top:5px;">Conteúdo e indicações selecionados por Gil.</p>
+</footer>
+
+<script>
+const filterLinks = document.querySelectorAll("[data-filter]");
+const sectionTitle = document.getElementById("sectionTitle");
+const searchInput = document.getElementById("searchInput");
+
+const titles = {
+    todos: "Últimas publicações",
+    programas: "Programas para Download",
+    games: "Games para Download",
+    achadinhos: "Achadinhos do Gil"
+};
+
+filterLinks.forEach(link => {
+    link.addEventListener("click", event => {
+        event.preventDefault();
+
+        const filter = link.dataset.filter;
+        sectionTitle.textContent = titles[filter];
+
+        document.querySelectorAll(".menu a").forEach(item => {
+            item.classList.toggle(
+                "active",
+                item.dataset.filter === filter
+            );
+        });
+    });
+});
+
+searchInput.addEventListener("input", () => {
+    sectionTitle.textContent = searchInput.value.trim()
+        ? "Pesquisa"
+        : "Últimas publicações";
+});
+</script>
+
+</body>
+</html>
