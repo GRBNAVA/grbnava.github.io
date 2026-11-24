@@ -4,9 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="description" content="Relíquias do Gil - programas, games e achadinhos encontrados na internet.">
-
 <title>Relíquias do Gil</title>
 
 <style>
@@ -94,6 +92,7 @@ h2 {
     overflow: hidden;
     background: #fff;
     box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+    min-width: 0;
 }
 
 .idm-imagens {
@@ -114,6 +113,14 @@ h2 {
     display: block;
 }
 
+.imagem-utorrent {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: #eeeeee;
+}
+
 .idm-conteudo {
     padding: 14px;
 }
@@ -127,6 +134,17 @@ h2 {
     border-radius: 5px;
     font-size: 12px;
     margin-bottom: 10px;
+}
+
+.idm-conteudo h3 {
+    color: #1676bd;
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.idm-conteudo p {
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .idm-info {
@@ -183,6 +201,10 @@ footer {
     main {
         padding: 18px 10px;
     }
+
+    .idm-conteudo {
+        padding: 10px;
+    }
 }
 </style>
 </head>
@@ -210,6 +232,7 @@ footer {
         <article class="idm-card">
 
             <div class="idm-imagens" id="idmCarrossel">
+
                 <img
                     class="ativa"
                     src="https://lrepacks.net/uploads/posts/2023-02/medium/internet_download_manager.jpg"
@@ -225,6 +248,7 @@ footer {
                     src="https://lrepacks.net/uploads/posts/2019-06/1561719506_idm_ios_line.jpg"
                     alt="Internet Download Manager em funcionamento"
                     referrerpolicy="no-referrer">
+
             </div>
 
             <div class="idm-conteudo">
@@ -250,19 +274,53 @@ footer {
                     href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html"
                     target="_blank"
                     rel="noopener noreferrer">
-
                     ACESSAR E BAIXAR
+                </a>
 
+            </div>
+        </article>
+
+        <!-- CARD UTORRENT -->
+        <article class="idm-card">
+
+            <img
+                class="imagem-utorrent"
+                src="https://lrepacks.net/uploads/posts/2023-02/medium/utorrent.jpg"
+                alt="µTorrent Pack"
+                referrerpolicy="no-referrer">
+
+            <div class="idm-conteudo">
+
+                <span class="idm-etiqueta">
+                    REPACK • PORTÁTIL
+                </span>
+
+                <h3>µTorrent Pack</h3>
+
+                <p>
+                    Programa para downloads por meio da
+                    rede BitTorrent. Pacote com opções
+                    de instalação e versão portátil,
+                    conforme a página de origem.
+                </p>
+
+                <div class="idm-info">
+                    📦 Consulte as versões e opções disponíveis
+                    diretamente na página do programa.
+                </div>
+
+                <a
+                    class="botao"
+                    href="https://lrepacks.net/repaki-programm-dlya-interneta/107-utorrent-pack-repack-amp-portable.html"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ACESSAR E BAIXAR
                 </a>
 
             </div>
         </article>
 
         <!-- ESPAÇOS PARA NOVOS PROGRAMAS -->
-        <div class="item">
-            Espaço para programa
-        </div>
-
         <div class="item">
             Espaço para programa
         </div>
@@ -278,12 +336,10 @@ footer {
     <h2>Download de games</h2>
 
     <div class="catalogo">
-
         <div class="item">Espaço para game</div>
         <div class="item">Espaço para game</div>
         <div class="item">Espaço para game</div>
         <div class="item">Espaço para game</div>
-
     </div>
 </section>
 
@@ -291,12 +347,10 @@ footer {
     <h2>Achadinhos do Gil</h2>
 
     <div class="catalogo">
-
         <div class="item">Espaço para achadinho</div>
         <div class="item">Espaço para achadinho</div>
         <div class="item">Espaço para achadinho</div>
         <div class="item">Espaço para achadinho</div>
-
     </div>
 </section>
 
