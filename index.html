@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
 <title>Relíquias do Gil</title>
 <style>
 :root{--verde:#159447;--azul:#1676bd;--laranja:#ff9f24}
@@ -25,7 +24,7 @@ h2{color:var(--verde);border-bottom:2px solid var(--laranja);padding-bottom:10px
 .conteudo p{color:#52615a;font-size:13px;line-height:1.5;margin:0 0 10px}
 .etiqueta{color:var(--verde);font-size:10px;font-weight:bold;margin-bottom:4px}
 .info{background:#eef7f0;padding:10px;font-size:12px;margin:auto 0 12px;line-height:1.5;border-radius:4px}
-.botao{display:block;width:100%;border:0;cursor:pointer;background:var(--verde);color:#fff;padding:11px;border-radius:5px;text-align:center;text-decoration:none;font-size:12px;font-weight:bold}
+.botao{display:block;background:var(--verde);color:#fff;padding:11px;border-radius:5px;text-align:center;text-decoration:none;font-size:12px;font-weight:bold}
 .botao:hover{background:#087638}
 .vazio{min-height:150px;border:1px dashed #a9c4b5;background:#f7faf8;display:flex;align-items:center;justify-content:center;color:#718078;border-radius:8px}
 footer{background:var(--verde);color:#fff;text-align:center;padding:25px}
@@ -48,27 +47,9 @@ footer{background:var(--verde);color:#fff;text-align:center;padding:25px}
 <main>
   <section id="programas">
     <h2>Download de programas</h2>
-    <div class="catalogo">
-      <article class="card">
-        <div class="capa"><img src="https://lrepacks.net" alt="Internet Download Manager (IDM)" referrerpolicy="no-referrer"></div>
-        <div class="conteudo">
-          <span class="etiqueta">PROGRAMA • REPACK</span>
-          <h3>Internet Download Manager (IDM)</h3>
-          <p>Acelerador de downloads para Windows. Versão portátil Repack.</p>
-          <div class="info">Consulte os detalhes e as opções disponíveis na página do programa.</div>
-          <a class="botao" href="https://lrepacks.net" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" onclick="return forcarAbertura(event, this.href)">DOWNLOAD</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="capa"><img src="utorrent.jpg" alt="µTorrent Pack" onerror="this.parentElement.innerHTML='🌐'"></div>
-        <div class="conteudo">
-          <span class="etiqueta">PROGRAMA • PORTÁTIL</span>
-          <h3>µTorrent Pack</h3>
-          <p>Programa para downloads por meio da rede BitTorrent.</p>
-          <div class="info">Consulte as versões e opções disponíveis na página do programa.</div>
-          <a class="botao" href="https://lrepacks.net" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" onclick="return forcarAbertura(event, this.href)">DOWNLOAD</a>
-        </div>
-      </article>
+    <div class="vazios">
+      <div class="vazio">Espaço para programa</div>
+      <div class="vazio">Espaço para programa</div>
       <div class="vazio">Espaço para programa</div>
       <div class="vazio">Espaço para programa</div>
     </div>
@@ -98,17 +79,6 @@ footer{background:var(--verde);color:#fff;text-align:center;padding:25px}
 <footer>
   <strong>Relíquias do Gil</strong><br>Compartilhando achados encontrados na internet.
 </footer>
-
-<script>
-function forcarAbertura(e, url) {
-  e.preventDefault();
-  const html = '<!DOCTYPE html><html><head><meta name="referrer" content="no-referrer"><script>window.location.replace(' + JSON.stringify(url) + ');<\/script></head><body></body></html>';
-  const blob = new Blob([html], { type: 'text/html' });
-  const blobUrl = URL.createObjectURL(blob);
-  window.open(blobUrl, '_blank', 'noopener,noreferrer');
-  return false;
-}
-</script>
 
 </body>
 </html>
