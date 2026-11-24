@@ -2,409 +2,401 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Relíquias do Gil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101010">
+    <title>Relíquias do Gil</title>
 
-<style>
-:root {
-  --blue:#0879d9;
-  --orange:#ff8a00;
-  --green:#16a34a;
-  --text:#263445;
-  --line:#e5eaf0;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* { box-sizing:border-box; margin:0; padding:0; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-body {
-  font-family:Arial,sans-serif;
-  color:var(--text);
-  background:#f5f8fc;
-  line-height:1.5;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #101010;
+            color: #f5f5f5;
+            min-height: 100vh;
+        }
 
-a { text-decoration:none; color:inherit; }
+        header {
+            padding: 22px 15px;
+            text-align: center;
+            border-bottom: 1px solid #b89545;
+            background: #101010ee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
 
-/* FUNDO ANIMADO */
-.wallpaper {
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  overflow:hidden;
-  background:#dceaf5;
-}
+        header h1 {
+            color: #d4af55;
+            letter-spacing: 4px;
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
 
-.wallpaper img {
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  animation:trocar 24s infinite;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-.wallpaper img:nth-child(2) { animation-delay:8s; }
-.wallpaper img:nth-child(3) { animation-delay:16s; }
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #3a3222;
+            border-radius: 25px;
+            font-size: 13px;
+            transition: 0.25s;
+        }
 
-.wallpaper::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(255,255,255,.84);
-}
+        nav a:hover {
+            border-color: #d4af55;
+            color: #d4af55;
+        }
 
-@keyframes trocar {
-  0% { opacity:0; }
-  5%,27% { opacity:.30; }
-  33%,100% { opacity:0; }
-}
+        .hero {
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 45px 20px;
+            background: radial-gradient(ellipse at center, #292319 0%, #101010 75%);
+            border-bottom: 1px solid #262118;
+        }
 
-/* CABEÇALHO */
-header {
-  background:white;
-  border-bottom:5px solid var(--blue);
-}
+        .hero h2 {
+            color: #d4af55;
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
 
-.banner {
-  max-width:1500px;
-  margin:auto;
-  padding:25px 20px;
-  min-height:230px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:25px;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 10% 20%,#e1f2ff,transparent 35%),
-    radial-gradient(circle at 90% 80%,#e3f8e9,transparent 35%),
-    white;
-}
+        .hero p {
+            color: #cccccc;
+            font-size: 16px;
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
 
-.banner::before {
-  content:"";
-  position:absolute;
-  width:350px;
-  height:350px;
-  border:25px solid #0879d9;
-  border-radius:50%;
-  opacity:.07;
-  left:-180px;
-  top:-100px;
-}
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #d4af55, #92702c);
+            color: #101010;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
 
-.banner-content {
-  text-align:center;
-  z-index:1;
-}
+        .btn:hover {
+            transform: scale(1.04);
+            background: #f0cf78;
+        }
 
-.banner h1 {
-  font-size:clamp(32px,6vw,65px);
-  line-height:1.05;
-  font-weight:900;
-  letter-spacing:-2px;
-  color:var(--blue);
-  text-shadow:2px 3px 0 #c9e4ff;
-}
+        main {
+            max-width: 1120px;
+            margin: auto;
+            padding: 20px 20px 60px;
+        }
 
-.banner h1 span {
-  color:var(--orange);
-}
+        .secao {
+            padding: 50px 0 20px;
+            scroll-margin-top: 110px;
+        }
 
-.banner p {
-  font-size:clamp(13px,2vw,19px);
-  font-weight:bold;
-  color:#34445a;
-  margin-top:12px;
-}
+        .secao-titulo {
+            border-left: 4px solid #d4af55;
+            padding-left: 14px;
+            margin-bottom: 24px;
+        }
 
-.banner-line {
-  width:75%;
-  max-width:480px;
-  height:6px;
-  border-radius:10px;
-  margin:16px auto 0;
-  background:linear-gradient(90deg,var(--blue),var(--orange),var(--green));
-}
+        .secao-titulo h2 {
+            color: #d4af55;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
 
-.banner-icon {
-  font-size:65px;
-  z-index:1;
-}
+        .secao-titulo p {
+            color: #aaa;
+            font-size: 14px;
+        }
 
-/* MENU */
-nav {
-  background:white;
-  border-bottom:1px solid var(--line);
-  box-shadow:0 3px 12px #0000000a;
-}
+        .vazio {
+            padding: 28px;
+            border: 1px dashed #3a3222;
+            border-radius: 10px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            background: #151515;
+        }
 
-.menu {
-  max-width:1180px;
-  margin:auto;
-  padding:0 18px;
-  display:flex;
-  flex-wrap:wrap;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
 
-.menu a {
-  display:block;
-  padding:14px 16px;
-  font-weight:bold;
-  color:#425466;
-  border-bottom:3px solid transparent;
-}
+        .card {
+            background: #181818;
+            border: 1px solid #2e291e;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: 0.25s;
+        }
 
-.menu a:hover,
-.menu a.active {
-  color:var(--blue);
-  border-bottom-color:var(--orange);
-}
+        .card:hover {
+            border-color: #d4af55;
+            transform: translateY(-3px);
+        }
 
-/* CONTEÚDO */
-.container {
-  max-width:1180px;
-  margin:28px auto;
-  padding:0 18px;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 270px;
-  gap:22px;
-  min-height:350px;
-}
+        .card-img {
+            height: 190px;
+            background: linear-gradient(135deg, #241f16, #161410);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af55;
+            font-weight: bold;
+            font-size: 26px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #2e291e;
+            overflow: hidden;
+        }
 
-main,
-.sidebar-box {
-  background:rgba(255,255,255,.97);
-  border:1px solid var(--line);
-  border-radius:9px;
-  box-shadow:0 5px 18px #14283c12;
-}
+        .card-img a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
-main { padding:18px; }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #111;
+        }
 
-.page-title {
-  border-left:5px solid var(--blue);
-  border-bottom:1px solid var(--line);
-  padding:10px 14px;
-  margin-bottom:18px;
-}
+        .card-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
 
-.page-title h2 {
-  color:var(--blue);
-  font-size:20px;
-}
+        .tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #d4af55;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
 
-.page-title p {
-  color:#64748b;
-  font-size:12px;
-  margin-top:4px;
-}
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
 
-.empty {
-  min-height:170px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  text-align:center;
-  color:#64748b;
-  background:#f8fafc;
-  border:1px dashed #cbd5e1;
-  border-radius:7px;
-}
+        .card p {
+            font-size: 13px;
+            color: #bbb;
+            line-height: 1.55;
+            flex: 1;
+            margin-bottom: 16px;
+        }
 
-/* LATERAL */
-.sidebar-box {
-  margin-bottom:16px;
-  overflow:hidden;
-}
+        .card-btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #d4af55, #92702c);
+            color: #101010;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
 
-.sidebar-box h3 {
-  padding:12px 14px;
-  color:white;
-  background:var(--blue);
-  font-size:14px;
-}
+        .card-btn:hover {
+            background: #f0cf78;
+        }
 
-.sidebar-box:nth-child(2) h3 {
-  background:var(--orange);
-}
+        footer {
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #b89545;
+            color: #888;
+            font-size: 13px;
+        }
 
-.sidebar-box:nth-child(3) h3 {
-  background:var(--green);
-}
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 26px;
+            }
 
-.sidebar-content { padding:12px; }
-
-.sidebar-content a {
-  display:block;
-  color:#526273;
-  padding:9px 5px;
-  border-bottom:1px solid #edf1f5;
-  font-size:12px;
-}
-
-.sidebar-content a:hover { color:var(--blue); }
-
-.sidebar-content a:last-child { border:0; }
-
-.sidebar-content p {
-  color:#64748b;
-  font-size:12px;
-}
-
-/* RODAPÉ */
-footer {
-  margin-top:35px;
-  background:white;
-  border-top:4px solid var(--green);
-  text-align:center;
-  padding:24px 12px;
-  color:#718096;
-  font-size:12px;
-}
-
-@media(max-width:760px) {
-  .banner {
-    min-height:170px;
-    padding:25px 10px;
-  }
-
-  .banner-icon { font-size:35px; }
-
-  .container {
-    grid-template-columns:1fr;
-    margin-top:15px;
-  }
-
-  .menu { justify-content:center; }
-
-  .menu a {
-    padding:11px 9px;
-    font-size:12px;
-  }
-
-  main { padding:12px; }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  .wallpaper img { animation:none; }
-  .wallpaper img:first-child { opacity:.2; }
-}
-</style>
+            header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- IMAGENS DE FUNDO -->
-<div class="wallpaper">
-  <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=1920&q=80" alt="">
-  <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1920&q=80" alt="">
-  <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1920&q=80" alt="">
-</div>
+    <header>
+        <h1>RELÍQUIAS DO GIL</h1>
 
-<!-- CABEÇALHO -->
-<header>
-  <div class="banner">
-    <div class="banner-icon">💻</div>
+        <nav>
+            <a href="#programas">Programas</a>
+            <a href="#jogos">Jogos</a>
+            <a href="#achadinhos">Achadinhos Shopee</a>
+        </nav>
+    </header>
 
-    <div class="banner-content">
-      <h1>RELÍQUIAS <span>DO GIL</span></h1>
-      <p>Programas, games e achadinhos selecionados!</p>
-      <div class="banner-line"></div>
-    </div>
+    <section class="hero">
+        <h2>Bem-vindo!</h2>
 
-    <div class="banner-icon">🎮</div>
-  </div>
-</header>
+        <p>
+            Programas úteis, jogos selecionados e achadinhos de informática
+            em um só lugar. Explore nossas relíquias!
+        </p>
 
-<!-- MENU -->
-<nav>
-  <div class="menu">
-    <a href="#" class="active" data-filter="todos">Início</a>
-    <a href="#programas" data-filter="programas">💻 Programas para Download</a>
-    <a href="#games" data-filter="games">🎮 Games para Download</a>
-    <a href="#achadinhos" data-filter="achadinhos">🛍️ Achadinhos do Gil</a>
-  </div>
-</nav>
+        <a href="#programas" class="btn">
+            ENTRAR E EXPLORAR
+        </a>
+    </section>
 
-<!-- CONTEÚDO -->
-<div class="container">
+    <main>
 
-  <main>
-    <div class="page-title">
-      <h2 id="sectionTitle">Últimas publicações</h2>
-      <p>Confira as novidades do Relíquias do Gil.</p>
-    </div>
+        <!-- SEÇÃO 1: PROGRAMAS -->
 
-    <div class="empty">
-      Nenhuma publicação cadastrada.
-    </div>
-  </main>
+        <section class="secao" id="programas">
 
-  <aside>
+            <div class="secao-titulo">
+                <h2>Programas para Download</h2>
+                <p>
+                    Ferramentas e utilitários direcionados para suas páginas originais.
+                </p>
+            </div>
 
-    <div class="sidebar-box">
-      <h3>📂 Categorias</h3>
-      <div class="sidebar-content">
-        <a href="#" data-filter="todos">Todas as publicações</a>
-        <a href="#programas" data-filter="programas">💻 Programas para Download</a>
-        <a href="#games" data-filter="games">🎮 Games para Download</a>
-        <a href="#achadinhos" data-filter="achadinhos">🛍️ Achadinhos do Gil</a>
-      </div>
-    </div>
+            <div class="grid">
 
-    <div class="sidebar-box">
-      <h3>⭐ Sobre o site</h3>
-      <div class="sidebar-content">
-        <p>Bem-vindo ao Relíquias do Gil! Um espaço para encontrar programas, jogos e produtos selecionados.</p>
-      </div>
-    </div>
+                <article class="card">
 
-    <div class="sidebar-box">
-      <h3>🔔 Novidades</h3>
-      <div class="sidebar-content">
-        <p>Em breve, novas publicações por aqui.</p>
-      </div>
-    </div>
+                    <div class="card-img">
 
-  </aside>
-</div>
+                        <a
+                            href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
 
-<footer>
-  <p>© 2026 Relíquias do Gil — Todos os direitos reservados.</p>
-  <p style="margin-top:5px">Conteúdo e indicações selecionados por Gil.</p>
-</footer>
+                            <img
+                                src="https://a.fsdn.com/con/app/proj/internet-download-manager/screenshots/Screenshot%202024-09-18%20at%208.52.31%20PM-06cf9966.png/max/max/1"
+                                alt="Internet Download Manager - imagem do programa"
+                                loading="lazy"
+                                onerror="this.style.display='none';"
+                            >
 
-<script>
-const links = document.querySelectorAll("[data-filter]");
-const title = document.getElementById("sectionTitle");
+                        </a>
 
-const titles = {
-  todos:"Últimas publicações",
-  programas:"Programas para Download",
-  games:"Games para Download",
-  achadinhos:"Achadinhos do Gil"
-};
+                    </div>
 
-links.forEach(link => {
-  link.addEventListener("click", event => {
-    event.preventDefault();
+                    <div class="card-body">
 
-    const filter = link.dataset.filter;
-    title.textContent = titles[filter];
+                        <span class="tag">
+                            Internet · Windows 7/8/8.1/10/11 · 20,8 MB
+                        </span>
 
-    document.querySelectorAll(".menu a").forEach(item => {
-      item.classList.toggle(
-        "active",
-        item.dataset.filter === filter
-      );
-    });
-  });
-});
-</script>
+                        <h3>
+                            Internet Download Manager 6.43.18
+                        </h3>
+
+                        <p>
+                            Gerenciador de downloads para Windows.
+                            Organiza transferências, permite pausar e retomar
+                            downloads compatíveis, acompanhar velocidades e
+                            separar arquivos por categorias.
+                        </p>
+
+                        <a
+                            href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card-btn"
+                        >
+                            ACESSAR PÁGINA DO PROGRAMA
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- SEÇÃO 2: JOGOS -->
+
+        <section class="secao" id="jogos">
+
+            <div class="secao-titulo">
+                <h2>Download de Jogos</h2>
+                <p>
+                    Clássicos, jogos leves e títulos gratuitos verificados.
+                </p>
+            </div>
+
+            <div class="vazio">
+                Nenhum jogo publicado ainda. Em breve novidades!
+            </div>
+
+        </section>
+
+
+        <!-- SEÇÃO 3: ACHADINHOS SHOPEE -->
+
+        <section class="secao" id="achadinhos">
+
+            <div class="secao-titulo">
+                <h2>Achadinhos de Informática</h2>
+                <p>
+                    Periféricos, adaptadores e ofertas selecionadas da Shopee.
+                </p>
+            </div>
+
+            <div class="vazio">
+                Nenhum achadinho publicado ainda. Em breve novidades!
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 Relíquias do Gil — Todos os direitos reservados.
+    </footer>
 
 </body>
 </html>
