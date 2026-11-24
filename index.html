@@ -3,369 +3,202 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Relíquias do Gil: programas, jogos compactos e achadinhos selecionados.">
-<meta name="theme-color" content="#111318">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10131c">
 <title>Relíquias do Gil</title>
 <style>
-:root{--bg:#101319;--panel:#191f2a;--panel2:#202938;--line:#303b4d;--txt:#eef3fa;--muted:#aab5c5;--green:#55e39a;--orange:#ff9d4d;--blue:#70b7ff;--purple:#c4a0ff}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Segoe UI,Arial,sans-serif;background:radial-gradient(ellipse at 10% 0%,#1b3040 0,transparent 32rem),radial-gradient(ellipse at 90% 10%,#30213a 0,transparent 30rem),var(--bg);color:var(--txt);line-height:1.6}
-a{color:inherit;text-decoration:none}
-.wrap{width:min(1160px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:#101319ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.15rem}
-.brand-mark{height:42px;width:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green),var(--orange),var(--blue));color:#101319;font-weight:900;letter-spacing:-2px}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{font-size:.92rem;color:var(--muted)}
-nav a:hover{color:var(--green)}
-.hero{padding:74px 0 48px;text-align:center}
-.kicker{display:inline-block;border:1px solid #3b6856;background:#173226;color:var(--green);border-radius:99px;padding:5px 13px;font-size:.78rem;font-weight:800;letter-spacing:.09em}
-h1{font-size:clamp(2.5rem,7vw,4.7rem);line-height:1.06;letter-spacing:-.05em;margin:18px 0}
-h1 span{background:linear-gradient(90deg,var(--green),var(--orange),var(--blue));background-clip:text;color:transparent}
-.hero p{max-width:720px;margin:auto;color:var(--muted);font-size:1.08rem}
-.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border:1px solid var(--line);border-radius:10px;font-weight:700;font-size:.9rem;transition:.2s}
-.btn:hover{transform:translateY(-2px);border-color:var(--green)}
-.btn-main{background:var(--green);border-color:var(--green);color:#101319}
-section{padding:30px 0}
-.section-head{margin-bottom:19px}
-.section-head h2{font-size:clamp(1.5rem,3vw,2rem)}
-.section-head p{color:var(--muted);margin-top:4px}
-.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.category{position:relative;overflow:hidden;min-height:205px;padding:23px;border-radius:17px;border:1px solid var(--line);background:linear-gradient(145deg,#253244,#171d27);transition:.2s}
-.category:hover{transform:translateY(-4px);border-color:#64758e}
-.category .symbol{font-size:2.25rem}
-.category h3{font-size:1.13rem;margin:12px 0 5px}
-.category p{color:var(--muted);font-size:.9rem;max-width:290px}
-.category .arrow{display:block;margin-top:15px;font-weight:800;font-size:.88rem}
-.category:after{content:"";position:absolute;width:150px;height:150px;border:1px solid #ffffff12;border-radius:50%;right:-45px;bottom:-70px;box-shadow:0 0 0 18px #ffffff06,0 0 0 38px #ffffff04}
-.notice{padding:14px 17px;border:1px solid #795333;background:#352719;border-radius:12px;color:#f4d7b7;font-size:.88rem;margin:12px 0 20px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.card{overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:15px;transition:.2s}
-.card:hover{transform:translateY(-3px);border-color:#65758b}
-.cover{height:155px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#23354b,#17202c)}
-.cover:before,.cover:after{content:"";position:absolute;border-radius:50%;border:1px solid #ffffff1c}
-.cover:before{width:180px;height:180px;right:-30px;top:-95px}
-.cover:after{width:130px;height:130px;left:-40px;bottom:-90px;box-shadow:0 0 0 18px #ffffff08}
-.cover .app-icon{width:86px;height:86px;border-radius:23px;display:grid;place-items:center;font-size:2.5rem;font-weight:900;color:white;background:linear-gradient(145deg,#3e85c7,#23517d);box-shadow:0 12px 30px #0007;z-index:1;border:1px solid #ffffff38}
-.cover .cover-tag{position:absolute;left:14px;top:12px;font-size:.7rem;font-weight:800;letter-spacing:.08em;color:#eaf4ff;background:#101925a8;border:1px solid #ffffff25;border-radius:99px;padding:4px 8px;z-index:2}
-.cover.vuescan{background:linear-gradient(135deg,#204b5b,#17232d)}
-.cover.vuescan .app-icon{background:linear-gradient(145deg,#39b6b0,#176b79)}
-.cover.lasso{background:linear-gradient(135deg,#49366c,#1c2236)}
-.cover.lasso .app-icon{background:linear-gradient(145deg,#a78bfa,#5b3e9b)}
-.cover.emeditor{background:linear-gradient(135deg,#254b75,#172638)}
-.cover.emeditor .app-icon{background:linear-gradient(145deg,#69b7ff,#2361a4)}
-.cover.masstube{background:linear-gradient(135deg,#63343d,#251c2a)}
-.cover.masstube .app-icon{background:linear-gradient(145deg,#fb7185,#a52d4b)}
-.cover.sqlite{background:linear-gradient(135deg,#254b64,#172536)}
-.cover.sqlite .app-icon{background:linear-gradient(145deg,#60a5fa,#24517e)}
-.cover.downloader{background:linear-gradient(135deg,#66502c,#272331)}
-.cover.downloader .app-icon{background:linear-gradient(145deg,#fbbf24,#a65a13)}
-.cover.wintohdd{background:linear-gradient(135deg,#24564c,#172b2a)}
-.cover.wintohdd .app-icon{background:linear-gradient(145deg,#4ade80,#16764c)}
-.cover.freetube{background:linear-gradient(135deg,#5c3036,#251d2b)}
-.cover.freetube .app-icon{background:linear-gradient(145deg,#fb7185,#a52b42)}
-.cover.nitro{background:linear-gradient(135deg,#593b32,#28202a)}
-.cover.nitro .app-icon{background:linear-gradient(145deg,#fb923c,#a33d25)}
-.cover.clean{background:linear-gradient(135deg,#245347,#172a2b)}
-.cover.clean .app-icon{background:linear-gradient(145deg,#6ee7b7,#16805f)}
-.cover.converter{background:linear-gradient(135deg,#3e4772,#1c2334)}
-.cover.converter .app-icon{background:linear-gradient(145deg,#a5b4fc,#525db4)}
-.cover.idm{background:linear-gradient(135deg,#234e83,#151e31)}
-.cover.idm .app-icon{background:linear-gradient(145deg,#60a5fa,#174b92)}
-.card-body{padding:16px}
-.card-title{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
-.card h3{font-size:1.02rem;color:var(--blue)}
-.version{font-size:.78rem;color:var(--orange);white-space:nowrap}
-.card .meta{font-size:.75rem;color:#8996a9;margin-top:3px}
-.tagline{font-weight:700;color:#e7edf6;font-size:.9rem;margin:10px 0 4px}
-.desc{font-size:.85rem;color:var(--muted);min-height:62px}
-.card .btn{margin-top:13px;color:var(--green);padding:8px 12px}
-.card .btn:hover{background:#55e39a12}
-.empty{padding:26px;border:1px dashed #536176;border-radius:14px;color:var(--muted);background:#ffffff04}
-footer{margin-top:50px;padding:27px 0 38px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:.84rem}
-footer strong{color:var(--green)}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:650px){.categories,.grid{grid-template-columns:1fr}.nav{padding:12px 0}nav{gap:13px}.hero{padding:52px 0 30px}.cover{height:145px}}
+:root {
+  --bg:#10131c; --panel:#191f2d; --panel2:#20283a;
+  --text:#f5f7fb; --muted:#aab3c4; --green:#79e0a1;
+  --orange:#ff9b54; --line:#30394b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font-family:Arial,Helvetica,sans-serif}
+header{padding:48px 20px 38px;text-align:center;
+background:radial-gradient(circle at top,#26334b,#10131c 70%)}
+.logo{display:inline-grid;place-items:center;width:64px;height:64px;
+border-radius:18px;background:linear-gradient(135deg,var(--green),#319b72);
+color:#10131c;font-size:25px;font-weight:900;margin-bottom:14px}
+h1{font-size:clamp(32px,6vw,52px);margin:0}
+header p{color:var(--muted);max-width:650px;margin:12px auto 0;line-height:1.6}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
+padding:16px;border-bottom:1px solid var(--line);position:sticky;top:0;
+background:#10131cee;backdrop-filter:blur(12px);z-index:5}
+nav a{color:var(--text);text-decoration:none;padding:10px 15px;
+border:1px solid var(--line);border-radius:30px;font-size:14px}
+nav a:hover{border-color:var(--green);color:var(--green)}
+main{max-width:1150px;margin:auto;padding:30px 18px 70px}
+section{margin:34px 0 48px;scroll-margin-top:85px}
+.section-head{display:flex;align-items:end;justify-content:space-between;
+gap:15px;flex-wrap:wrap;margin-bottom:18px}
+h2{font-size:25px;margin:0}
+.section-head p{color:var(--muted);margin:7px 0 0;font-size:14px}
+.status{font-size:12px;color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid var(--line);
+border-radius:16px;overflow:hidden;display:flex;flex-direction:column;
+min-width:0;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#63758f}
+.cover{height:155px;background:var(--panel2);display:grid;place-items:center;
+overflow:hidden;position:relative}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover-fallback{font-size:42px;color:var(--green);font-weight:900}
+.card-body{padding:16px;display:flex;flex-direction:column;flex:1}
+.tag{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--green)}
+.card h3{font-size:17px;line-height:1.35;margin:8px 0}
+.description{font-size:13px;line-height:1.55;color:var(--muted);flex:1}
+.meta{font-size:12px;color:#8793a7;margin:12px 0}
+.card a.button{display:block;text-align:center;text-decoration:none;
+background:var(--green);color:#102018;font-weight:bold;padding:11px;
+border-radius:9px;font-size:13px}
+.card a.button:hover{filter:brightness(1.08)}
+.empty{padding:25px;border:1px dashed var(--line);border-radius:14px;
+color:var(--muted);line-height:1.6}
+.feature{background:linear-gradient(120deg,#1d2a35,#20283a);
+border:1px solid var(--line);padding:24px;border-radius:18px}
+.feature p{color:var(--muted);line-height:1.6}
+.feature a{color:var(--green)}
+footer{text-align:center;border-top:1px solid var(--line);
+padding:25px;color:var(--muted);font-size:13px}
+@media(max-width:550px){header{padding-top:35px}.cover{height:135px}}
 </style>
 </head>
 <body>
-
 <header>
-<div class="wrap nav">
-<a class="brand" href="#inicio">
-<span class="brand-mark">RG.</span>
-<span>Relíquias do Gil</span>
-</a>
-<nav aria-label="Menu principal">
-<a href="#programas">Programas</a>
-<a href="#jogos">Jogos</a>
-<a href="#achadinhos">Achadinhos</a>
-<a href="#sobre">Sobre</a>
-</nav>
-</div>
+  <div class="logo">RG</div>
+  <h1>Relíquias do Gil</h1>
+  <p>Uma vitrine de programas, jogos compactos e achadinhos.
+  Novidades de programas acompanhadas automaticamente.</p>
 </header>
 
-<main class="wrap" id="inicio">
+<nav>
+  <a href="#programas">Programas</a>
+  <a href="#jogos">Jogos</a>
+  <a href="#achadinhos">Achadinhos do Gil</a>
+</nav>
 
-<section class="hero">
-<span class="kicker">SELEÇÃO DO GIL</span>
-<h1>Suas próximas <span>descobertas</span> começam aqui.</h1>
-<p>Programas úteis, jogos compactos e achadinhos escolhidos para facilitar sua busca. Explore as categorias e encontre sua próxima relíquia.</p>
-<div class="actions">
-<a class="btn btn-main" href="#categorias">Explorar categorias</a>
-<a class="btn" href="#programas">Ver programas</a>
-</div>
-</section>
+<main>
+  <section id="programas">
+    <div class="section-head">
+      <div>
+        <h2>Programas</h2>
+        <p>Publicações recentes encontradas no catálogo do LRepacks.</p>
+      </div>
+      <span class="status" id="atualizacao">Carregando catálogo…</span>
+    </div>
+    <div class="grid" id="lista-programas"></div>
+  </section>
 
-<section id="categorias">
-<div class="section-head">
-<h2>Explore nossas categorias</h2>
-<p>Escolha por onde quer começar.</p>
-</div>
-<div class="categories">
+  <section id="jogos">
+    <div class="section-head">
+      <div>
+        <h2>Jogos RIPs e compactos</h2>
+        <p>Espaço reservado para jogos e suas informações.</p>
+      </div>
+    </div>
+    <div class="empty">
+      Esta seção ainda está sendo preparada. Os jogos serão adicionados
+      com capas e links conferidos individualmente.
+    </div>
+  </section>
 
-<a class="category" href="#programas">
-<div class="symbol">🧰</div>
-<h3>Programas craqueados e compactos</h3>
-<p>Ferramentas, utilitários e aplicativos selecionados.</p>
-<span class="arrow" style="color:var(--green)">Explorar programas →</span>
-</a>
+  <section id="achadinhos">
+    <div class="section-head">
+      <div>
+        <h2>Achadinhos do Gil</h2>
+        <p>Produtos e ofertas selecionados.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <h3>Boas descobertas começam aqui.</h3>
+      <p>Em breve, esta área terá produtos, ofertas e recomendações.</p>
+    </div>
+  </section>
 
-<a class="category" href="#jogos">
-<div class="symbol">🎮</div>
-<h3>Jogos RIPs e compactos</h3>
-<p>Jogos com versões reduzidas e informações organizadas.</p>
-<span class="arrow" style="color:var(--orange)">Explorar jogos →</span>
-</a>
-
-<a class="category" href="#achadinhos">
-<div class="symbol">🛍️</div>
-<h3>Achadinhos do Gil</h3>
-<p>Ofertas, produtos úteis e descobertas interessantes.</p>
-<span class="arrow" style="color:var(--blue)">Ver achadinhos →</span>
-</a>
-
-</div>
-</section>
-
-<section id="programas">
-<div class="section-head">
-<h2>🧰 Programas craqueados e compactos</h2>
-<p>Uma seleção inicial — cada programa tem seu destaque e sua página de referência.</p>
-</div>
-
-<div class="notice">
-<strong>Importante:</strong> versões repack podem ser modificadas por terceiros e não são necessariamente oficiais. Confira a licença, a reputação da fonte e examine os arquivos com antivírus antes de executar. Sempre que possível, prefira a versão original do desenvolvedor.
-</div>
-
-<div class="grid">
-
-<article class="card">
-<div class="cover vuescan">
-<span class="cover-tag">IMAGEM & DIGITALIZAÇÃO</span>
-<div class="app-icon">📷</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>VueScan Professional</h3><span class="version">v9.8.60</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Dê vida nova ao seu scanner.</p>
-<p class="desc">Digitalize documentos e fotos com mais controle sobre cores, resolução e formatos.</p>
-<a class="btn" href="https://lrepacks.net/soft/vuescan-professional.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover lasso">
-<span class="cover-tag">DESEMPENHO DO PC</span>
-<div class="app-icon">⚙️</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>Process Lasso</h3><span class="version">v19.1.0.46</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Mais controle sobre os processos do Windows.</p>
-<p class="desc">Ajuda a gerenciar prioridades e o uso do processador pelos programas em execução.</p>
-<a class="btn" href="https://lrepacks.net/soft/process-lasso.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover emeditor">
-<span class="cover-tag">EDIÇÃO DE TEXTO</span>
-<div class="app-icon">📝</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>EmEditor</h3><span class="version">v26.4.2</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Leve no uso, gigante nos recursos.</p>
-<p class="desc">Editor avançado para programação, textos extensos e arquivos muito grandes.</p>
-<a class="btn" href="https://lrepacks.net/soft/emeditor.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover masstube">
-<span class="cover-tag">VÍDEO</span>
-<div class="app-icon">▶</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>MassTube Ultra</h3><span class="version">v22.2.0.233</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Vídeos e formatos em um só lugar.</p>
-<p class="desc">Ferramenta para obter vídeos de plataformas compatíveis e escolher formato e qualidade.</p>
-<a class="btn" href="https://lrepacks.net/soft/masstube-ultra.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover sqlite">
-<span class="cover-tag">BANCO DE DADOS</span>
-<div class="app-icon">▦</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>SQLite Expert Professional</h3><span class="version">v6.2.16.750</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Organize seus dados com praticidade.</p>
-<p class="desc">Interface gráfica para visualizar, editar e consultar bancos de dados SQLite.</p>
-<a class="btn" href="https://lrepacks.net/soft/sqlite-expert-professional.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover downloader">
-<span class="cover-tag">DOWNLOADS</span>
-<div class="app-icon">⬇</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>4K Downloader</h3><span class="version">v6.6.6</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Suas mídias organizadas em poucos passos.</p>
-<p class="desc">Ferramenta para baixar vídeos e playlists de serviços compatíveis, com opções de qualidade.</p>
-<a class="btn" href="https://lrepacks.net/soft/4k-downloader.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover wintohdd">
-<span class="cover-tag">FERRAMENTAS DO WINDOWS</span>
-<div class="app-icon">💽</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>WinToHDD Technician</h3><span class="version">v7.2</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Instalação do Windows sem mídia externa.</p>
-<p class="desc">Utilitário para instalar ou reinstalar o Windows a partir do próprio disco.</p>
-<a class="btn" href="https://lrepacks.net/soft/wintohdd-technician.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover freetube">
-<span class="cover-tag">VÍDEO & PRIVACIDADE</span>
-<div class="app-icon">▷</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>FreeTube</h3><span class="version">v0.26.0</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Uma experiência de vídeo com foco em privacidade.</p>
-<p class="desc">Aplicativo de código aberto para acompanhar canais e organizar vídeos.</p>
-<a class="btn" href="https://lrepacks.net/soft/freetube.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover nitro">
-<span class="cover-tag">DOCUMENTOS PDF</span>
-<div class="app-icon">PDF</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>Nitro Pro Enterprise</h3><span class="version">v26.2.6.0</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Mais recursos para seus documentos.</p>
-<p class="desc">Ferramentas para criar, editar, converter e assinar arquivos PDF.</p>
-<a class="btn" href="https://lrepacks.net/soft/nitro-pro-enterprise.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover clean">
-<span class="cover-tag">MANUTENÇÃO</span>
-<div class="app-icon">🧹</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>ASCOMP Cleaning Suite Pro</h3><span class="version">v5.002</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Uma ajuda na limpeza do sistema.</p>
-<p class="desc">Conjunto de utilitários para localizar arquivos temporários e itens de manutenção.</p>
-<a class="btn" href="https://lrepacks.net/soft/ascomp-cleaning-suite-pro.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover converter">
-<span class="cover-tag">CONVERSÃO DE ARQUIVOS</span>
-<div class="app-icon">⇄</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>CoolUtils Total HTML Converter</h3><span class="version">v5.1.0.390</span></div>
-<div class="meta">Versão conforme lista inicial</div>
-<p class="tagline">Transforme páginas em formatos úteis.</p>
-<p class="desc">Converte arquivos HTML para formatos como PDF, DOC, XLS e imagens.</p>
-<a class="btn" href="https://lrepacks.net/soft/coolutils-total-html-converter.html" target="_blank" rel="noopener noreferrer">Ver página do programa ↗</a>
-</div>
-</article>
-
-<article class="card">
-<div class="cover idm">
-<span class="cover-tag">GERENCIADOR DE DOWNLOADS</span>
-<div class="app-icon">⬇</div>
-</div>
-<div class="card-body">
-<div class="card-title"><h3>Internet Download Manager</h3><span class="version">v6.43.18</span></div>
-<div class="meta">Página consultada em 24/11/2026</div>
-<p class="tagline">Controle seus downloads em um só painel.</p>
-<p class="desc">Gerenciador de transferências com filas, segmentação de arquivos e integração com navegadores. A página consultada apresenta uma edição repack de terceiros.</p>
-<a class="btn" href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html" target="_blank" rel="noopener noreferrer">Ver página de referência ↗</a>
-</div>
-</article>
-
-</div>
-</section>
-
-<section id="jogos">
-<div class="section-head">
-<h2>🎮 Jogos RIPs e compactos</h2>
-<p>Uma coleção de jogos com foco em versões reduzidas.</p>
-</div>
-<div class="empty">Em breve: capas dos jogos, tamanho, requisitos e descrição de cada título.</div>
-</section>
-
-<section id="achadinhos">
-<div class="section-head">
-<h2>🛍️ Achadinhos do Gil</h2>
-<p>Produtos úteis, ofertas e boas descobertas.</p>
-</div>
-<div class="empty">Em breve: fotos dos produtos, destaques e links de afiliado.</div>
-</section>
-
-<section id="sobre">
-<div class="section-head">
-<h2>Sobre o Relíquias do Gil</h2>
-<p>Um catálogo independente de descobertas digitais, programas, jogos e ofertas selecionadas.</p>
-</div>
-</section>
-
+  <section>
+    <div class="feature">
+      <h3>Sobre as publicações</h3>
+      <p>Os links dos programas levam às páginas de suas respectivas
+      publicações. O Relíquias do Gil não hospeda os instaladores.
+      Confira a procedência dos arquivos e faça uma verificação de
+      segurança antes de instalar qualquer programa.</p>
+      <p>Fonte do catálogo: <a href="https://lrepacks.net/"
+      target="_blank" rel="noopener noreferrer">LRepacks</a>.</p>
+    </div>
+  </section>
 </main>
 
-<footer>
-<div class="wrap">
-<p>© 2026 <strong>Relíquias do Gil</strong> — Seleção e organização do Gil.</p>
-<p>Programas, marcas e produtos pertencem aos respectivos proprietários. O site não hospeda os arquivos listados.</p>
-</div>
-</footer>
+<footer>Relíquias do Gil · © 2026</footer>
 
+<script>
+const catalogo = document.getElementById("lista-programas");
+const statusAtualizacao = document.getElementById("atualizacao");
+
+function escapar(texto) {
+  return String(texto || "").replace(/[&<>"']/g, caractere => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[caractere]);
+}
+
+function criarCartao(item) {
+  const titulo = escapar(item.title);
+  const descricao = escapar(item.description || "Veja os detalhes da publicação.");
+  const link = item.link || "https://lrepacks.net/";
+  const imagem = item.image || "";
+  const data = item.date ? new Date(item.date).toLocaleDateString("pt-BR") : "";
+  const imagemHtml = imagem
+    ? `<img src="${escapar(imagem)}" alt="${titulo}" loading="lazy"
+         referrerpolicy="no-referrer"
+         onerror="this.remove()">`
+    : `<div class="cover-fallback">RG</div>`;
+
+  return `
+    <article class="card">
+      <div class="cover">${imagemHtml}</div>
+      <div class="card-body">
+        <span class="tag">Publicação do LRepacks</span>
+        <h3>${titulo}</h3>
+        <div class="description">${descricao}</div>
+        <div class="meta">${data ? "Publicado em " + data : "Publicação recente"}</div>
+        <a class="button" href="${escapar(link)}"
+           target="_blank" rel="noopener noreferrer">
+           Ver publicação original
+        </a>
+      </div>
+    </article>`;
+}
+
+async function carregarCatalogo() {
+  try {
+    const resposta = await fetch("./catalogo.json?v=" + Date.now(), {
+      cache: "no-store"
+    });
+    if (!resposta.ok) throw new Error("Catálogo ainda não publicado.");
+
+    const dados = await resposta.json();
+    if (!Array.isArray(dados) || dados.length === 0) {
+      catalogo.innerHTML = `<div class="empty">
+        O catálogo ainda não recebeu publicações. Aguarde a primeira
+        atualização automática do GitHub.
+      </div>`;
+      statusAtualizacao.textContent = "Aguardando primeira atualização";
+      return;
+    }
+
+    catalogo.innerHTML = dados.map(criarCartao).join("");
+    statusAtualizacao.textContent =
+      "Catálogo atualizado: " + new Date().toLocaleString("pt-BR");
+  } catch (erro) {
+    catalogo.innerHTML = `<div class="empty">
+      Não foi possível carregar o catálogo agora.
+      Tente novamente mais tarde.
+    </div>`;
+    statusAtualizacao.textContent = "Catálogo indisponível";
+    console.error(erro);
+  }
+}
+carregarCatalogo();
+</script>
 </body>
 </html>
