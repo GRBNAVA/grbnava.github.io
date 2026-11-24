@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Relíquias do Gil: tecnologia, achadinhos e boas descobertas.">
+<meta name="description" content="Relíquias do Gil: tecnologia, projetos e achadinhos.">
 <title>Relíquias do Gil</title>
 
 <style>
@@ -24,6 +24,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: var(--fundo);
@@ -31,18 +35,24 @@ body {
   line-height: 1.6;
 }
 
+/* CABEÇALHO */
+
 header {
-  padding: 22px 8%;
+  min-height: 70px;
+  padding: 15px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
+  background: #101820;
   border-bottom: 1px solid #293944;
+  position: relative;
+  z-index: 5;
 }
 
 .logo {
-  font-size: 23px;
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -51,9 +61,9 @@ header {
 .logo span:nth-child(3) { color: var(--azul); }
 
 nav a {
-  color: var(--texto);
+  color: white;
   text-decoration: none;
-  margin-left: 18px;
+  margin-left: 20px;
   font-size: 14px;
 }
 
@@ -61,17 +71,94 @@ nav a:hover {
   color: var(--verde);
 }
 
+/* CAPA COM IMAGENS AUTOMÁTICAS */
+
 .hero {
+  height: 570px;
+  min-height: 450px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 85px 20px;
-  background:
-    radial-gradient(circle at 20% 20%, #19c37d20, transparent 35%),
-    radial-gradient(circle at 80% 30%, #2589ff25, transparent 35%);
+  isolation: isolate;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: slideshow 24s infinite;
+  z-index: -2;
+}
+
+.slide:nth-child(1) {
+  background-image: url("https://www.tecguru.com.au/cdn/shop/articles/1f949ec5-053b-439c-a551-0413c8a174dc.png?crop=center&height=1024&v=1775545130&width=1536");
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  background-image: url("https://www.winorm.com/pictures/blog/large/how-this-new-graphics-card-dominates-ray-tracing-performance_1.webp");
+  animation-delay: 8s;
+}
+
+.slide:nth-child(3) {
+  background-image: url("https://api.dremerz.net/uploads/12979.png");
+  animation-delay: 16s;
+}
+
+@keyframes slideshow {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  28% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+
+  35% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 12, 20, 0.82),
+    rgba(5, 12, 20, 0.52),
+    rgba(5, 12, 20, 0.82)
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 850px;
+  padding: 30px 20px;
+  position: relative;
 }
 
 .hero h1 {
-  font-size: clamp(32px, 6vw, 56px);
-  margin-bottom: 18px;
+  font-size: clamp(36px, 6vw, 68px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+  text-shadow: 0 3px 15px #000;
 }
 
 .hero h1 span {
@@ -79,28 +166,53 @@ nav a:hover {
 }
 
 .hero p {
-  color: var(--suave);
-  max-width: 620px;
-  margin: 0 auto 28px;
+  font-size: 19px;
+  color: #e4edf5;
+  max-width: 650px;
+  margin: 0 auto 30px;
 }
 
 .botao {
   display: inline-block;
-  padding: 13px 25px;
   background: var(--verde);
-  color: #071a12;
-  font-weight: bold;
+  color: #06180f;
   text-decoration: none;
+  padding: 15px 32px;
   border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
+.botao:hover {
+  background: var(--laranja);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #ff8a2480;
+}
+
+.indicador {
+  position: absolute;
+  bottom: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+.indicador span {
+  width: 28px;
+  height: 4px;
+  border-radius: 5px;
+  background: var(--verde);
+  opacity: 0.7;
+}
+
+/* SEÇÕES */
+
 .conteudo {
-  padding: 55px 8%;
+  padding: 65px 8%;
 }
 
 .conteudo h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
 .descricao {
@@ -110,25 +222,29 @@ nav a:hover {
 
 .grade {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(230px, 1fr)
+  );
   gap: 22px;
 }
 
 .card {
   background: var(--cartao);
-  padding: 22px;
-  border-radius: 12px;
+  padding: 25px;
+  border-radius: 13px;
   border: 1px solid #30414d;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--verde);
+  box-shadow: 0 8px 25px #0005;
 }
 
 .icone {
-  font-size: 32px;
+  font-size: 35px;
   margin-bottom: 12px;
 }
 
@@ -144,25 +260,21 @@ nav a:hover {
   font-weight: bold;
 }
 
-.produto {
-  overflow: hidden;
-}
+/* PRODUTOS */
 
 .produto img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: contain;
   background: white;
-  border-radius: 8px;
+  border-radius: 9px;
   margin-bottom: 18px;
 }
 
 .etiqueta {
-  display: inline-block;
   color: var(--verde);
   font-size: 12px;
   font-weight: bold;
-  margin-bottom: 8px;
 }
 
 .comprar {
@@ -170,20 +282,24 @@ nav a:hover {
   text-align: center;
   background: var(--laranja);
   color: #211306;
-  padding: 13px;
+  padding: 14px;
   border-radius: 8px;
   font-weight: bold;
   text-decoration: none;
-  margin-top: 15px;
+  margin-top: 18px;
+  transition: 0.3s;
 }
 
 .comprar:hover {
   background: var(--verde);
+  transform: scale(1.02);
 }
+
+/* RODAPÉ */
 
 footer {
   text-align: center;
-  padding: 28px 15px;
+  padding: 30px 15px;
   border-top: 1px solid #293944;
   color: var(--suave);
   font-size: 13px;
@@ -191,6 +307,45 @@ footer {
 
 footer strong {
   color: var(--verde);
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav a {
+    margin: 0 8px;
+  }
+
+  .hero {
+    height: 480px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .conteudo {
+    padding: 45px 6%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    animation: none;
+  }
+
+  .slide:first-child {
+    opacity: 1;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
 </style>
 </head>
@@ -213,17 +368,37 @@ footer strong {
 <main>
 
 <section class="hero" id="inicio">
-  <h1>Bem-vindo às <span>Relíquias do Gil</span></h1>
 
-  <p>
-    Um espaço digital para compartilhar projetos,
-    arquivos, downloads, tecnologia e boas descobertas.
-  </p>
+  <div class="slide"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
 
-  <a href="#achados" class="botao">Explorar o site</a>
+  <div class="hero-content">
+    <h1>
+      Bem-vindo às
+      <span>Relíquias do Gil</span>
+    </h1>
+
+    <p>
+      Tecnologia, descobertas, produtos interessantes
+      e oportunidades selecionadas para você.
+    </p>
+
+    <a href="#achados" class="botao">
+      EXPLORAR O SITE
+    </a>
+  </div>
+
+  <div class="indicador">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
 </section>
 
 <section class="conteudo" id="projetos">
+
   <h2>Meus projetos</h2>
 
   <p class="descricao">
@@ -235,25 +410,26 @@ footer strong {
     <article class="card">
       <div class="icone">📁</div>
       <h3>Arquivos e downloads</h3>
-      <p>Um espaço para reunir arquivos, documentos e materiais úteis.</p>
+      <p>Documentos, arquivos e materiais úteis.</p>
       <a href="#" class="link">Em breve</a>
     </article>
 
     <article class="card">
       <div class="icone">💻</div>
       <h3>Tecnologia</h3>
-      <p>Dicas, ferramentas, informática e novidades do mundo digital.</p>
+      <p>Dicas, ferramentas e novidades digitais.</p>
       <a href="#" class="link">Em breve</a>
     </article>
 
     <article class="card">
       <div class="icone">🛠️</div>
       <h3>Projetos pessoais</h3>
-      <p>Ideias, experiências e projetos desenvolvidos ao longo do caminho.</p>
+      <p>Ideias e experiências desenvolvidas ao longo do caminho.</p>
       <a href="#" class="link">Em breve</a>
     </article>
 
   </div>
+
 </section>
 
 <section class="conteudo" id="achados">
@@ -273,12 +449,14 @@ footer strong {
         alt="Teclado gamer RGB de uma mão"
       >
 
-      <span class="etiqueta">ACHADINHO EM DESTAQUE</span>
+      <span class="etiqueta">
+        ACHADINHO EM DESTAQUE
+      </span>
 
       <h3>Teclado Gamer RGB</h3>
 
       <p>
-        Um acessório gamer compacto para deixar
+        Acessório gamer compacto para deixar
         seu setup ainda mais completo.
       </p>
 
@@ -296,8 +474,8 @@ footer strong {
   </div>
 
   <p class="descricao" style="margin-top:25px">
-    Alguns links desta página são links de afiliado.
-    Podemos receber uma comissão pelas compras realizadas.
+    Alguns links são de afiliados. Podemos receber
+    comissão pelas compras realizadas.
   </p>
 
 </section>
@@ -305,7 +483,10 @@ footer strong {
 </main>
 
 <footer>
-  <p>© 2026 <strong>Relíquias do Gil</strong> — Todos os direitos reservados.</p>
+  <p>
+    © 2026 <strong>Relíquias do Gil</strong>
+    — Todos os direitos reservados.
+  </p>
   <p>Um projeto independente feito com dedicação.</p>
 </footer>
 
