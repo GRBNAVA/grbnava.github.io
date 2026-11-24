@@ -1,191 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relíquias do Gil</title>
-<style>
-:root{--verde:#159447;--azul:#1676bd;--laranja:#ff9f24}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;color:#263238;background:#fff}
-.banner{display:block;width:100%;max-height:300px;object-fit:cover}
-nav{background:var(--verde);padding:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
-nav a{background:var(--azul);color:white;text-decoration:none;font-weight:bold;padding:11px 16px;border-radius:5px}
-main{max-width:1200px;margin:25px auto 60px;padding:0 16px}
-section{margin-bottom:40px;scroll-margin-top:80px}
-h2{color:var(--verde);border-bottom:2px solid var(--laranja);padding-bottom:10px}
-.catalogo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.card{border:1px solid #d6e2db;border-radius:9px;overflow:hidden;box-shadow:0 2px 8px #0000000c;background:white}
-.capa{height:145px;background:linear-gradient(135deg,#123c60,#159447);color:white;display:flex;align-items:center;justify-content:center;font-size:48px}
-.conteudo{padding:14px}
-.conteudo h3{font-size:16px;margin:0 0 9px}
-.conteudo p{color:#52615a;font-size:13px;line-height:1.5;min-height:40px}
-.etiqueta{color:var(--verde);font-size:10px;font-weight:bold}
-.info{background:#eef7f0;padding:10px;font-size:12px;margin:10px 0}
-.botao{display:block;background:var(--verde);color:white;padding:11px;border-radius:5px;text-align:center;text-decoration:none;font-size:12px;font-weight:bold}
-.botao:hover{background:#087638}
-.busca{width:100%;padding:12px;border:1px solid #bbb;border-radius:6px;margin:5px 0 18px;font-size:15px}
-.vazios{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.vazio{min-height:150px;border:1px dashed #a9c4b5;background:#f7faf8;display:flex;align-items:center;justify-content:center;color:#718078;border-radius:8px}
-footer{background:var(--verde);color:white;text-align:center;padding:25px}
-@media(max-width:900px){.catalogo,.vazios{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.catalogo,.vazios{grid-template-columns:repeat(2,1fr);gap:10px}.conteudo{padding:10px}.capa{height:110px}nav a{font-size:12px;padding:10px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Acervo de Jogos</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; background: #1a1a2e; color: #fff; }
+        h1 { text-align: center; color: #00f5d4; }
+        .categoria { margin-bottom: 40px; }
+        h2 { color: #72efdd; border-bottom: 2px solid #72efdd; padding-bottom: 10px; }
+        .jogo { background: #16213e; padding: 15px; margin: 10px 0; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .btn-download { background: #00f5d4; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-download:hover { background: #72efdd; }
+    </style>
 </head>
 <body>
 
-<img class="banner" src="download.png" alt="Relíquias do Gil">
+    <h1>🎮 Meu Acervo de Jogos</h1>
 
-<nav>
-<a href="#programas">Programas</a>
-<a href="#games">Games</a>
-<a href="#achadinhos">Achadinhos do Gil</a>
-</nav>
+    <!-- ======================================
+        📂 CATEGORIA: Jogos de Ação
+    ======================================= -->
+    <div class="categoria">
+        <h2>⚔️ Jogos de Ação</h2>
 
-<main>
-<section id="programas">
-<h2>Download de programas</h2>
-<div class="catalogo">
+        <div class="jogo">
+            <span><strong>Nome do Jogo 1</strong> — Descrição ou versão</span>
+            <a href="COLE.SEU.LINK.AQUI" class="btn-download" target="_blank">⬇️ Baixar</a>
+        </div>
 
-<article class="card">
-<div class="capa">⬇️</div>
-<div class="conteudo">
-<span class="etiqueta">PROGRAMA • REPACK</span>
-<h3>Internet Download Manager (IDM)</h3>
-<p>Acelerador de downloads para Windows. Versão portátil Repack.</p>
-<div class="info">Já vem com ativação aplicada. Não precisa fazer ativação manual.</div>
-<a class="botao" href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
-</div>
-</article>
+        <div class="jogo">
+            <span><strong>Nome do Jogo 2</strong> — Descrição ou versão</span>
+            <a href="COLE.SEU.LINK.AQUI" class="btn-download" target="_blank">⬇️ Baixar</a>
+        </div>
+    </div>
 
-<article class="card">
-<div class="capa">🌐</div>
-<div class="conteudo">
-<span class="etiqueta">PROGRAMA • PORTÁTIL</span>
-<h3>µTorrent Pack</h3>
-<p>Programa para downloads por meio da rede BitTorrent.</p>
-<div class="info">Consulte as versões e opções disponíveis na página do programa.</div>
-<a class="botao" href="https://lrepacks.net/repaki-programm-dlya-interneta/107-utorrent-pack-repack-amp-portable.html" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
-</div>
-</article>
+    <!-- ======================================
+        📂 CATEGORIA: Jogos de Aventura
+    ======================================= -->
+    <div class="categoria">
+        <h2>🗺️ Jogos de Aventura</h2>
 
-<div class="vazio">Espaço para programa</div>
-<div class="vazio">Espaço para programa</div>
-</div>
-</section>
+        <div class="jogo">
+            <span><strong>Nome do Jogo 3</strong> — Descrição ou versão</span>
+            <a href="COLE.SEU.LINK.AQUI" class="btn-download" target="_blank">⬇️ Baixar</a>
+        </div>
+    </div>
 
-<section id="games">
-<h2>Download de games</h2>
-<p>Jogos listados no catálogo do OptiJuegos.</p>
-<input class="busca" id="busca" type="search" placeholder="Digite o nome de um jogo para pesquisar...">
-<div id="contador"></div>
-<div class="catalogo" id="lista-games"></div>
-</section>
+    <!-- ======================================
+        📂 CATEGORIA: Jogos de Estratégia
+    ======================================= -->
+    <div class="categoria">
+        <h2>♟️ Jogos de Estratégia</h2>
 
-<section id="achadinhos">
-<h2>Achadinhos do Gil</h2>
-<div class="vazios">
-<div class="vazio">Espaço para achadinho</div>
-<div class="vazio">Espaço para achadinho</div>
-<div class="vazio">Espaço para achadinho</div>
-<div class="vazio">Espaço para achadinho</div>
-</div>
-</section>
-</main>
+        <div class="jogo">
+            <span><strong>Nome do Jogo 4</strong> — Descrição ou versão</span>
+            <a href="COLE.SEU.LINK.AQUI" class="btn-download" target="_blank">⬇️ Baixar</a>
+        </div>
+    </div>
 
-<footer>
-<strong>Relíquias do Gil</strong><br>
-Compartilhando achados encontrados na internet.
-</footer>
-
-<script>
-const jogos = [
-"A Hat In Time","ALTF4 64 BITS","Assassin's Creed 2 UPDATE",
-"Assassin's Creed 4: Black Flag UPDATE","Assassin's Creed: Brotherhood",
-"Bad Piggies","Baldis Basics","Batman: Arkham Knight 64 BITS",
-"Batman: Arkham Origins","Battlefield: Bad Company 2","Bloxorz",
-"Borderlands 2: GOTY","Borderlands: GOTY","Boxhead 2 Play","Bully",
-"Call of Duty 1","Call of Duty 2","Cat Mario","Club Penguin Island",
-"CoD: Black Ops 1","CoD: Ghosts","CoD: Modern Warfare 4",
-"Counter Strike 2","Counter Strike 1.6 ONLINE","Crysis","Dark Souls 1",
-"Dark Souls 2","Detroit: Become Human","Devil May Cry 5",
-"DRAGON BALL: Fighter Z","DRAGON BALL: Sparking! ZERO",
-"DRAGON BALL Z: Kakarot","Drive Beyond Horizons","Dying Light",
-"Elden Ring","Fallout 3","Fallout: New Vegas","Far Cry 3","Far Cry Primal",
-"Fernanfloo Saw Game","FIFA 21","FIFA 22","FIFA 23",
-"Fireboy And Watergirl","FNAF: Secret Of The Mimic","Forza Horizon 3",
-"Forza Horizon 4","Friday Night Funkin","God of War: 2018",
-"God of War: Ragnarok","GTA: IV","GTA: San Andreas","GTA: V",
-"GTA: Vice City","Happy Wheels","Hello Neighbor","Hello Neighbor Alpha 1",
-"Henry Stickmin Collection","Hogwarts Legacy","Hollow Knight: Silksong",
-"Inkball","Inspector Blindson","Life Is Strange 1","Little Nightmares",
-"Meccha Chameleon","Mini Train","Mortal Kombat: 1",
-"Mortal Kombat 9: Komplete Edition","Mortal Kombat: 11","Mortal Kombat XL",
-"Outlast","Pac-Xon","Papa's Pizzeria Collection","PEAK","PES 2017",
-"PixARK","Poppy Playtime","Poppy Playtime 2","Poppy Playtime 3",
-"Poppy Playtime 4","Portal","Prototype 1","Red Ball",
-"Red Dead Redemption 1","Red Dead Redemption 2","REPO",
-"Resident Evil 2: Remake","Resident Evil 3: Remake",
-"Resident Evil 4: Remake","Resident Evil: Requiem",
-"Resident Evil: Village","Saints Row 3","Saw Games Collection",
-"Schedule I","Silent Hill F","Silent Hill 2: Remake","Slime Rancher",
-"Spider-Man 3","Spider-Man: Remastered","Strike Force Heroes",
-"Strikes Club","Subnautica","Subnautica 2","Super Marce Flash",
-"Syobon Action","Syobon Action 3","Tekken 7","Tekken 8",
-"The Impossible Quiz","The Last Of Us 1","The Right Mix",
-"Toilet Success","Tomb Raider: 2013","Trafico de Fauna",
-"World's Hardest Game"
-];
-
-const lista=document.getElementById("lista-games");
-const busca=document.getElementById("busca");
-const contador=document.getElementById("contador");
-
-function mostrarJogos(filtro=""){
-lista.innerHTML="";
-const encontrados=jogos.filter(jogo=>
-jogo.toLocaleLowerCase("pt-BR").includes(filtro.toLocaleLowerCase("pt-BR"))
-);
-
-encontrados.forEach(jogo=>{
-const card=document.createElement("article");
-card.className="card";
-
-const capa=document.createElement("div");
-capa.className="capa";
-capa.textContent="🎮";
-
-const conteudo=document.createElement("div");
-conteudo.className="conteudo";
-
-const etiqueta=document.createElement("span");
-etiqueta.className="etiqueta";
-etiqueta.textContent="GAME • OPTIJUEGOS";
-
-const titulo=document.createElement("h3");
-titulo.textContent=jogo;
-
-const descricao=document.createElement("p");
-descricao.textContent="Consulte as informações deste jogo no catálogo de origem.";
-
-const botao=document.createElement("a");
-botao.className="botao";
-botao.href="https://optijuegos.net/";
-botao.target="_blank";
-botao.rel="noopener";
-botao.textContent="ACESSAR OPTIJUEGOS";
-
-conteudo.append(etiqueta,titulo,descricao,botao);
-card.append(capa,conteudo);
-lista.appendChild(card);
-});
-
-contador.textContent=encontrados.length+" de "+jogos.length+" jogos exibidos";
-}
-
-busca.addEventListener("input",()=>mostrarJogos(busca.value));
-mostrarJogos();
-</script>
 </body>
 </html>
