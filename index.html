@@ -1,3 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relíquias do Gil</title>
+<style>
+:root{--verde:#159447;--azul:#1676bd;--laranja:#ff9f24}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:#263238;background:#fff}
+.banner{display:block;width:100%;max-height:300px;object-fit:cover}
+nav{background:var(--verde);padding:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+nav a{background:var(--azul);color:white;text-decoration:none;font-weight:bold;padding:11px 16px;border-radius:5px}
+main{max-width:1200px;margin:25px auto 60px;padding:0 16px}
+section{margin-bottom:40px;scroll-margin-top:80px}
+h2{color:var(--verde);border-bottom:2px solid var(--laranja);padding-bottom:10px}
+.catalogo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{border:1px solid #d6e2db;border-radius:9px;overflow:hidden;box-shadow:0 2px 8px #0000000c;background:white}
+.capa{height:145px;background:linear-gradient(135deg,#123c60,#159447);color:white;display:flex;align-items:center;justify-content:center;font-size:48px}
+.conteudo{padding:14px}
+.conteudo h3{font-size:16px;margin:0 0 9px}
+.conteudo p{color:#52615a;font-size:13px;line-height:1.5;min-height:40px}
+.etiqueta{color:var(--verde);font-size:10px;font-weight:bold}
+.info{background:#eef7f0;padding:10px;font-size:12px;margin:10px 0}
+.botao{display:block;background:var(--verde);color:white;padding:11px;border-radius:5px;text-align:center;text-decoration:none;font-size:12px;font-weight:bold}
+.botao:hover{background:#087638}
+.busca{width:100%;padding:12px;border:1px solid #bbb;border-radius:6px;margin:5px 0 18px;font-size:15px}
+.vazios{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vazio{min-height:150px;border:1px dashed #a9c4b5;background:#f7faf8;display:flex;align-items:center;justify-content:center;color:#718078;border-radius:8px}
+footer{background:var(--verde);color:white;text-align:center;padding:25px}
+@media(max-width:900px){.catalogo,.vazios{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.catalogo,.vazios{grid-template-columns:repeat(2,1fr);gap:10px}.conteudo{padding:10px}.capa{height:110px}nav a{font-size:12px;padding:10px}}
+</style>
+</head>
+<body>
+
+<img class="banner" src="download.png" alt="Relíquias do Gil">
+
+<nav>
+<a href="#programas">Programas</a>
+<a href="#games">Games</a>
+<a href="#achadinhos">Achadinhos do Gil</a>
+</nav>
+
+<main>
+<section id="programas">
+<h2>Download de programas</h2>
+<div class="catalogo">
+
+<article class="card">
+<div class="capa">⬇️</div>
+<div class="conteudo">
+<span class="etiqueta">PROGRAMA • REPACK</span>
+<h3>Internet Download Manager (IDM)</h3>
+<p>Acelerador de downloads para Windows. Versão portátil Repack.</p>
+<div class="info">Já vem com ativação aplicada. Não precisa fazer ativação manual.</div>
+<a class="botao" href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
+</div>
+</article>
+
+<article class="card">
+<div class="capa">🌐</div>
+<div class="conteudo">
+<span class="etiqueta">PROGRAMA • PORTÁTIL</span>
+<h3>µTorrent Pack</h3>
+<p>Programa para downloads por meio da rede BitTorrent.</p>
+<div class="info">Consulte as versões e opções disponíveis na página do programa.</div>
+<a class="botao" href="https://lrepacks.net/repaki-programm-dlya-interneta/107-utorrent-pack-repack-amp-portable.html" target="_blank" rel="noopener">ACESSAR PÁGINA</a>
+</div>
+</article>
+
+<div class="vazio">Espaço para programa</div>
+<div class="vazio">Espaço para programa</div>
+</div>
+</section>
+
+<section id="games">
+<h2>Download de games</h2>
+<p>Jogos listados no catálogo do OptiJogos.</p>
+<input class="busca" id="busca" type="search" placeholder="Digite o nome de um jogo para pesquisar...">
+<div id="contador"></div>
+<div class="catalogo" id="lista-games"></div>
+</section>
+
+<section id="achadinhos">
+<h2>Achadinhos do Gil</h2>
+<div class="vazios">
+<div class="vazio">Espaço para achadinho</div>
+<div class="vazio">Espaço para achadinho</div>
+<div class="vazio">Espaço para achadinho</div>
+<div class="vazio">Espaço para achadinho</div>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>Relíquias do Gil</strong><br>
+Compartilhando achados encontrados na internet.
+</footer>
+
+<script>
 const jogos = [
   "A Hat In Time",
   "ALTF4 64 BITS",
@@ -113,8 +215,7 @@ const jogos = [
   "Toilet Success",
   "Tomb Raider: 2013",
   "Trafico de Fauna",
-  "World's Hardest Game",
-  "Age of Empires II"
+  "World's Hardest Game"
 ];
 
 const lista = document.getElementById("lista-games");
@@ -131,8 +232,8 @@ function mostrarJogos(filtrados = jogos) {
       <div class="conteudo">
         <span class="etiqueta">JOGO</span>
         <h3>${jogo}</h3>
-        <p>Clique para baixar</p>
-        <a class="botao" href="https://optijuegos.net/" target="_blank">BAIXAR</a>
+        <p>Clique para acessar</p>
+        <a class="botao" href="https://optijuegos.net/" target="_blank" rel="noopener">ACESSAR</a>
       </div>
     `;
     lista.appendChild(card);
@@ -144,7 +245,3 @@ busca.addEventListener("input", (e) => {
   const termo = e.target.value.toLowerCase();
   const filtrados = jogos.filter(jogo => jogo.toLowerCase().includes(termo));
   mostrarJogos(filtrados);
-});
-
-mostrarJogos();
-</script>
