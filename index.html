@@ -2,284 +2,312 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Relíquias do Gil — projetos, arquivos, downloads e boas descobertas.">
-  <title>Relíquias do Gil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Relíquias do Gil: tecnologia, achadinhos e boas descobertas.">
+<title>Relíquias do Gil</title>
 
-  <style>
-    :root {
-      --verde: #19c37d;
-      --laranja: #ff8a24;
-      --azul: #2589ff;
-      --fundo: #101820;
-      --cartao: #192630;
-      --texto: #f4f7fa;
-      --suave: #b5c2cc;
-    }
+<style>
+:root {
+  --verde: #19c37d;
+  --laranja: #ff8a24;
+  --azul: #2589ff;
+  --fundo: #101820;
+  --cartao: #192630;
+  --texto: #f4f7fa;
+  --suave: #b5c2cc;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--fundo);
-      color: var(--texto);
-      line-height: 1.6;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
 
-    header {
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      border-bottom: 1px solid #293944;
-    }
+header {
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 1px solid #293944;
+}
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+}
 
-    .logo span:nth-child(1) { color: var(--verde); }
-    .logo span:nth-child(2) { color: var(--laranja); }
-    .logo span:nth-child(3) { color: var(--azul); }
+.logo span:nth-child(1) { color: var(--verde); }
+.logo span:nth-child(2) { color: var(--laranja); }
+.logo span:nth-child(3) { color: var(--azul); }
 
-    nav a {
-      color: var(--texto);
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
+nav a {
+  color: var(--texto);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
 
-    nav a:hover {
-      color: var(--verde);
-    }
+nav a:hover {
+  color: var(--verde);
+}
 
-    .hero {
-      text-align: center;
-      padding: 90px 20px 75px;
-      background:
-        radial-gradient(circle at 20% 20%, #19c37d20, transparent 35%),
-        radial-gradient(circle at 80% 30%, #2589ff25, transparent 35%);
-    }
+.hero {
+  text-align: center;
+  padding: 85px 20px;
+  background:
+    radial-gradient(circle at 20% 20%, #19c37d20, transparent 35%),
+    radial-gradient(circle at 80% 30%, #2589ff25, transparent 35%);
+}
 
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 58px);
-      margin-bottom: 18px;
-    }
+.hero h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  margin-bottom: 18px;
+}
 
-    .hero h1 span {
-      color: var(--laranja);
-    }
+.hero h1 span {
+  color: var(--laranja);
+}
 
-    .hero p {
-      color: var(--suave);
-      max-width: 620px;
-      margin: 0 auto 28px;
-      font-size: 17px;
-    }
+.hero p {
+  color: var(--suave);
+  max-width: 620px;
+  margin: 0 auto 28px;
+}
 
-    .botao {
-      display: inline-block;
-      padding: 13px 25px;
-      background: var(--verde);
-      color: #071a12;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.2s;
-    }
+.botao {
+  display: inline-block;
+  padding: 13px 25px;
+  background: var(--verde);
+  color: #071a12;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+}
 
-    .botao:hover {
-      background: var(--laranja);
-      transform: translateY(-2px);
-    }
+.conteudo {
+  padding: 55px 8%;
+}
 
-    .conteudo {
-      padding: 55px 8%;
-    }
+.conteudo h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
 
-    .conteudo h2 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
+.descricao {
+  color: var(--suave);
+  margin-bottom: 30px;
+}
 
-    .descricao {
-      color: var(--suave);
-      margin-bottom: 30px;
-    }
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
 
-    .grade {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
+.card {
+  background: var(--cartao);
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #30414d;
+  transition: 0.2s;
+}
 
-    .card {
-      background: var(--cartao);
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #30414d;
-      transition: 0.2s;
-    }
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--verde);
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--verde);
-    }
+.icone {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
 
-    .icone {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
+.card p {
+  color: var(--suave);
+  font-size: 14px;
+  margin: 10px 0 18px;
+}
 
-    .card h3 {
-      margin-bottom: 10px;
-    }
+.link {
+  color: var(--azul);
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .card p {
-      color: var(--suave);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
+.produto {
+  overflow: hidden;
+}
 
-    .link {
-      color: var(--azul);
-      text-decoration: none;
-      font-weight: bold;
-    }
+.produto img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
 
-    .link:hover {
-      color: var(--laranja);
-    }
+.etiqueta {
+  display: inline-block;
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
 
-    footer {
-      text-align: center;
-      padding: 28px 15px;
-      border-top: 1px solid #293944;
-      color: var(--suave);
-      font-size: 13px;
-    }
+.comprar {
+  display: block;
+  text-align: center;
+  background: var(--laranja);
+  color: #211306;
+  padding: 13px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 15px;
+}
 
-    footer strong {
-      color: var(--verde);
-    }
-  </style>
+.comprar:hover {
+  background: var(--verde);
+}
+
+footer {
+  text-align: center;
+  padding: 28px 15px;
+  border-top: 1px solid #293944;
+  color: var(--suave);
+  font-size: 13px;
+}
+
+footer strong {
+  color: var(--verde);
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <span>R</span><span>G</span><span>.</span>
-      Relíquias do Gil
-    </div>
+<header>
+  <div class="logo">
+    <span>R</span><span>G</span><span>.</span>
+    Relíquias do Gil
+  </div>
 
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#achados">Achados</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#achados">Achadinhos</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <h1>Bem-vindo às <span>Relíquias do Gil</span></h1>
+<main>
+
+<section class="hero" id="inicio">
+  <h1>Bem-vindo às <span>Relíquias do Gil</span></h1>
+
+  <p>
+    Um espaço digital para compartilhar projetos,
+    arquivos, downloads, tecnologia e boas descobertas.
+  </p>
+
+  <a href="#achados" class="botao">Explorar o site</a>
+</section>
+
+<section class="conteudo" id="projetos">
+  <h2>Meus projetos</h2>
+
+  <p class="descricao">
+    Conheça os conteúdos e materiais disponíveis por aqui.
+  </p>
+
+  <div class="grade">
+
+    <article class="card">
+      <div class="icone">📁</div>
+      <h3>Arquivos e downloads</h3>
+      <p>Um espaço para reunir arquivos, documentos e materiais úteis.</p>
+      <a href="#" class="link">Em breve</a>
+    </article>
+
+    <article class="card">
+      <div class="icone">💻</div>
+      <h3>Tecnologia</h3>
+      <p>Dicas, ferramentas, informática e novidades do mundo digital.</p>
+      <a href="#" class="link">Em breve</a>
+    </article>
+
+    <article class="card">
+      <div class="icone">🛠️</div>
+      <h3>Projetos pessoais</h3>
+      <p>Ideias, experiências e projetos desenvolvidos ao longo do caminho.</p>
+      <a href="#" class="link">Em breve</a>
+    </article>
+
+  </div>
+</section>
+
+<section class="conteudo" id="achados">
+
+  <h2>Achadinhos do Gil ⭐</h2>
+
+  <p class="descricao">
+    Produtos interessantes e recomendações selecionadas.
+  </p>
+
+  <div class="grade">
+
+    <article class="card produto">
+
+      <img
+        src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-mbs6lldh7mw732@resize_w450_nl.webp"
+        alt="Teclado gamer RGB de uma mão"
+      >
+
+      <span class="etiqueta">ACHADINHO EM DESTAQUE</span>
+
+      <h3>Teclado Gamer RGB</h3>
 
       <p>
-        Um espaço digital para compartilhar projetos,
-        arquivos, downloads, tecnologia e boas descobertas.
+        Um acessório gamer compacto para deixar
+        seu setup ainda mais completo.
       </p>
 
-      <a href="#projetos" class="botao">Explorar o site</a>
-    </section>
+      <a
+        class="comprar"
+        href="https://s.shopee.com.br/7AfNGGFB8T"
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+      >
+        🛒 COMPRAR NA SHOPEE
+      </a>
 
-    <section class="conteudo" id="projetos">
-      <h2>Meus projetos</h2>
-      <p class="descricao">
-        Conheça os conteúdos e materiais disponíveis por aqui.
-      </p>
+    </article>
 
-      <div class="grade">
-        <article class="card">
-          <div class="icone">📁</div>
-          <h3>Arquivos e downloads</h3>
-          <p>
-            Um espaço para reunir arquivos, documentos
-            e materiais úteis.
-          </p>
-          <a href="#" class="link">Em breve</a>
-        </article>
+  </div>
 
-        <article class="card">
-          <div class="icone">💻</div>
-          <h3>Tecnologia</h3>
-          <p>
-            Dicas, ferramentas, informática e novidades
-            do mundo digital.
-          </p>
-          <a href="#" class="link">Em breve</a>
-        </article>
+  <p class="descricao" style="margin-top:25px">
+    Alguns links desta página são links de afiliado.
+    Podemos receber uma comissão pelas compras realizadas.
+  </p>
 
-        <article class="card">
-          <div class="icone">🛠️</div>
-          <h3>Projetos pessoais</h3>
-          <p>
-            Ideias, experiências e projetos desenvolvidos
-            ao longo do caminho.
-          </p>
-          <a href="#" class="link">Em breve</a>
-        </article>
-      </div>
-    </section>
+</section>
 
-    <section class="conteudo" id="achados">
-      <h2>Achados e recomendações</h2>
-      <p class="descricao">
-        Produtos e acessórios interessantes que merecem ser conhecidos.
-      </p>
+</main>
 
-      <div class="grade">
-        <article class="card">
-          <div class="icone">🖱️</div>
-          <h3>Periféricos de informática</h3>
-          <p>
-            Mouses, teclados e acessórios para seu computador.
-          </p>
-          <a href="#" class="link">Ver produtos em breve</a>
-        </article>
-
-        <article class="card">
-          <div class="icone">🔌</div>
-          <h3>Cabos e adaptadores</h3>
-          <p>
-            Acessórios úteis para facilitar o dia a dia.
-          </p>
-          <a href="#" class="link">Ver produtos em breve</a>
-        </article>
-
-        <article class="card">
-          <div class="icone">⭐</div>
-          <h3>Boas descobertas</h3>
-          <p>
-            Ofertas e recomendações selecionadas.
-          </p>
-          <a href="#" class="link">Novidades em breve</a>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 <strong>Relíquias do Gil</strong> — Todos os direitos reservados.</p>
-    <p>Um projeto independente feito com dedicação.</p>
-  </footer>
+<footer>
+  <p>© 2026 <strong>Relíquias do Gil</strong> — Todos os direitos reservados.</p>
+  <p>Um projeto independente feito com dedicação.</p>
+</footer>
 
 </body>
 </html>
