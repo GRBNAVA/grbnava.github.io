@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10131c">
+<title>Relíquias do Gil</title>
+<style>
+:root {
+  --bg:#10131c; --panel:#191f2d; --panel2:#20283a;
+  --text:#f5f7fb; --muted:#aab3c4; --green:#79e0a1;
+  --orange:#ff9b54; --line:#30394b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+header{padding:48px 20px 38px;text-align:center;background:radial-gradient(circle at top,#26334b,#10131c 70%)}
+.logo{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--green),#319b72);color:#10131c;font-size:25px;font-weight:900;margin-bottom:14px}
+h1{font-size:clamp(32px,6vw,52px);margin:0}
+header p{color:var(--muted);max-width:650px;margin:12px auto 0;line-height:1.6}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#10131cee;backdrop-filter:blur(12px);z-index:5}
+nav a{color:var(--text);text-decoration:none;padding:10px 15px;border:1px solid var(--line);border-radius:30px;font-size:14px}
+nav a:hover{border-color:var(--green);color:var(--green)}
+main{max-width:1150px;margin:auto;padding:30px 18px 70px}
+section{margin:34px 0 54px;scroll-margin-top:85px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:18px}
+h2{font-size:25px;margin:0}
+.section-head p{color:var(--muted);margin:7px 0 0;font-size:14px}
+.status{font-size:12px;color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#63758f}
+.cover{height:145px;background:var(--panel2);display:grid;place-items:center;overflow:hidden;position:relative}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover-fallback{font-size:38px;color:var(--green);font-weight:900}
+.card-body{padding:16px;display:flex;flex-direction:column;flex:1}
+.tag{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--green)}
+.tag.oferta{color:var(--orange)}
+.card h3{font-size:17px;line-height:1.35;margin:8px 0}
+.description{font-size:13px;line-height:1.55;color:var(--muted);flex:1}
+.meta{font-size:12px;color:#8793a7;margin:12px 0}
+.card a.button{display:block;text-align:center;text-decoration:none;background:var(--green);color:#102018;font-weight:bold;padding:11px;border-radius:9px;font-size:13px}
+.card a.button.oferta{background:var(--orange);color:#1c1208}
+.card a.button:hover{filter:brightness(1.08)}
+.empty{padding:25px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);line-height:1.6}
+.feature{background:linear-gradient(120deg,#1d2a35,#20283a);border:1px solid var(--line);padding:24px;border-radius:18px}
+.feature p{color:var(--muted);line-height:1.6}
+footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">RG</div>
+  <h1>Relíquias do Gil</h1>
+  <p>Vitrine de programas para download, jogos e achadinhos selecionados.</p>
+</header>
+
+<nav>
+  <a href="#programas">Programas</a>
+  <a href="#jogos">Jogos</a>
+  <a href="#achadinhos">Achadinhos do Gil</a>
+</nav>
+
+<main>
+  <section id="programas">
+    <div class="section-head">
+      <div>
+        <h2>Programas para Download</h2>
+        <p>Utilitários e ferramentas direcionados para suas páginas oficiais.</p>
+      </div>
+      <span class="status" id="atualizacao">Carregando catálogo…</span>
+    </div>
+    <div class="grid" id="lista-programas"></div>
+  </section>
+
+  <section id="jogos">
+    <div class="section-head">
+      <div>
+        <h2>Download de Jogos</h2>
+        <p>Jogos gratuitos, indies e clássicos com links verificados.</p>
+      </div>
+    </div>
+    <div class="grid" id="lista-jogos"></div>
+  </section>
+
+  <section id="achadinhos">
+    <div class="section-head">
+      <div>
+        <h2>Achadinhos do Gil</h2>
+        <p>Produtos, periféricos e ofertas recomendadas.</p>
+      </div>
+    </div>
+    <div class="grid" id="lista-achadinhos"></div>
+  </section>
+
+  <section>
+    <div class="feature">
+      <h3>Aviso sobre os links</h3>
+      <p>O Relíquias do Gil funciona como um catálogo de curadoria e não hospeda arquivos em servidores próprios. Todos os botões redirecionam para as páginas oficiais de download ou lojas parceiras.</p>
+    </div>
+  </section>
+</main>
+
+<footer>Relíquias do Gil · © 2026</footer>
+
+<script>
+function escapar(texto) {
+  return String(texto || "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[c]);
+}
+
+function criarCartao(item, tipo) {
+  const titulo = escapar(item.title);
+  const descricao = escapar(item.description || "Clique para ver os detalhes.");
+  const link = escapar(item.link || "#");
+  const imagem = item.image || "";
+  const tag = escapar(item.tag || (tipo === "achadinhos" ? "Oferta" : "Download Oficial"));
+  const data = item.date ? escapar(item.date) : "";
+
+  const textoBotao = tipo === "achadinhos" ? "Ver oferta" : "Ir para download";
+  const classeExtra = tipo === "achadinhos" ? " oferta" : "";
+
+  const imagemHtml = imagem
+    ? `<img src="${escapar(imagem)}" alt="${titulo}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`
+    : `<div class="cover-fallback">RG</div>`;
+
+  return `
+    <article class="card">
+      <div class="cover">${imagemHtml}</div>
+      <div class="card-body">
+        <span class="tag${classeExtra}">${tag}</span>
+        <h3>${titulo}</h3>
+        <div class="description">${descricao}</div>
+        <div class="meta">${data ? "Adicionado em " + data : "Link verificado"}</div>
+        <a class="button${classeExtra}" href="${link}" target="_blank" rel="noopener noreferrer">
+          ${textoBotao}
+        </a>
+      </div>
+    </article>`;
+}
+
+function renderizarSecao(idContainer, lista, tipo, mensagemVazia) {
+  const container = document.getElementById(idContainer);
+  if (!Array.isArray(lista) || lista.length === 0) {
+    container.innerHTML = `<div class="empty">${mensagemVazia}</div>`;
+    return;
+  }
+  container.innerHTML = lista.map(item => criarCartao(item, tipo)).join("");
+}
+
+async function carregarCatalogo() {
+  const status = document.getElementById("atualizacao");
+  try {
+    const resposta = await fetch("./catalogo.json?v=" + Date.now(), { cache: "no-store" });
+    if (!resposta.ok) throw new Error("Arquivo catalogo.json não encontrado.");
+
+    const dados = await resposta.json();
+    renderizarSecao("lista-programas", dados.programas, "programas", "Nenhum programa cadastrado ainda.");
+    renderizarSecao("lista-jogos", dados.jogos, "jogos", "Nenhum jogo cadastrado ainda.");
+    renderizarSecao("lista-achadinhos", dados.achadinhos, "achadinhos", "Nenhum achadinho cadastrado ainda.");
+
+    status.textContent = "Atualizado em: " + (dados.atualizado_em || new Date().toLocaleDateString("pt-BR"));
+  } catch (erro) {
+    status.textContent = "Catálogo indisponível";
+    console.error(erro);
+  }
+}
+
+carregarCatalogo();
+</script>
+</body>
+</html>
