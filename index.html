@@ -2,401 +2,303 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#101010">
-    <title>Relíquias do Gil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<title>Relíquias do Gil</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #101010;
+    color: #f5f5f5;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #101010;
-            color: #f5f5f5;
-            min-height: 100vh;
-        }
+header {
+    padding: 25px 15px;
+    text-align: center;
+    border-bottom: 1px solid #b89545;
+}
 
-        header {
-            padding: 22px 15px;
-            text-align: center;
-            border-bottom: 1px solid #b89545;
-            background: #101010ee;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+header h1 {
+    color: #d4af55;
+    letter-spacing: 4px;
+    font-size: 28px;
+}
 
-        header h1 {
-            color: #d4af55;
-            letter-spacing: 4px;
-            font-size: 26px;
-            margin-bottom: 14px;
-        }
+.hero {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: radial-gradient(ellipse, #292319, #101010 75%);
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+.hero h2 {
+    color: #d4af55;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
 
-        nav a {
-            color: #f5f5f5;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #3a3222;
-            border-radius: 25px;
-            font-size: 13px;
-            transition: 0.25s;
-        }
+.hero p {
+    color: #ccc;
+    max-width: 550px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
 
-        nav a:hover {
-            border-color: #d4af55;
-            color: #d4af55;
-        }
+.btn {
+    display: inline-block;
+    padding: 13px 22px;
+    background: linear-gradient(135deg,#d4af55,#92702c);
+    color: #101010;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: .3s;
+}
 
-        .hero {
-            min-height: 55vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 45px 20px;
-            background: radial-gradient(ellipse at center, #292319 0%, #101010 75%);
-            border-bottom: 1px solid #262118;
-        }
+.btn:hover {
+    transform: scale(1.04);
+}
 
-        .hero h2 {
-            color: #d4af55;
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
+.btn-outline {
+    background: transparent;
+    border: 1px solid #d4af55;
+    color: #d4af55;
+}
 
-        .hero p {
-            color: #cccccc;
-            font-size: 16px;
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
+.content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 50px 20px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #d4af55, #92702c);
-            color: #101010;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
+.content h2 {
+    color: #d4af55;
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        .btn:hover {
-            transform: scale(1.04);
-            background: #f0cf78;
-        }
+.product {
+    background: linear-gradient(145deg,#242424,#151515);
+    border: 1px solid #80652f;
+    border-radius: 12px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 25px;
+    box-shadow: 0 8px 30px #0008;
+}
 
-        main {
-            max-width: 1120px;
-            margin: auto;
-            padding: 20px 20px 60px;
-        }
+.product-icon {
+    width: 145px;
+    height: 145px;
+    border-radius: 25px;
+    background: linear-gradient(145deg,#2767a7,#102d50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 20px #ffffff22;
+    border: 2px solid #6da8e5;
+}
 
-        .secao {
-            padding: 50px 0 20px;
-            scroll-margin-top: 110px;
-        }
+.product-icon strong {
+    font-size: 43px;
+    color: white;
+    letter-spacing: -3px;
+}
 
-        .secao-titulo {
-            border-left: 4px solid #d4af55;
-            padding-left: 14px;
-            margin-bottom: 24px;
-        }
+.product-icon span {
+    color: #b9ddff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 7px;
+}
 
-        .secao-titulo h2 {
-            color: #d4af55;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
+.product h3 {
+    color: #e3bd63;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
 
-        .secao-titulo p {
-            color: #aaa;
-            font-size: 14px;
-        }
+.product p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
 
-        .vazio {
-            padding: 28px;
-            border: 1px dashed #3a3222;
-            border-radius: 10px;
-            text-align: center;
-            color: #999;
-            font-size: 14px;
-            background: #151515;
-        }
+.features {
+    list-style: none;
+    margin-bottom: 20px;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 18px;
-        }
+.features li {
+    color: #ddd;
+    margin: 10px 0;
+    line-height: 1.4;
+}
 
-        .card {
-            background: #181818;
-            border: 1px solid #2e291e;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: 0.25s;
-        }
+.features li::before {
+    content: "✓ ";
+    color: #d4af55;
+    font-weight: bold;
+}
 
-        .card:hover {
-            border-color: #d4af55;
-            transform: translateY(-3px);
-        }
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
-        .card-img {
-            height: 190px;
-            background: linear-gradient(135deg, #241f16, #161410);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af55;
-            font-weight: bold;
-            font-size: 26px;
-            letter-spacing: 2px;
-            border-bottom: 1px solid #2e291e;
-            overflow: hidden;
-        }
+.notice {
+    margin-top: 22px;
+    padding: 16px;
+    background: #242019;
+    border-left: 3px solid #d4af55;
+    color: #bbb;
+    line-height: 1.6;
+    font-size: 14px;
+}
 
-        .card-img a {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
+footer {
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid #b89545;
+    color: #888;
+    font-size: 13px;
+}
 
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            background: #111;
-        }
+@media(max-width:650px) {
+    .product {
+        grid-template-columns: 1fr;
+    }
 
-        .card-body {
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
+    .product-icon {
+        margin: auto;
+    }
 
-        .tag {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #d4af55;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
+    .hero h2 {
+        font-size: 28px;
+    }
 
-        .card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .card p {
-            font-size: 13px;
-            color: #bbb;
-            line-height: 1.55;
-            flex: 1;
-            margin-bottom: 16px;
-        }
-
-        .card-btn {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            background: linear-gradient(135deg, #d4af55, #92702c);
-            color: #101010;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            margin-top: auto;
-        }
-
-        .card-btn:hover {
-            background: #f0cf78;
-        }
-
-        footer {
-            padding: 25px;
-            text-align: center;
-            border-top: 1px solid #b89545;
-            color: #888;
-            font-size: 13px;
-        }
-
-        @media (max-width: 600px) {
-            .hero h2 {
-                font-size: 26px;
-            }
-
-            header h1 {
-                font-size: 20px;
-            }
-        }
-    </style>
+    .actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>RELÍQUIAS DO GIL</h1>
+<header>
+    <h1>RELÍQUIAS DO GIL</h1>
+</header>
 
-        <nav>
-            <a href="#programas">Programas</a>
-            <a href="#jogos">Jogos</a>
-            <a href="#achadinhos">Achadinhos Shopee</a>
-        </nav>
-    </header>
+<main>
 
-    <section class="hero">
-        <h2>Bem-vindo!</h2>
+<section class="hero">
+    <h2>Bem-vindo!</h2>
 
-        <p>
-            Programas úteis, jogos selecionados e achadinhos de informática
-            em um só lugar. Explore nossas relíquias!
-        </p>
+    <p>
+        Tecnologia, curiosidades, ferramentas,
+        descobertas e produtos selecionados.
+        Explore nossas relíquias!
+    </p>
 
-        <a href="#programas" class="btn">
-            ENTRAR E EXPLORAR
-        </a>
-    </section>
+    <a href="#explorar" class="btn">
+        ENTRAR E EXPLORAR
+    </a>
+</section>
 
-    <main>
+<section class="content" id="explorar">
 
-        <!-- SEÇÃO 1: PROGRAMAS -->
+    <h2>Programas e Ferramentas</h2>
 
-        <section class="secao" id="programas">
+    <article class="product">
 
-            <div class="secao-titulo">
-                <h2>Programas para Download</h2>
-                <p>
-                    Ferramentas e utilitários direcionados para suas páginas originais.
-                </p>
-            </div>
+        <div class="product-icon">
+            <strong>IDM</strong>
+            <span>DOWNLOAD MANAGER</span>
+        </div>
 
-            <div class="grid">
+        <div>
 
-                <article class="card">
+            <h3>Internet Download Manager</h3>
 
-                    <div class="card-img">
+            <p>
+                Um dos gerenciadores de downloads
+                mais conhecidos para Windows.
+                Acelere transferências, organize
+                arquivos e retome downloads interrompidos.
+            </p>
 
-                        <a
-                            href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+            <ul class="features">
+                <li>Aceleração de downloads por múltiplas conexões.</li>
+                <li>Retomada de downloads interrompidos.</li>
+                <li>Integração com Chrome, Firefox e Edge.</li>
+                <li>Captura de mídias compatíveis na internet.</li>
+                <li>Agendamento e filas de downloads.</li>
+                <li>Organização automática de arquivos.</li>
+                <li>Interface personalizável e tema escuro.</li>
+            </ul>
 
-                            <img
-                                src="https://a.fsdn.com/con/app/proj/internet-download-manager/screenshots/Screenshot%202024-09-18%20at%208.52.31%20PM-06cf9966.png/max/max/1"
-                                alt="Internet Download Manager - imagem do programa"
-                                loading="lazy"
-                                onerror="this.style.display='none';"
-                            >
+            <div class="actions">
 
-                        </a>
+                <a class="btn"
+                   href="https://www.internetdownloadmanager.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   BAIXAR TESTE GRÁTIS
+                </a>
 
-                    </div>
+                <a class="btn btn-outline"
+                   href="https://www.internetdownloadmanager.com/features2.html"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   CONHECER RECURSOS
+                </a>
 
-                    <div class="card-body">
-
-                        <span class="tag">
-                            Internet · Windows 7/8/8.1/10/11 · 20,8 MB
-                        </span>
-
-                        <h3>
-                            Internet Download Manager 6.43.18
-                        </h3>
-
-                        <p>
-                            Gerenciador de downloads para Windows.
-                            Organiza transferências, permite pausar e retomar
-                            downloads compatíveis, acompanhar velocidades e
-                            separar arquivos por categorias.
-                        </p>
-
-                        <a
-                            href="https://lrepacks.net/repaki-programm-dlya-interneta/56-internet-download-manager-repack.html"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="card-btn"
-                        >
-                            ACESSAR PÁGINA DO PROGRAMA
-                        </a>
-
-                    </div>
-
-                </article>
+                <a class="btn btn-outline"
+                   href="https://www.internetdownloadmanager.com/buy_idm.html?lng=ptbr"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   COMPRAR LICENÇA
+                </a>
 
             </div>
 
-        </section>
-
-
-        <!-- SEÇÃO 2: JOGOS -->
-
-        <section class="secao" id="jogos">
-
-            <div class="secao-titulo">
-                <h2>Download de Jogos</h2>
-                <p>
-                    Clássicos, jogos leves e títulos gratuitos verificados.
-                </p>
+            <div class="notice">
+                <strong>Informações sobre versões:</strong><br>
+                • Versão de avaliação oficial: gratuita por 30 dias.<br>
+                • Versão portátil: não há edição portátil oficial
+                anunciada pelo fabricante.<br>
+                • Versão completa: disponível mediante licença.
+                Não disponibilizamos cópias modificadas ou cracks.
             </div>
 
-            <div class="vazio">
-                Nenhum jogo publicado ainda. Em breve novidades!
-            </div>
+        </div>
 
-        </section>
+    </article>
 
+</section>
 
-        <!-- SEÇÃO 3: ACHADINHOS SHOPEE -->
+</main>
 
-        <section class="secao" id="achadinhos">
-
-            <div class="secao-titulo">
-                <h2>Achadinhos de Informática</h2>
-                <p>
-                    Periféricos, adaptadores e ofertas selecionadas da Shopee.
-                </p>
-            </div>
-
-            <div class="vazio">
-                Nenhum achadinho publicado ainda. Em breve novidades!
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        © 2026 Relíquias do Gil — Todos os direitos reservados.
-    </footer>
+<footer>
+    © 2026 Relíquias do Gil — Todos os direitos reservados.
+</footer>
 
 </body>
 </html>
