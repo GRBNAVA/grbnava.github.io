@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -48,7 +47,7 @@ header {
   background: #101820;
   border-bottom: 1px solid #293944;
   position: relative;
-  z-index: 5;
+  z-index: 100;
 }
 
 .logo {
@@ -71,7 +70,7 @@ nav a:hover {
   color: var(--verde);
 }
 
-/* CAPA COM IMAGENS AUTOMÁTICAS */
+/* CAPA COM SLIDESHOW INTERATIVO */
 
 .hero {
   height: 570px;
@@ -82,7 +81,12 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  isolation: isolate;
+}
+
+.slides-container {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
 }
 
 .slide {
@@ -91,74 +95,58 @@ nav a:hover {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  animation: slideshow 24s infinite;
-  z-index: -2;
+  transition: opacity 0.8s ease-in-out;
+  transform: scale(1.05);
 }
 
+.slide.ativo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 🖼️ IMAGENS NOVAS — TECNOLOGIA, COMPUTADORES E ARTE DIGITAL */
 .slide:nth-child(1) {
-  background-image: url("https://www.tecguru.com.au/cdn/shop/articles/1f949ec5-053b-439c-a551-0413c8a174dc.png?crop=center&height=1024&v=1775545130&width=1536");
-  animation-delay: 0s;
+  /* Setup de computador moderno */
+  background-image: url("https://images.unsplash.com/photo-1587202372521-414f5d1b2944?w=1600&h=900&fit=crop");
 }
 
 .slide:nth-child(2) {
-  background-image: url("https://www.winorm.com/pictures/blog/large/how-this-new-graphics-card-dominates-ray-tracing-performance_1.webp");
-  animation-delay: 8s;
+  /* Arte digital / desenho tech */
+  background-image: url("https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&h=900&fit=crop");
 }
 
 .slide:nth-child(3) {
-  background-image: url("https://api.dremerz.net/uploads/12979.png");
-  animation-delay: 16s;
+  /* Hardware e componentes */
+  background-image: url("https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=1600&h=900&fit=crop");
 }
 
-@keyframes slideshow {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-
-  5% {
-    opacity: 1;
-  }
-
-  28% {
-    opacity: 1;
-    transform: scale(1.07);
-  }
-
-  35% {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
+/* Sobreposição escura para leitura do texto */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(5, 12, 20, 0.82),
-    rgba(5, 12, 20, 0.52),
-    rgba(5, 12, 20, 0.82)
+    rgba(5, 12, 20, 0.85),
+    rgba(5, 12, 20, 0.55),
+    rgba(5, 12, 20, 0.85)
   );
   z-index: -1;
 }
 
+/* Conteúdo central */
 .hero-content {
   max-width: 850px;
   padding: 30px 20px;
   position: relative;
+  z-index: 10;
 }
 
 .hero h1 {
   font-size: clamp(36px, 6vw, 68px);
   line-height: 1.15;
   margin-bottom: 22px;
-  text-shadow: 0 3px 15px #000;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.8);
 }
 
 .hero h1 span {
@@ -170,6 +158,7 @@ nav a:hover {
   color: #e4edf5;
   max-width: 650px;
   margin: 0 auto 30px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .botao {
@@ -186,22 +175,77 @@ nav a:hover {
 .botao:hover {
   background: var(--laranja);
   transform: translateY(-3px);
-  box-shadow: 0 0 25px #ff8a2480;
+  box-shadow: 0 0 25px rgba(255, 138, 36, 0.5);
 }
 
+/* 🎮 CONTROLES DO SLIDESHOW INTERATIVO */
+
+.navegacao {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.btn-navegacao {
+  pointer-events: auto;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+}
+
+.hero:hover .btn-navegacao {
+  opacity: 1;
+}
+
+.btn-navegacao:hover {
+  background: var(--verde);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Indicadores clicáveis */
 .indicador {
   position: absolute;
-  bottom: 25px;
+  bottom: 30px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  z-index: 10;
 }
 
 .indicador span {
-  width: 28px;
-  height: 4px;
+  width: 40px;
+  height: 5px;
   border-radius: 5px;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.indicador span.ativo {
   background: var(--verde);
-  opacity: 0.7;
+  box-shadow: 0 0 10px rgba(25, 195, 125, 0.5);
+}
+
+.indicador span:hover {
+  background: var(--laranja);
 }
 
 /* SEÇÕES */
@@ -222,10 +266,7 @@ nav a:hover {
 
 .grade {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(230px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 22px;
 }
 
@@ -240,7 +281,7 @@ nav a:hover {
 .card:hover {
   transform: translateY(-5px);
   border-color: var(--verde);
-  box-shadow: 0 8px 25px #0005;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .icone {
@@ -332,17 +373,20 @@ footer strong {
   .conteudo {
     padding: 45px 6%;
   }
+
+  .btn-navegacao {
+    opacity: 0.8;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .slide {
-    animation: none;
+    transition: none;
+    transform: none;
   }
-
-  .slide:first-child {
-    opacity: 1;
-  }
-
   html {
     scroll-behavior: auto;
   }
@@ -369,9 +413,18 @@ footer strong {
 
 <section class="hero" id="inicio">
 
-  <div class="slide"></div>
-  <div class="slide"></div>
-  <div class="slide"></div>
+  <!-- 🖼️ SLIDES COM IMAGENS NOVAS -->
+  <div class="slides-container">
+    <div class="slide ativo"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+  </div>
+
+  <!-- 🎮 BOTÕES DE NAVEGAÇÃO -->
+  <div class="navegacao">
+    <button class="btn-navegacao" id="btnAnterior">&#10094;</button>
+    <button class="btn-navegacao" id="btnProximo">&#10095;</button>
+  </div>
 
   <div class="hero-content">
     <h1>
@@ -389,10 +442,11 @@ footer strong {
     </a>
   </div>
 
+  <!-- ⚡ INDICADORES CLICÁVEIS -->
   <div class="indicador">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span class="ativo" data-indicador="0"></span>
+    <span data-indicador="1"></span>
+    <span data-indicador="2"></span>
   </div>
 
 </section>
@@ -489,6 +543,85 @@ footer strong {
   </p>
   <p>Um projeto independente feito com dedicação.</p>
 </footer>
+
+<!-- ⚡ JAVASCRIPT DO SLIDESHOW INTERATIVO -->
+<script>
+const slides = document.querySelectorAll('.slide');
+const indicadores = document.querySelectorAll('.indicador span');
+const btnAnterior = document.getElementById('btnAnterior');
+const btnProximo = document.getElementById('btnProximo');
+
+let indiceAtual = 0;
+let intervalo;
+
+// Mostra o slide atual
+function mostrarSlide(indice) {
+  // Garante que o índice está dentro do limite
+  if (indice >= slides.length) indice = 0;
+  if (indice < 0) indice = slides.length - 1;
+  
+  indiceAtual = indice;
+  
+  // Atualiza as classes
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('ativo', i === indiceAtual);
+  });
+  
+  indicadores.forEach((ind, i) => {
+    ind.classList.toggle('ativo', i === indiceAtual);
+  });
+}
+
+// Próximo slide
+function proximoSlide() {
+  mostrarSlide(indiceAtual + 1);
+}
+
+// Slide anterior
+function slideAnterior() {
+  mostrarSlide(indiceAtual - 1);
+}
+
+// Inicia a troca automática
+function iniciarSlideshow() {
+  intervalo = setInterval(proximoSlide, 6000); // Troca a cada 6 segundos
+}
+
+// Pausa quando passa o mouse
+document.querySelector('.hero').addEventListener('mouseenter', () => {
+  clearInterval(intervalo);
+});
+
+// Retoma quando tira o mouse
+document.querySelector('.hero').addEventListener('mouseleave', () => {
+  iniciarSlideshow();
+});
+
+// Botões de navegação
+btnAnterior.addEventListener('click', () => {
+  slideAnterior();
+  clearInterval(intervalo);
+  iniciarSlideshow(); // Reinicia o contador após clique
+});
+
+btnProximo.addEventListener('click', () => {
+  proximoSlide();
+  clearInterval(intervalo);
+  iniciarSlideshow();
+});
+
+// Clica nos indicadores para ir direto ao slide
+indicadores.forEach((indicador, indice) => {
+  indicador.addEventListener('click', () => {
+    mostrarSlide(indice);
+    clearInterval(intervalo);
+    iniciarSlideshow();
+  });
+});
+
+// Inicia tudo
+iniciarSlideshow();
+</script>
 
 </body>
 </html>
