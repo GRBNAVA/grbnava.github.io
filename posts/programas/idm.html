@@ -1,28 +1,75 @@
 
-
 <article class="card">
+  <style>
+    .idm-slideshow {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #151515;
+    }
 
-  <div class="capa">
+    .idm-slideshow img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .idm-slideshow img.ativa {
+      opacity: 1;
+    }
+  </style>
+
+  <div class="idm-slideshow">
     <img
+      class="ativa"
       src="https://i.pinimg.com/236x/a0/95/35/a09535fb2f828cd5dc73300fc08938ff.jpg"
       alt="Internet Download Manager"
     >
+    <img
+      src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+      alt="Equipamentos de informática"
+    >
+    <img
+      src="https://images.unsplash.com/photo-1498049794561-7780e7231661"
+      alt="Equipamentos eletrônicos"
+    >
   </div>
 
-  <div class="conteudo">
+  <script>
+    (() => {
+      const card = document.currentScript.previousElementSibling;
+      const imagens = card.querySelectorAll("img");
+      let atual = 0;
 
+      setInterval(() => {
+        imagens[atual].classList.remove("ativa");
+        atual = (atual + 1) % imagens.length;
+        imagens[atual].classList.add("ativa");
+      }, 3500);
+    })();
+  </script>
+
+  <div class="conteudo">
     <span class="etiqueta">PROGRAMA</span>
 
     <h3>Internet Download Manager</h3>
 
     <p>
-      Gerenciador de downloads para organizar e acelerar
-      o download de arquivos pela internet.
+      Gerencie seus downloads com mais praticidade!
+      O Internet Download Manager organiza arquivos,
+      permite pausar e retomar transferências compatíveis
+      e integra-se aos navegadores para facilitar os downloads.
     </p>
 
     <div class="info">
-      Organize seus downloads em um só lugar e tenha
-      mais controle sobre os arquivos baixados.
+      <strong>Versão:</strong> 6.43.18 (Repack)<br>
+      <strong>Tamanho:</strong> 20,8 MB<br>
+      <strong>Sistema:</strong> Windows 7, 8, 8.1, 10 e 11
     </div>
 
     <a
@@ -33,7 +80,5 @@
     >
       ACESSAR
     </a>
-
   </div>
-
 </article>
